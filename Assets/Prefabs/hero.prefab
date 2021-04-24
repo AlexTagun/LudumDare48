@@ -110,6 +110,7 @@ MonoBehaviour:
   _input: {x: 0, y: 0, z: 0}
   _spiralMovement: {fileID: 5603740801656444988}
   _direction: -1
+  Index: 0
 --- !u!114 &5603740801656444988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,10 +233,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3616571377020087181, guid: d2b6c614f32ab8441865238610c4e69d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1679123135770563360, guid: d2b6c614f32ab8441865238610c4e69d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: d2b6c614f32ab8441865238610c4e69d,
         type: 3}
       propertyPath: m_Name
       value: NPC_walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333189706704294423, guid: d2b6c614f32ab8441865238610c4e69d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5245242215812851912, guid: d2b6c614f32ab8441865238610c4e69d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654342257056414917, guid: d2b6c614f32ab8441865238610c4e69d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b6c614f32ab8441865238610c4e69d, type: 3}
