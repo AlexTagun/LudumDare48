@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour {
 
         var torch = new Torch();
         var shield = new Shield();
+        var sword = new Sword();
         
         _itemContainers = new List<ItemContainer>();
 
@@ -28,6 +29,7 @@ public class InventoryManager : MonoBehaviour {
         
         _itemContainers[0].SetItem(torch);
         _itemContainers[1].SetItem(shield);
+        _itemContainers[2].SetItem(sword);
         OnItemSwapped();
     }
 

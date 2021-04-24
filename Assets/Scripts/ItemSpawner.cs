@@ -7,7 +7,8 @@ public class ItemSpawner : MonoBehaviour {
     
     private enum ItemType {
         Torch,
-        Shield
+        Shield,
+        Sword
     }
     
     [SerializeField] private ItemType type;
@@ -20,6 +21,9 @@ public class ItemSpawner : MonoBehaviour {
                 break;
             case ItemType.Shield:
                 _item = new Shield();
+                break;
+            case ItemType.Sword:
+                _item = new Sword();
                 break;
         }
         
