@@ -29,11 +29,26 @@ public class SpiralMovement : MonoBehaviour
         var z = centerPositionNoY.z + Radius * Mathf.Sin(angle * Mathf.Deg2Rad);
         
         return new Vector3(x, 0f, z);
-        
-        
     }
 
-    public Vector3 GetNextDirection(Vector3 currentPosition)
+    public Vector3 GetNextDirection(Vector3 currentPosition, float speed, float deltaTime)
+    {
+        var nextDirection = GetNextDirection(currentPosition);
+        
+        var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
+
+        var predictedPositionNoY = currentPositionNoY + nextDirection * speed * deltaTime;
+        
+        var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
+        var nextPositionNoY = (predictedPositionNoY - centerPositionNoY).normalized * Radius;
+        
+        //-1 то костыль
+        nextDirection = (-1) * (nextPositionNoY - currentPositionNoY).normalized;
+        
+        return nextDirection;
+    }
+    
+    private Vector3 GetNextDirection(Vector3 currentPosition)
     {
         var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
         var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
