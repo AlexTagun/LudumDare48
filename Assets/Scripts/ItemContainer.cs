@@ -9,6 +9,7 @@ public class ItemContainer : MonoBehaviour {
     public IItem Item;
 
     public void SetItem(IItem item) {
+        Item = item;
         icon.sprite = item.Icon;
     }
 }

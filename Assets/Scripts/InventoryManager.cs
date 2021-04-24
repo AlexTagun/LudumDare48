@@ -14,6 +14,9 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnItemSwapped += OnItemSwapped;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>());
+
+        var torch = new Torch();
+        
         _itemContainers = new List<ItemContainer>();
 
         for (int i = 0; i < 4; i++) {
@@ -21,12 +24,18 @@ public class InventoryManager : MonoBehaviour {
             container.gameObject.SetActive(true);
             _itemContainers.Add(container);
         }
+        
+        _itemContainers[0].SetItem(torch);
+        OnItemSwapped();
     }
 
     private void OnItemSwapped() {
         var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
         for (int i = 0; i < orderedList.Length; i++) {
-            _heroes[0].SetItem(orderedList[i].Item);
+            _heroes[i].SetItem(null);
+        }
+        for (int i = 0; i < orderedList.Length; i++) {
+            if(orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
         }
     }
 }
