@@ -28,9 +28,9 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Add(container);
         }
 
-        // _itemContainers[0].SetItem(torch);
-        // _itemContainers[1].SetItem(shield);
-        // _itemContainers[2].SetItem(sword);
+        _itemContainers[0].SetItem(torch);
+        _itemContainers[1].SetItem(shield);
+        _itemContainers[2].SetItem(sword);
         OnItemSwapped();
     }
 

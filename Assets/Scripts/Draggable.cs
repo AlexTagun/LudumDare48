@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
     [HideInInspector] public Transform parentToReturnTo = null;
     [HideInInspector] public Transform placeHolderParent = null;
 
@@ -39,6 +39,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        EventManager.IsDragging = false;
         int newSiblingIndex = placeHolderParent.childCount;
 
 
@@ -70,5 +71,9 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
         Destroy(placeHolder);
+    }
+
+    public void OnPointerDown(PointerEventData eventData) {
+        EventManager.IsDragging = true;
     }
 }

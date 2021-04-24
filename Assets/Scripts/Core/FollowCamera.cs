@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FollowCamera : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class FollowCamera : MonoBehaviour
 
     private void UpdateRotation(float delta)
     {
-        if (TryUpdateManualRotation())
+        if (TryUpdateManualRotation() && !EventManager.IsDragging)
         {
             _currentIdleTime = 0;
             _currentAutoReturnTime = 0f;
@@ -52,8 +53,8 @@ public class FollowCamera : MonoBehaviour
         transform.position = GetTargetPosition();
     }
 
-    private bool TryUpdateManualRotation()
-    {
+    private bool TryUpdateManualRotation() {
+
         if (!Input.GetMouseButton(0))
         {
             return false;

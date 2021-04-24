@@ -6,6 +6,8 @@ using UnityEngine;
 public static class EventManager {
     public static Action OnItemSwapped;
 
+    public static bool IsDragging;
+
     public static void HandleOnItemSwapped() {
         OnItemSwapped?.Invoke();
     }
