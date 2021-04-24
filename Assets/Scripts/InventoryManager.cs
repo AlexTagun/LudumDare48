@@ -13,9 +13,10 @@ public class InventoryManager : MonoBehaviour {
     private void Awake() {
         EventManager.OnItemSwapped += OnItemSwapped;
 
-        _heroes = new List<Hero>(FindObjectsOfType<Hero>());
+        _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
 
         var torch = new Torch();
+        var shield = new Shield();
         
         _itemContainers = new List<ItemContainer>();
 
@@ -26,6 +27,7 @@ public class InventoryManager : MonoBehaviour {
         }
         
         _itemContainers[0].SetItem(torch);
+        _itemContainers[1].SetItem(shield);
         OnItemSwapped();
     }
 
