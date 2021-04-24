@@ -8,7 +8,6 @@ public enum Direction
 
 public class CharacterMovement : MonoBehaviour
 {
-
     [SerializeField] private Rigidbody _body;
     
     [SerializeField] private float Speed = 5f;
@@ -18,6 +17,13 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private SpiralMovement _spiralMovement;
     
     [SerializeField] private Direction _direction;
+
+    [SerializeField] private int Index;
+
+    private void Awake()
+    {
+        _body.position = _spiralMovement.GetStartPosition(Index);
+    }
 
     private void FixedUpdate()
     {
