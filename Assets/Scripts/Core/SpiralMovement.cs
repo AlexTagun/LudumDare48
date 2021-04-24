@@ -31,9 +31,9 @@ public class SpiralMovement : MonoBehaviour
         return new Vector3(x, 0f, z);
     }
 
-    public Vector3 GetNextDirection(Vector3 currentPosition, float speed, float deltaTime)
+    public Vector3 GetNextDirection(Vector3 currentPosition, float speed, float deltaTime, Direction directionType)
     {
-        var nextDirection = GetNextDirection(currentPosition);
+        var nextDirection = GetNextDirection(currentPosition, directionType);
         
         var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
 
@@ -42,13 +42,12 @@ public class SpiralMovement : MonoBehaviour
         var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
         var nextPositionNoY = (predictedPositionNoY - centerPositionNoY).normalized * Radius;
         
-        //-1 то костыль
-        nextDirection = (-1) * (nextPositionNoY - currentPositionNoY).normalized;
+        nextDirection = (int)directionType * (nextPositionNoY - currentPositionNoY).normalized;
         
         return nextDirection;
     }
     
-    private Vector3 GetNextDirection(Vector3 currentPosition)
+    private Vector3 GetNextDirection(Vector3 currentPosition, Direction directionType)
     {
         var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
         var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
@@ -57,6 +56,6 @@ public class SpiralMovement : MonoBehaviour
 
         var nextDirection =  Vector3.Cross(direction, Vector3.up).normalized;
         
-        return nextDirection;
+        return (int)(directionType) * nextDirection;
     }
 }

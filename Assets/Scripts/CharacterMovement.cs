@@ -27,10 +27,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var speed = (int) _direction * Speed;
         var deltaTime = Time.fixedDeltaTime;
         
-        _input = _spiralMovement.GetNextDirection(_body.position, speed, deltaTime);
+        _input = _spiralMovement.GetNextDirection(_body.position, Speed, deltaTime, _direction);
         
         if (_input == Vector3.zero)
         {
@@ -38,8 +37,11 @@ public class CharacterMovement : MonoBehaviour
         }
         
         _body.transform.forward = _input;
+        
+        var directionSpeed = (int) _direction * Speed;
 
-        var deltaPosition = _input * speed * deltaTime;
+
+        var deltaPosition = _input * directionSpeed * deltaTime;
         
         _body.MovePosition(_body.position + deltaPosition);
     }
