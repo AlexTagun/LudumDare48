@@ -11,16 +11,19 @@ public interface IItem {
 
 public abstract class Item : IItem {
     protected GameObject _prefab;
+    protected GameObject _spawnPrefab;
     protected abstract string Name { get; }
     protected abstract string EquipPath { get; }
 
     public Sprite Icon { get; }
 
     private GameObject _itemGO;
+    private GameObject _spawnItemGO;
 
     public Item() {
         Icon = Resources.Load<Sprite>(Name);
         _prefab = Resources.Load<GameObject>(Name);
+        _spawnPrefab = Resources.Load<GameObject>($"{Name}_spawn");
     }
 
     public void Equip(Transform transform) {
@@ -30,7 +33,11 @@ public abstract class Item : IItem {
         _itemGO = GameObject.Instantiate(_prefab, wrist);
     }
 
-    public void Spawn(Transform transform) { }
+    public void Spawn(Transform transform) {
+        if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
+
+        _spawnItemGO = GameObject.Instantiate(_spawnPrefab, transform);
+    }
 }
 
 public class Shield : Item {
