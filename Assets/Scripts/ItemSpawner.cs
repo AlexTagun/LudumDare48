@@ -29,4 +29,12 @@ public class ItemSpawner : MonoBehaviour {
         
         _item.Spawn(transform);
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if(!other.CompareTag("Hero")) return;
+        _item.Collect();
+        
+        EventManager.HandleOnItemCollect(_item);
+        Destroy(gameObject);
+    }
 }

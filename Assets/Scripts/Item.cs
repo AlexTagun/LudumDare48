@@ -7,6 +7,8 @@ public interface IItem {
     void Equip(Transform transform);
 
     void Spawn(Transform transform);
+
+    void Collect();
 }
 
 public abstract class Item : IItem {
@@ -37,6 +39,10 @@ public abstract class Item : IItem {
         if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
 
         _spawnItemGO = GameObject.Instantiate(_spawnPrefab, transform);
+    }
+
+    public void Collect() {
+        if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
     }
 }
 

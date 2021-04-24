@@ -9,4 +9,10 @@ public static class EventManager {
     public static void HandleOnItemSwapped() {
         OnItemSwapped?.Invoke();
     }
+
+    public static Action<IItem> OnItemCollect;
+
+    public static void HandleOnItemCollect(IItem item) {
+        OnItemCollect?.Invoke(item);
+    }
 }
