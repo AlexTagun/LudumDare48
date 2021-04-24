@@ -10,6 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 328424596380438644}
   - component: {fileID: 328424596380438645}
+  - component: {fileID: 239740504}
+  - component: {fileID: 239740503}
+  - component: {fileID: 239740499}
+  - component: {fileID: 239740502}
+  - component: {fileID: 5603740801656444988}
   m_Layer: 0
   m_Name: hero
   m_TagString: Untagged
@@ -44,6 +49,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2253d185eb76f148b9d7d9842167850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &239740504
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328424596380438646}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!136 &239740503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328424596380438646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &239740499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328424596380438646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959ab0073474c574d8bd8cb9ee023ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHp: 100
+  IsImmortal: 0
+--- !u!114 &239740502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328424596380438646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72220e8a57784a34592d0ebcf1d6b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _body: {fileID: 239740504}
+  Speed: 5
+  _input: {x: 0, y: 0, z: 0}
+  _spiralMovement: {fileID: 5603740801656444988}
+--- !u!114 &5603740801656444988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328424596380438646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dc6507fcb599a44aa3944d413a10b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _center: {fileID: 0}
+  _distanceFromCenter: 10
+  _ySpeed: 0
+  _rotationSpeed: 10
+  _radius: 10
 --- !u!95 &6265623964589198548
 Animator:
   serializedVersion: 3

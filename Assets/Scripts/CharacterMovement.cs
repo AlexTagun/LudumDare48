@@ -9,13 +9,17 @@ public class CharacterMovement : MonoBehaviour
     
     [SerializeField] private Vector3 _input = Vector3.zero;
     
-    public void SetInput(Vector3 input)
-    {
-        _input = input;
-    }
+    [SerializeField] private SpiralMovement _spiralMovement;
 
     private void FixedUpdate()
     {
+        _input = _spiralMovement.GetDirection(transform.position);
+        
+        if (_input == Vector3.zero)
+        {
+            return;
+        }
+        
         _body.transform.forward = _input;
         _body.MovePosition(_body.position + _input * Speed * Time.fixedDeltaTime);
     }
