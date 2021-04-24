@@ -159,8 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _center: {fileID: 1111018892}
+  _distanceFromCenter: 5
   _ySpeed: -0.1
-  _rotationSpeed: 1
+  _rotationSpeed: 0.5
 --- !u!23 &1092318745
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -410,6 +411,11 @@ PrefabInstance:
       propertyPath: _targetForY
       value: 
       objectReference: {fileID: 1092318747}
+    - target: {fileID: 6745409698306927868, guid: 25fc023794dec20429e3116dd49b99d8,
+        type: 3}
+      propertyPath: _autoReturnTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6745409698306927868, guid: 25fc023794dec20429e3116dd49b99d8,
         type: 3}
       propertyPath: _cameraTransform
