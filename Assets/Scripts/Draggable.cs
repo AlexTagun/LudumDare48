@@ -36,29 +36,39 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         if (placeHolder.transform.parent != placeHolderParent) {
             placeHolder.transform.SetParent(placeHolderParent);
         }
-
-        int newSiblingIndex = placeHolderParent.childCount;
-
-        for (int i = 0; i < placeHolderParent.childCount; i++) {
-            if (this.transform.position.x < placeHolderParent.GetChild(i).position.x) {
-                newSiblingIndex = i;
-
-                if (placeHolder.transform.GetSiblingIndex() < newSiblingIndex)
-                    newSiblingIndex--;
-
-                break;
-            }
-        }
-
-        placeHolder.transform.SetSiblingIndex(newSiblingIndex);
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        int newSiblingIndex = placeHolderParent.childCount;
+
+
         this.transform.SetParent(parentToReturnTo);
+        for (int i = 0; i < placeHolderParent.childCount; i++) {
+            var rect = (placeHolderParent.GetChild(i) as RectTransform);
+            var pos = rect.InverseTransformPoint(eventData.position);
+
+            if (rect.rect.Contains(pos)) {
+                newSiblingIndex = i;
+
+                var placeHolderIndex = placeHolder.transform.GetSiblingIndex();
+                placeHolderParent.GetChild(newSiblingIndex).SetSiblingIndex(placeHolderIndex);
+
+                if (placeHolder.transform.GetSiblingIndex() < newSiblingIndex) {
+                    newSiblingIndex++;
+                }
+
+                this.transform.SetSiblingIndex(newSiblingIndex);
+
+                this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                Destroy(placeHolder);
+                EventManager.HandleOnItemSwapped();
+                return;
+            }
+        }
+
         this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
+
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
         Destroy(placeHolder);
-
-        EventManager.HandleOnItemSwapped();
     }
 }
