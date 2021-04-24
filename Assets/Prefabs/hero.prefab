@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 239740504}
-  Speed: 5
+  Speed: 1
   _input: {x: 0, y: 0, z: 0}
   _spiralMovement: {fileID: 5603740801656444988}
+  _direction: -1
 --- !u!114 &5603740801656444988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,10 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _center: {fileID: 0}
-  _distanceFromCenter: 10
-  _ySpeed: 0
-  _rotationSpeed: 10
-  _radius: 10
 --- !u!95 &6265623964589198548
 Animator:
   serializedVersion: 3

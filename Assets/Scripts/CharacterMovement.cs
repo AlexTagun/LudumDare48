@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+public enum Direction
+{
+    Left = -1,
+    Right = 1
+}
+
 public class CharacterMovement : MonoBehaviour
 {
 
@@ -10,10 +16,12 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Vector3 _input = Vector3.zero;
     
     [SerializeField] private SpiralMovement _spiralMovement;
+    
+    [SerializeField] private Direction _direction;
 
     private void FixedUpdate()
     {
-        _input = _spiralMovement.GetDirection(transform.position);
+        _input = _spiralMovement.GetNextDirection(transform.position);
         
         if (_input == Vector3.zero)
         {
@@ -21,6 +29,9 @@ public class CharacterMovement : MonoBehaviour
         }
         
         _body.transform.forward = _input;
-        _body.MovePosition(_body.position + _input * Speed * Time.fixedDeltaTime);
+
+        var deltaPosition = (int)_direction * Speed * _input * Time.fixedDeltaTime;
+        
+        _body.MovePosition(_body.position + deltaPosition);
     }
 }
