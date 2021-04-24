@@ -21,6 +21,7 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         _cache._stepSize = _radius * Mathf.Sin(_cache._anglePerStep / 2f) * 2;
         _cache._stepDeltaZ = _cache._stepSize * Mathf.Sin(_cache._zAngleRadians / 2f);
         _cache._stepRotator = Quaternion.Euler(0f, _cache._anglePerStep, 0f);
+        _cache._stageZHeight = _stepsInCircle * _cache._stepDeltaZ;
     }
 
     private void initLazyState() {
@@ -200,6 +201,7 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         public float _stepSize;
         public float _stepDeltaZ;
         public Quaternion _stepRotator;
+        public float _stageZHeight;
     };
     private Cache _cache = new Cache();
 
@@ -208,7 +210,8 @@ public class Ladder : MonoBehaviour, ILazyMapManager
     private float stepSize => _cache._stepSize;
     private float stepDeltaZ => _cache._stepDeltaZ;
     private Quaternion stepsRotator => _cache._stepRotator;
-#endregion
+    private float stageZHeight => _cache._stageZHeight;
+    #endregion
 
     struct LazyMapState
     {
