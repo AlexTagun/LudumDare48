@@ -4,41 +4,45 @@ using UnityEngine;
 
 public interface IItem {
     Sprite Icon { get; }
-    void Instantiate(Transform transform);
+    void Equip(Transform transform);
+
+    void Spawn(Transform transform);
 }
 
-public class Shield : IItem {
-    public Sprite Icon { get; }
-    
-    private GameObject _shield;
-    
-    public Shield() {
-        Icon = Resources.Load<Sprite>("shield");
-    }
-    
-    public void Instantiate(Transform transform) {
-        if(_shield != null) GameObject.Destroy(_shield);
+public abstract class Item : IItem {
+    protected GameObject _prefab;
+    protected abstract string Name { get; }
+    protected abstract string EquipPath { get; }
 
-        var prefab = Resources.Load<GameObject>("shield");
-        var wrist = transform.Find("NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M");
-        _shield = GameObject.Instantiate(prefab, wrist);
+    public Sprite Icon { get; }
+
+    private GameObject _itemGO;
+
+    public Item() {
+        Icon = Resources.Load<Sprite>(Name);
+        _prefab = Resources.Load<GameObject>(Name);
     }
+
+    public void Equip(Transform transform) {
+        if (_itemGO != null) GameObject.Destroy(_itemGO);
+
+        var wrist = transform.Find(EquipPath);
+        _itemGO = GameObject.Instantiate(_prefab, wrist);
+    }
+
+    public void Spawn(Transform transform) { }
 }
 
-public class Torch : IItem {
-    public Sprite Icon { get; }
+public class Shield : Item {
+    protected override string Name => "shield";
 
-    private GameObject _torch;
+    protected override string EquipPath =>
+        "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M";
+}
 
-    public Torch() {
-        Icon = Resources.Load<Sprite>("torch");
-    }
-    
-    public void Instantiate(Transform transform) {
-        if(_torch != null) GameObject.Destroy(_torch);
+public class Torch : Item {
+    protected override string Name => "torch";
 
-        var prefab = Resources.Load<GameObject>("torch");
-        var wrist = transform.Find("NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L");
-        _torch = GameObject.Instantiate(prefab, wrist);
-    }
+    protected override string EquipPath =>
+        "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L";
 }
