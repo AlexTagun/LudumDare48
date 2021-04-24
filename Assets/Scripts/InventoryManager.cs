@@ -31,9 +31,7 @@ public class InventoryManager : MonoBehaviour {
 
     private void OnItemSwapped() {
         var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
-        for (int i = 0; i < orderedList.Length; i++) {
-            _heroes[i].SetItem(null);
-        }
+        
         for (int i = 0; i < orderedList.Length; i++) {
             if(orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
         }
