@@ -29,6 +29,8 @@ public class Health : MonoBehaviour
 
         _currentHp = Mathf.Max(0f, _currentHp - points);
 
+        EventManager.HandleOnItemSwapped();
+        
         if (0 >= _currentHp)
         {
             EventManager.HandleOnHpEnded(GetComponent<Hero>());
@@ -38,5 +40,9 @@ public class Health : MonoBehaviour
     public void Heal(float points)
     {
         _currentHp = Mathf.Min(_maxHp, _currentHp + points);
+    }
+
+    public float GetHpPercentage() {
+        return _currentHp / _maxHp;
     }
 }
