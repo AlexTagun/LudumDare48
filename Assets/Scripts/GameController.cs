@@ -31,9 +31,11 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        var stepPosition = GetStepPosition();
         
         var drop = _dropGenerator.GetDropInfo(_currentDropIndex);
+        
+        var stepPosition = GetStepPosition();
+        stepPosition += drop.SpawnOffset;
         
         _lastSpawnPosition = nextSpawnPosition;
         _currentDropIndex++;
