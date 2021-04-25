@@ -1,14 +1,7 @@
 ﻿using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour {
-    
-    public enum ItemType {
-        None,
-        Torch,
-        Shield,
-        Sword
-    }
-    
+
     public enum ObstacleType
     {
         None,

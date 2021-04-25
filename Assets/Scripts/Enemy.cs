@@ -12,12 +12,15 @@ public class Enemy : MonoBehaviour {
         if(!other.CompareTag("Hero")) return;
 
         var hero = other.GetComponent<Hero>();
-
-        if (!(hero.GetItem() is Sword)) {
+        
+        if (!(hero.GetItem() is Sword || !hero.CanDoAction())) {
             var health = other.GetComponent<Health>();
             health.Damage(damage);
+            Die();
+            return;
         }
         
+        hero.SpendActionPoint();
         Die();
     }
 

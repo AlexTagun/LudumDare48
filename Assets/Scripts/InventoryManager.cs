@@ -19,14 +19,13 @@ public class InventoryManager : MonoBehaviour {
     {
         _instance = this;
         
-        EventManager.OnItemSwapped += OnItemSwapped;
+        EventManager.OnItemSwapped += UpdateItemContainers;
         EventManager.OnItemCollect += OnItemCollect;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
-
-        var torch = new Torch();
-        var shield = new Shield();
-        var sword = new Sword();
+        foreach (var hero in _heroes) {
+            hero.CurActivePoints = hero.MaxActionPoints;
+        }
 
         _itemContainers = new List<ItemContainer>();
 
@@ -36,16 +35,17 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Add(container);
         }
 
-        _itemContainers[0].SetItem(torch);
-        _itemContainers[1].SetItem(shield);
-        _itemContainers[2].SetItem(sword);
-        OnItemSwapped();
+        _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Torch));
+        _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
+        _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Shield));
+        UpdateItemContainers();
     }
 
-    private void OnItemSwapped() {
+    private void UpdateItemContainers() {
         var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
 
         for (int i = 0; i < orderedList.Length; i++) {
+            orderedList[i].SetData(_heroes[i].CurActivePoints, _heroes[i].MaxActionPoints);
             if (orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
         }
     }
@@ -61,7 +61,7 @@ public class InventoryManager : MonoBehaviour {
             break;
         }
 
-        OnItemSwapped();
+        UpdateItemContainers();
     }
 
     public bool TryGetNearHero(out Hero targetHero, Vector3 fromPosition, float minSqrMagnitude)

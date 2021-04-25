@@ -50,7 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2253d185eb76f148b9d7d9842167850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   _shootPoint: {fileID: 1717366812857951727}
+=======
+  MaxActionPoints: 3
+  CurActivePoints: 0
+>>>>>>> 74fea2e5549f3bdbf906411d90eba8034ad9b25d
 --- !u!54 &239740504
 Rigidbody:
   m_ObjectHideFlags: 0

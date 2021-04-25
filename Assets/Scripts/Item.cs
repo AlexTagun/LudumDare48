@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IItem {
     Sprite Icon { get; }
+    string NameText { get; }
     void Equip(Transform transform);
 
     void Spawn(Vector3 position);
@@ -11,13 +12,34 @@ public interface IItem {
     void Collect();
 }
 
-public abstract class Item : MonoBehaviour, IItem {
+public enum ItemType {
+    None,
+    Torch,
+    Shield,
+    Sword
+}
+
+public static class ItemFactory {
+    public static IItem Create(ItemType type) {
+        switch (type) {
+            case ItemType.None: return null;
+            case ItemType.Torch: return new Torch();
+            case ItemType.Shield: return new Shield();
+            case ItemType.Sword: return new Sword();
+        }
+
+        return null;
+    }
+}
+
+public abstract class Item : IItem {
     protected GameObject _prefab;
     protected GameObject _spawnPrefab;
     protected abstract string Name { get; }
     protected abstract string EquipPath { get; }
 
     public Sprite Icon { get; }
+    public virtual string NameText { get; }
 
     private GameObject _itemGO;
     private GameObject _spawnItemGO;
@@ -52,6 +74,7 @@ public abstract class Item : MonoBehaviour, IItem {
 
 public class Shield : Item {
     protected override string Name => "shield";
+    public override string NameText => "Shield";
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M";
@@ -59,6 +82,7 @@ public class Shield : Item {
 
 public class Torch : Item {
     protected override string Name => "torch";
+    public override string NameText => "Torch";
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L";
@@ -66,6 +90,7 @@ public class Torch : Item {
 
 public class Sword : Item {
     protected override string Name => "sword";
+    public override string NameText => "Sword";
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L";
