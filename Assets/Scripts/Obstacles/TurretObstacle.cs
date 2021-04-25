@@ -13,7 +13,9 @@ public class TurretObstacle : Obstacle
 
     [SerializeField] private float DestroyTime = 10f;
 
-    [SerializeField] private float _hintProjectileDistance = 0.5f;
+    [SerializeField] private float _hintProjectileDistance = 1f;
+    [SerializeField] private float _zDeltaForShoot = 0.1f;
+    [SerializeField] private float _projectileSpawnDistance = 25;
     
     private Hero _target;
     
@@ -58,31 +60,12 @@ public class TurretObstacle : Obstacle
             _target.SetHintProjectileActive(true);
         }
         
-        if (_target.transform.position.y > transform.position.y)
+        if (Mathf.Abs(_target.transform.position.y - transform.position.y) > _zDeltaForShoot)
         {
             return false;
         }
-        
-        var directionToTarget = (_target.transform.position - _muzzle.transform.position).normalized;
-        
-        if (!Physics.Raycast(_muzzle.transform.position, directionToTarget, out var targetHitPoint, 100f)) return false;
-        
-        if (!targetHitPoint.transform == _target)
-        {
-            return false;
-        }
-        
-        
-        var direction = transform.forward;
 
-        if (!Physics.Raycast(transform.position, direction, out var shootHitPoint, 100f, hitLayerMask.value))
-        {
-            return false;
-        }
-        
-        transform.LookAt(_target.ShootPoint);
-
-        return _target.transform == shootHitPoint.transform;
+        return true;
     }
 
     private void TryGetTarget()
@@ -98,11 +81,16 @@ public class TurretObstacle : Obstacle
     {
         _currentAmmo--;
         var projectileGo = Instantiate(_projectilePrefab);
-        projectileGo.transform.position = _muzzle.transform.position;
+
+
+        var direction = _target.transform.right.normalized;
+        var projectilePosition = _target.transform.position + direction * _projectileSpawnDistance;
+        
+        projectileGo.transform.position = projectilePosition;
 
         var projectile = projectileGo.GetComponent<Projectile>();
 
-        projectile.SetTarget(_target.ShootPoint);
+        projectile.SetTarget(_target.transform);
         
         _target.SetHintProjectileActive(false);
         
