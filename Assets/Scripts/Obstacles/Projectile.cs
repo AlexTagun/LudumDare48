@@ -42,22 +42,54 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var health = other.GetComponent<Health>();
+        var hero = other.GetComponent<Hero>();
+
+        if (!TryUseShield(hero))
+        {
+            TryDamageHero(hero);
+        }
+        
+        TurnOffComponents();
+        StartCoroutine(DestroyCoroutine());
+    }
+
+    private bool TryUseShield(Hero hero)
+    {
+        var isShieldReady = hero != null && hero.GetItem() is Shield && hero.CanDoAction();
+
+        if (!isShieldReady)
+        {
+            return false;
+        }
+        
+        hero.SpendActionPoint();
+        
+        return true;
+    }
+
+    private void TryDamageHero(Hero hero)
+    {
+        if (hero == null)
+        {
+            return;
+        }
+
+        var health = hero.GetComponent<Health>();
 
         if (health == null)
         {
             return;
         }
-
+        
         health.Damage(_damageCount);
+    }
 
+    private void TurnOffComponents()
+    {
         GetComponent<Collider>().enabled = false;
         GetComponent<Renderer>().enabled = false;
         _rigidbody.constraints = RigidbodyConstraints.None;
         _isStopped = true;
-        
-        
-        StartCoroutine(DestroyCoroutine());
     }
     
     private IEnumerator DestroyCoroutine() {
