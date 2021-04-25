@@ -28,19 +28,23 @@ public class ItemContainer : MonoBehaviour {
     }
 
     public void SetColor(float percentage) {
+        Color color;
         if (percentage >= 0.7f) {
-            back.color = fullHealthColor;
+            color = new Color(fullHealthColor.r, fullHealthColor.g, fullHealthColor.b, 0.1f);
+            back.color = color;
             frame.color = fullHealthColor;
             return;
         }
 
         if (percentage >= 0.25f) {
-            back.color = halfHealthColor;
+            color = new Color(halfHealthColor.r, halfHealthColor.g, halfHealthColor.b, 0.1f);
+            back.color = color;
             frame.color = halfHealthColor;
             return;
         }
         
-        back.color = lowHealthColor;
+        color = new Color(lowHealthColor.r, lowHealthColor.g, lowHealthColor.b, 0.1f);
+        back.color = color;
         frame.color = lowHealthColor;
     }
 }
