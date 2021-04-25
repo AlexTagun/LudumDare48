@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private float _offset = 0;
-    
     [SerializeField] private Ladder _ladder;
     [SerializeField] private Transform _followCamera;
 
@@ -11,13 +10,20 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private DropGenerator _dropGenerator;
     [SerializeField] private ItemSpawner _itemSpawner;
-    
-    private float _lastSpawnPosition = 0;
+
+    [SerializeField] private float _startSpawnPosition;
+    [SerializeField] private float _offsetSpawnPosition = 0;
+    private float _lastSpawnPosition;
     private int _currentDropIndex = 0;
+
+    private void Awake()
+    {
+        _lastSpawnPosition = _startSpawnPosition;
+    }
 
     private void Update()
     {
-        _ladder.TestSetZPosition(_offset + _followCamera.position.y);
+        _ladder.TestSetZPosition(_followCamera.position.y);
         
         TrySpawn();
     }
@@ -35,7 +41,9 @@ public class GameController : MonoBehaviour
         var drop = _dropGenerator.GetDropInfo(_currentDropIndex);
         
         var stepPosition = GetStepPosition();
-        stepPosition += drop.SpawnOffset;
+        var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;
+        
+        stepPosition += spawnOffset;
         
         _lastSpawnPosition = nextSpawnPosition;
         _currentDropIndex++;
@@ -56,6 +64,6 @@ public class GameController : MonoBehaviour
 
     private Vector3 GetStepPosition()
     {
-        return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
+        return new Vector3(transform.position.x, GetNextSpawnPosition() + _offsetSpawnPosition, transform.position.z);
     }
 }

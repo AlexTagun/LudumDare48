@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc359d0bcc472634791f0cf49bb6a95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: 0
   _ladder: {fileID: 0}
   _followCamera: {fileID: 0}
   _spawnStep: -7
   _dropGenerator: {fileID: 0}
   _itemSpawner: {fileID: 0}
+  _startSpawnPosition: 21
+  _offsetSpawnPosition: -21

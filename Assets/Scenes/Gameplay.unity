@@ -1089,11 +1089,6 @@ PrefabInstance:
       objectReference: {fileID: 733916451}
     - target: {fileID: 1343309125397245616, guid: af01461bc2e15ad4794a5bb90a19b4d0,
         type: 3}
-      propertyPath: _offset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1343309125397245616, guid: af01461bc2e15ad4794a5bb90a19b4d0,
-        type: 3}
       propertyPath: _itemSpawner
       value: 
       objectReference: {fileID: 1071695955}
