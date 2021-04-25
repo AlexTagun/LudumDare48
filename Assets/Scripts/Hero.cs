@@ -10,6 +10,8 @@ public class Hero : MonoBehaviour
     [SerializeField] private Collider сollider;
     public Transform ShootPoint => _shootPoint;
 
+    [SerializeField] private GameObject _hintProjectile;
+    
     public int MaxActionPoints;
     public int CurActivePoints;
     
@@ -33,6 +35,15 @@ public class Hero : MonoBehaviour
         if (CurActivePoints < 0) CurActivePoints = 0;
         EventManager.HandleOnItemSwapped();
     }
+
+    public void SetHintProjectileActive(bool isActive)
+    {
+        if (_hintProjectile.activeSelf != isActive)
+        {
+            _hintProjectile.SetActive(isActive);
+        }
+    }
+
 
     public void Kill() {
         сollider.enabled = false;
