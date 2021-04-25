@@ -7,6 +7,7 @@ public class SpiralMovement : MonoBehaviour
     
     private static List<float> Angles = new List<float>
     {
+        210f,
         230f,
         250f,
         270f,

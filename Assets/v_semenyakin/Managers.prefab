@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69fba21b9406af4abbcab0cc28c4766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _secondBetweenShopEnter: 5
+  _secondBetweenShopEnter: 0.1
   _numItemsToRollInShop: 6
   _shop: {fileID: 4425259274776566784}
   _shopUI: {fileID: 0}

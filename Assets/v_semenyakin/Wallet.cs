@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public static class DictionaryExtension
@@ -119,4 +120,11 @@ public class Wallet : MonoBehaviour
 
     private Dictionary<CurrencyTypes.ECurrencyType, Boxed<int>> _currencies =
         new Dictionary<CurrencyTypes.ECurrencyType, Boxed<int>>();
+}
+
+public static class PlayerPrefsRemover {
+    [MenuItem("Save/Remove User")]
+    public static void RemoveUser() {
+        PlayerPrefs.DeleteAll();
+    }
 }

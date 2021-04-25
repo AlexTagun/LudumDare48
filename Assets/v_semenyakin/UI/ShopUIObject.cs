@@ -13,7 +13,7 @@ public class ShopUIObject : MonoBehaviour
 
     public void show(List<Shop.Product> inProducts, Wallet inWallet) {
         gameObject.SetActive(true);
-
+        Time.timeScale = 0;
         clearProductUIs();
 
         foreach (Shop.Product product in inProducts)
@@ -25,7 +25,7 @@ public class ShopUIObject : MonoBehaviour
 
     public void hide() {
         gameObject.SetActive(false);
-
+        Time.timeScale = 1;
         onHidden?.Invoke();
     }
 

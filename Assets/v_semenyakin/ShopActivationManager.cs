@@ -7,6 +7,7 @@ public class ShopActivationManager : MonoBehaviour
     private void Start() {
         startWaitingShopEnter();
         initShopInteraction();
+        // enterTheShop();
     }
 
     private void initShopInteraction() {
@@ -40,7 +41,7 @@ public class ShopActivationManager : MonoBehaviour
     }
 
     private void onExitFromShop() {
-        startWaitingShopEnter();
+        // startWaitingShopEnter();
     }
 
     private void stopWaitingShopEnter() {
@@ -52,7 +53,7 @@ public class ShopActivationManager : MonoBehaviour
         _timeLeftToShopEnter = _secondBetweenShopEnter;
     }
 
-    [SerializeField] private int _secondBetweenShopEnter = 30;
+    [SerializeField] private float _secondBetweenShopEnter = 30;
     private bool _isWaitingShopEnter = false;
     private float _timeLeftToShopEnter = 0f;
 

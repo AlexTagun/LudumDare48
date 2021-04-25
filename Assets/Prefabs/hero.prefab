@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 239740504}
-  Speed: 1
+  Speed: 7
   _input: {x: 0, y: 0, z: 0}
   _spiralMovement: {fileID: 5603740801656444988}
   _direction: -1
