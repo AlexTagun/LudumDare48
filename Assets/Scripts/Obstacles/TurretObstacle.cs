@@ -10,6 +10,10 @@ public class TurretObstacle : Obstacle
     [SerializeField] private LayerMask hitLayerMask;
 
     [SerializeField] private Transform _muzzle;
+
+    [SerializeField] private float DestroyTime = 10f;
+    
+    private Hero _target;
     
 
     private void Update()
@@ -41,15 +45,51 @@ public class TurretObstacle : Obstacle
     {
         targetPosition = Vector3.zero;
         
-        var direction = transform.forward;
+        TryGetTarget();
         
-        if (!Physics.Raycast(transform.position, direction, out var hitPoint, 100f, hitLayerMask.value))
+
+        if (_target == null)
         {
             return false;
         }
+        
+        if (_target.transform.position.y > transform.position.y)
+        {
+            return false;
+        }
+        
+        var directionToTarget = (_target.transform.position - _muzzle.transform.position).normalized;
+        
+        
+        if (!Physics.Raycast(_muzzle.transform.position, directionToTarget, out var targetHitPoint, 100f)) return false;
+        
+        if (!targetHitPoint.transform == _target)
+        {
+            return false;
+        }
+        
+        
+        var direction = transform.forward;
 
-        targetPosition = hitPoint.point;
-        return true;
+        if (!Physics.Raycast(transform.position, direction, out var shootHitPoint, 100f, hitLayerMask.value))
+        {
+            return false;
+        }
+        
+        transform.LookAt(_target.ShootPoint);
+
+        targetPosition = _target.ShootPoint.position;
+
+        return _target.transform == shootHitPoint.transform;
+    }
+
+    private void TryGetTarget()
+    {
+        if (_target != null) return;
+
+        if (!InventoryManager.Instance.TryGetRandomHero(out var hero)) return;
+        
+            _target = hero;
     }
 
     private void Shoot(Vector3 targetPosition)
@@ -61,6 +101,18 @@ public class TurretObstacle : Obstacle
         var projectile = projectileGo.GetComponent<Projectile>();
 
         var direction = (targetPosition - projectileGo.transform.position).normalized;
-        projectile.SetDirection(direction);
+        projectile.SetTarget(_target.ShootPoint);
+        
+        TryDestroy();
+    }
+
+    private void TryDestroy()
+    {
+        if (HasAmmo())
+        {
+            return;
+        }
+        
+        Destroy(gameObject, DestroyTime);
     }
 }

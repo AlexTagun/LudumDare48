@@ -3,14 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour {
     [SerializeField] private ItemContainer itemContainerPrefab;
     [SerializeField] private Transform inventoryContainer;
     private List<ItemContainer> _itemContainers;
+    
     private List<Hero> _heroes;
 
-    private void Awake() {
+    private static InventoryManager _instance;
+    public static InventoryManager Instance => _instance;
+
+    private void Awake()
+    {
+        _instance = this;
+        
         EventManager.OnItemSwapped += OnItemSwapped;
         EventManager.OnItemCollect += OnItemCollect;
 
@@ -54,5 +62,46 @@ public class InventoryManager : MonoBehaviour {
         }
 
         OnItemSwapped();
+    }
+
+    public bool TryGetNearHero(out Hero targetHero, Vector3 fromPosition, float minSqrMagnitude)
+    {
+        targetHero = null;
+
+        foreach (var hero in _heroes)
+        {
+            if (hero == null)
+            {
+                continue;
+            }
+
+            var targetSqrMagnitude = (fromPosition - hero.transform.position).sqrMagnitude;
+
+            if (minSqrMagnitude > targetSqrMagnitude)
+            {
+                minSqrMagnitude = targetSqrMagnitude;
+                targetHero = hero;
+            }
+        }
+
+        return targetHero != null;
+    }
+
+    public bool TryGetRandomHero(out Hero targetHero)
+    {
+        targetHero = null;
+        
+        var heroList = _heroes.Where(h => h != null).ToList();
+
+        if (heroList.Count == 0)
+        {
+            return false;
+        }
+
+        var index = Random.Range(0, heroList.Count());
+
+        targetHero = heroList[index];
+
+        return true;
     }
 }

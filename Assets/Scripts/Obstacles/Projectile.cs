@@ -8,13 +8,12 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private Rigidbody _rigidbody;
     
-    private Vector3 _direction;
-
+    private Transform _target;
     private float _currentLifeTime;
     
-    public void SetDirection(Vector3 direction)
+    public void SetTarget(Transform target)
     {
-        _direction = direction;
+        _target = target;
     }
 
     private void FixedUpdate()
@@ -24,8 +23,10 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        var direction = (_target.position - _rigidbody.position).normalized;
         
-        _rigidbody.MovePosition(_rigidbody.position + _direction * _speed * Time.fixedDeltaTime);
+        _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.fixedDeltaTime);
 
         _currentLifeTime += Time.fixedDeltaTime;
     }
