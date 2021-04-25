@@ -6,7 +6,12 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: run
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: urodetsss_None
+    second: {fileID: 2100000, guid: 4a5125f761d6b614eb4f8684e3a2acc1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
