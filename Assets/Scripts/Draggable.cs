@@ -14,19 +14,19 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     private GameObject placeHolder = null;
 
     public void OnBeginDrag(PointerEventData eventData) {
-        placeHolder = new GameObject();
-        placeHolder.transform.SetParent(this.transform.parent);
-        LayoutElement le = placeHolder.AddComponent<LayoutElement>();
-        le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
-        le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
-        le.flexibleWidth = 0;
-        le.flexibleHeight = 0;
-
-        placeHolder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
+        placeHolder = gameObject;
+        // placeHolder.transform.SetParent(this.transform.parent);
+        // LayoutElement le = placeHolder.AddComponent<LayoutElement>();
+        // le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
+        // le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        // le.flexibleWidth = 0;
+        // le.flexibleHeight = 0;
+        //
+        // placeHolder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
 
         parentToReturnTo = this.transform.parent;
         placeHolderParent = parentToReturnTo;
-        this.transform.SetParent(this.transform.parent.parent);
+        icon.transform.SetParent(this.transform.parent.parent);
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
@@ -42,9 +42,11 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnEndDrag(PointerEventData eventData) {
         EventManager.IsDragging = false;
         int newSiblingIndex = placeHolderParent.childCount;
+        icon.transform.SetParent(transform);
+        icon.transform.SetSiblingIndex(1);
         icon.localPosition = Vector3.zero;
 
-        this.transform.SetParent(parentToReturnTo);
+        // this.transform.SetParent(parentToReturnTo);
         for (int i = 0; i < placeHolderParent.childCount; i++) {
             var rect = (placeHolderParent.GetChild(i) as RectTransform);
             var pos = rect.InverseTransformPoint(eventData.position);
@@ -55,14 +57,14 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
                 var placeHolderIndex = placeHolder.transform.GetSiblingIndex();
                 placeHolderParent.GetChild(newSiblingIndex).SetSiblingIndex(placeHolderIndex);
 
-                if (placeHolder.transform.GetSiblingIndex() < newSiblingIndex) {
-                    newSiblingIndex++;
-                }
+                // if (placeHolder.transform.GetSiblingIndex() < newSiblingIndex) {
+                //     newSiblingIndex++;
+                // }
 
                 this.transform.SetSiblingIndex(newSiblingIndex);
 
                 this.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                Destroy(placeHolder);
+                // Destroy(placeHolder);
                 EventManager.HandleOnItemSwapped();
                 return;
             }
@@ -71,7 +73,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
-        Destroy(placeHolder);
+        // Destroy(placeHolder);
     }
 
     public void OnPointerDown(PointerEventData eventData) {
