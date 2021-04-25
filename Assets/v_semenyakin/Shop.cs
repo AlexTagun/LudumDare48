@@ -23,6 +23,10 @@ public class Shop : MonoBehaviour
         public Sprite itemIcon => _itemAkaPrefab.Icon;
         public CurrencyTypes.Price price => _price;
 
+        public bool isPossibleToBuy(Wallet inWallet) {
+            return inWallet.isPossibleToChange(_price);
+        }
+
         public Item buy(Wallet inWallet) {
             if (inWallet.change(_price)) {
                 //TODO: Do item spawn here
