@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _startSpawnPosition;
     [SerializeField] private float _offsetSpawnPosition = 0;
     private float _lastSpawnPosition;
-    private int _currentDropIndex = 0;
+    private int _currentLevel = 0;
 
     private void Awake()
     {
@@ -36,9 +35,8 @@ public class GameController : MonoBehaviour
         {
             return;
         }
-
         
-        var drop = _dropGenerator.GetDropInfo(_currentDropIndex);
+        var drop = _dropGenerator.GetDropInfo(_currentLevel);
         
         var stepPosition = GetStepPosition();
         var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;
@@ -46,7 +44,7 @@ public class GameController : MonoBehaviour
         stepPosition += spawnOffset;
         
         _lastSpawnPosition = nextSpawnPosition;
-        _currentDropIndex++;
+        _currentLevel++;
 
         if (drop == null)
         {
@@ -54,7 +52,6 @@ public class GameController : MonoBehaviour
         }
         
         _itemSpawner.SpawnObject(drop, stepPosition);
-
     }
 
     private float GetNextSpawnPosition()

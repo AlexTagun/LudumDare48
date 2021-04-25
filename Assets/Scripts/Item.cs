@@ -21,7 +21,7 @@ public abstract class Item : MonoBehaviour, IItem {
 
     private GameObject _itemGO;
     private GameObject _spawnItemGO;
-
+    
     public Item() {
         Icon = Resources.Load<Sprite>(Name);
         _prefab = Resources.Load<GameObject>(Name);
@@ -40,6 +40,9 @@ public abstract class Item : MonoBehaviour, IItem {
 
         _spawnItemGO = GameObject.Instantiate(_spawnPrefab);
         _spawnItemGO.transform.position = position;
+        
+        var spawnObject = _spawnItemGO.GetComponent<SpawnObject>();
+        spawnObject.SetItem(this);
     }
 
     public void Collect() {
