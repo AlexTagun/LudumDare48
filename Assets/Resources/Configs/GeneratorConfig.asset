@@ -26,5 +26,5 @@ MonoBehaviour:
     NegativeDropWeight: 0
     NoneDropWeight: 10
   - PositiveDropWeight: 10
-    NegativeDropWeight: 0
-    NoneDropWeight: 0
+    NegativeDropWeight: 10
+    NoneDropWeight: 10
