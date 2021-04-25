@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7503892601420056364}
   "\u0441ollider": {fileID: 3123222999465133487}
-  damage: 35
+  damage: 10
   fireEffect: {fileID: 481765028871433041}
 --- !u!65 &3123222999465133487
 BoxCollider:

@@ -63,8 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 239740504}
-  "\u0441ollider": {fileID: 0}
-  damage: 30
+  damage: 20
 --- !u!136 &2080211401666211382
 CapsuleCollider:
   m_ObjectHideFlags: 0
