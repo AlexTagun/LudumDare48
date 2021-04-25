@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 
     private float _currentHp;
 
-    public Action OnHpEnded;
+    
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
 
         if (0 >= _currentHp)
         {
-            OnHpEnded?.Invoke();
+            EventManager.HandleOnHpEnded(GetComponent<Hero>());
         }
     }
 

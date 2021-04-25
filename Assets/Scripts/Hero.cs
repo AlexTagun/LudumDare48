@@ -6,6 +6,8 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Rigidbody rigidbody;
+    [SerializeField] private Collider сollider;
     public Transform ShootPoint => _shootPoint;
 
     public int MaxActionPoints;
@@ -30,5 +32,19 @@ public class Hero : MonoBehaviour
         CurActivePoints--;
         if (CurActivePoints < 0) CurActivePoints = 0;
         EventManager.HandleOnItemSwapped();
+    }
+
+    public void Kill() {
+        сollider.enabled = false;
+        rigidbody.constraints = RigidbodyConstraints.None;
+        rigidbody.AddForce(-Camera.main.transform.forward * 10, ForceMode.Impulse);
+        rigidbody.AddTorque(new Vector3(200, 200,200), ForceMode.Impulse);
+
+        StartCoroutine(DestroyCoroutine());
+    }
+    
+    private IEnumerator DestroyCoroutine() {
+        yield return new WaitForSeconds(4);
+        Destroy(gameObject);
     }
 }

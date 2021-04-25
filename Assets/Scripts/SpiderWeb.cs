@@ -14,7 +14,7 @@ public class SpiderWeb : MonoBehaviour {
 
         var hero = other.GetComponent<Hero>();
 
-        if (!(hero.GetItem() is Torch || !hero.CanDoAction())) {
+        if (!(hero.GetItem() is Torch) || !hero.CanDoAction()) {
             var health = other.GetComponent<Health>();
             health.Damage(damage);
             return;

@@ -21,6 +21,7 @@ public class InventoryManager : MonoBehaviour {
         
         EventManager.OnItemSwapped += UpdateItemContainers;
         EventManager.OnItemCollect += OnItemCollect;
+        EventManager.OnHpEnded += OnHpEnded;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
         foreach (var hero in _heroes) {
@@ -35,9 +36,9 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Add(container);
         }
 
-        _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Torch));
+        _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Shield));
         _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
-        _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Shield));
+        _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Torch));
         UpdateItemContainers();
     }
 
@@ -103,5 +104,23 @@ public class InventoryManager : MonoBehaviour {
         targetHero = heroList[index];
 
         return true;
+    }
+
+    private void OnHpEnded(Hero hero) {
+        var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
+
+        for (int i = 0; i < _heroes.Count; i++) {
+            if (hero != _heroes[i]) continue;
+            
+            Destroy(orderedList[i].gameObject);
+            _itemContainers.Remove(orderedList[i]);
+            _heroes[i].Kill();
+            _heroes.RemoveAt(i);
+            
+        }
+    }
+
+    public Transform GetFirstHero() {
+        return _heroes.First().transform;
     }
 }

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour {
 
         var hero = other.GetComponent<Hero>();
         
-        if (!(hero.GetItem() is Sword || !hero.CanDoAction())) {
+        if (!(hero.GetItem() is Sword) || !hero.CanDoAction()) {
             var health = other.GetComponent<Health>();
             health.Damage(damage);
             Die();

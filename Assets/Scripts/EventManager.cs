@@ -17,4 +17,9 @@ public static class EventManager {
     public static void HandleOnItemCollect(IItem item) {
         OnItemCollect?.Invoke(item);
     }
+    
+    public static Action<Hero> OnHpEnded;
+    public static void HandleOnHpEnded(Hero hero) {
+        OnHpEnded?.Invoke(hero);
+    }
 }

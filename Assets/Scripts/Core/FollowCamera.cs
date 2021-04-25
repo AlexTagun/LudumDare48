@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FollowCamera : MonoBehaviour
@@ -18,6 +19,12 @@ public class FollowCamera : MonoBehaviour
 
     private float _currentAutoReturnTime;
     private Quaternion? _oldRotation;
+
+    private void Start() {
+        EventManager.OnHpEnded += hero => {
+            _targetForY = InventoryManager.Instance.GetFirstHero();
+        };
+    }
 
     private void UpdateRotation(float delta)
     {
