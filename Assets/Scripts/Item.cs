@@ -12,6 +12,26 @@ public interface IItem {
     void Collect();
 }
 
+public enum ItemType {
+    None,
+    Torch,
+    Shield,
+    Sword
+}
+
+public static class ItemFactory {
+    public static IItem Create(ItemType type) {
+        switch (type) {
+            case ItemType.None: return null;
+            case ItemType.Torch: return new Torch();
+            case ItemType.Shield: return new Shield();
+            case ItemType.Sword: return new Sword();
+        }
+
+        return null;
+    }
+}
+
 public abstract class Item : IItem {
     protected GameObject _prefab;
     protected GameObject _spawnPrefab;

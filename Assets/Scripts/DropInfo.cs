@@ -5,7 +5,7 @@ using UnityEngine;
 public class DropInfo
 {
     public GameObject Prefab;
-    public ItemSpawner.ItemType ItemType;
+    public ItemType ItemType;
     public ItemSpawner.ObstacleType ObstacleType;
     
     public int Weight;

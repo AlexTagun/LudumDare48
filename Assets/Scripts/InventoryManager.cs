@@ -19,10 +19,6 @@ public class InventoryManager : MonoBehaviour {
             hero.CurActivePoints = hero.MaxActionPoints;
         }
 
-        var torch = new Torch();
-        var shield = new Shield();
-        var sword = new Sword();
-
         _itemContainers = new List<ItemContainer>();
 
         for (int i = 0; i < 4; i++) {
@@ -31,9 +27,9 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Add(container);
         }
 
-        _itemContainers[0].SetItem(torch);
-        _itemContainers[1].SetItem(shield);
-        _itemContainers[2].SetItem(sword);
+        _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Torch));
+        _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
+        _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Shield));
         OnItemSwapped();
     }
 
