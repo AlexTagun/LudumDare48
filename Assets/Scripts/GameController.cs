@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _startSpawnPosition;
     [SerializeField] private float _offsetSpawnPosition = 0;
     private float _lastSpawnPosition;
-    private int _currentLevel = 0;
+    public static int CurrentLevel = 0;
 
     private void Awake()
     {
@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
             return;
         }
         
-        var drop = _dropGenerator.GetDropInfo(_currentLevel);
+        var drop = _dropGenerator.GetDropInfo(CurrentLevel);
         
         var stepPosition = GetStepPosition();
         var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;
@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
         stepPosition += spawnOffset;
         
         _lastSpawnPosition = nextSpawnPosition;
-        _currentLevel++;
+        CurrentLevel++;
 
         if (drop == null)
         {
