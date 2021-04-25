@@ -13,15 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private DropGenerator _dropGenerator;
     [SerializeField] private ItemSpawner _itemSpawner;
 
-    [SerializeField] private float _startSpawnPosition;
-    [SerializeField] private float _offsetSpawnPosition = 0;
-    private float _lastSpawnPosition;
     public static int CurrentLevel = 0;
-
-    private void Awake()
-    {
-        _lastSpawnPosition = _startSpawnPosition;
-    }
 
     private void Update()
     {
@@ -32,8 +24,6 @@ public class GameController : MonoBehaviour
 
     private void TrySpawn()
     {
-        var nextSpawnPosition = GetNextSpawnPosition();
-
         if (_followCamera.position.y > nextSpawnPosition)
         {
             return;
@@ -46,7 +36,6 @@ public class GameController : MonoBehaviour
         
         stepPosition += spawnOffset;
         
-        _lastSpawnPosition = nextSpawnPosition;
         CurrentLevel++;
         _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
 
@@ -60,11 +49,11 @@ public class GameController : MonoBehaviour
 
     private float GetNextSpawnPosition()
     {
-        return _lastSpawnPosition + _spawnStep;
+        return CurrentLevel * _spawnStep;
     }
 
     private Vector3 GetStepPosition()
     {
-        return new Vector3(transform.position.x, GetNextSpawnPosition() + _offsetSpawnPosition, transform.position.z);
+        return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
     }
 }
