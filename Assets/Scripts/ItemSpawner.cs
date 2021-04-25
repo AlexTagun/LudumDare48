@@ -28,20 +28,8 @@ public class ItemSpawner : MonoBehaviour {
 
     private void SpawnItem(ItemType type, Vector3 position)
     {
-        Item item = null; 
-        
-        switch (type) {
-            case ItemType.Torch:
-                item = new Torch();
-                break;
-            case ItemType.Shield:
-                item = new Shield();
-                break;
-            case ItemType.Sword:
-                item = new Sword();
-                break;
-        }
-        
+        IItem item = ItemFactory.Create(type);
+
         item.Spawn(position);
     }
 
