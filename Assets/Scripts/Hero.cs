@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
     [SerializeField] private Transform _shootPoint;
     public Transform ShootPoint => _shootPoint;
 
+    [SerializeField] private GameObject _hintProjectile;
+    
     public int MaxActionPoints;
     public int CurActivePoints;
     
@@ -31,4 +30,13 @@ public class Hero : MonoBehaviour
         if (CurActivePoints < 0) CurActivePoints = 0;
         EventManager.HandleOnItemSwapped();
     }
+
+    public void SetHintProjectileActive(bool isActive)
+    {
+        if (_hintProjectile.activeSelf != isActive)
+        {
+            _hintProjectile.SetActive(isActive);
+        }
+    }
+
 }

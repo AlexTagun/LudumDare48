@@ -12,6 +12,8 @@ public class TurretObstacle : Obstacle
     [SerializeField] private Transform _muzzle;
 
     [SerializeField] private float DestroyTime = 10f;
+
+    [SerializeField] private float _hintProjectileDistance = 0.5f;
     
     private Hero _target;
     
@@ -28,12 +30,12 @@ public class TurretObstacle : Obstacle
             return;
         }
 
-        if (!HasTarget(out var targetPosition))
+        if (!HasTarget())
         {
             return;
         }
         
-        Shoot(targetPosition);
+        Shoot();
     }
 
     private bool HasAmmo()
@@ -41,16 +43,19 @@ public class TurretObstacle : Obstacle
         return _currentAmmo > 0;
     }
     
-    private bool HasTarget(out Vector3 targetPosition)
+    private bool HasTarget()
     {
-        targetPosition = Vector3.zero;
-        
         TryGetTarget();
         
 
         if (_target == null)
         {
             return false;
+        }
+
+        if (_hintProjectileDistance > Mathf.Abs(_target.transform.position.y - transform.position.y))
+        {
+            _target.SetHintProjectileActive(true);
         }
         
         if (_target.transform.position.y > transform.position.y)
@@ -59,7 +64,6 @@ public class TurretObstacle : Obstacle
         }
         
         var directionToTarget = (_target.transform.position - _muzzle.transform.position).normalized;
-        
         
         if (!Physics.Raycast(_muzzle.transform.position, directionToTarget, out var targetHitPoint, 100f)) return false;
         
@@ -78,8 +82,6 @@ public class TurretObstacle : Obstacle
         
         transform.LookAt(_target.ShootPoint);
 
-        targetPosition = _target.ShootPoint.position;
-
         return _target.transform == shootHitPoint.transform;
     }
 
@@ -92,7 +94,7 @@ public class TurretObstacle : Obstacle
             _target = hero;
     }
 
-    private void Shoot(Vector3 targetPosition)
+    private void Shoot()
     {
         _currentAmmo--;
         var projectileGo = Instantiate(_projectilePrefab);
@@ -100,8 +102,9 @@ public class TurretObstacle : Obstacle
 
         var projectile = projectileGo.GetComponent<Projectile>();
 
-        var direction = (targetPosition - projectileGo.transform.position).normalized;
         projectile.SetTarget(_target.ShootPoint);
+        
+        _target.SetHintProjectileActive(false);
         
         TryDestroy();
     }
