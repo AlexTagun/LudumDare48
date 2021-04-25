@@ -1,6 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+public static class Utils
+{
+    public static void swap<T>(ref T a, ref T b) {
+        T tmp = a;
+        a = b;
+        b = tmp;
+    }
+}
+
 public class Ladder : MonoBehaviour, ILazyMapManager
 {
     private void Awake() {
@@ -36,12 +45,6 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         _lazyMapState._maxRampIndex = -1;
     }
 
-    private static void swap<T>(ref T a, ref T b) {
-        T tmp = a;
-        a = b;
-        b = tmp;
-    }
-
     //NB: Currently make no checks in XZ plane, only Y (aka Z) check
     public void updateFocus(Bounds inFocus) {
         float newMinZ = inFocus.center.y - inFocus.size.y / 2f;
@@ -51,7 +54,7 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         int newMaxRampIndex = getRampIndexFromLocalYPosition(newMaxZ);
 
         if (newMinRampIndex > newMaxRampIndex)
-            swap(ref newMinRampIndex, ref newMaxRampIndex);
+            Utils.swap(ref newMinRampIndex, ref newMaxRampIndex);
 
         updateFocus_freeOutOfFocusRamps(newMinRampIndex, newMaxRampIndex);
         updateFocus_placeStepsForFocus(newMinRampIndex, newMaxRampIndex);
