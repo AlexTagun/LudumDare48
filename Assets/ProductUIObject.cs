@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ProductUIObject : MonoBehaviour
@@ -20,7 +21,7 @@ public class ProductUIObject : MonoBehaviour
     public System.Action<Shop.Product> onSelected;
 
     [SerializeField] private UnityEngine.UI.Image _itemIcon = null;
-    [SerializeField] private UnityEngine.UI.Text _goldAmountText = null;
+    [SerializeField] private TextMeshProUGUI _goldAmountText = null;
     [SerializeField] private UnityEngine.UI.Button _selectButton = null;
 
     private Shop.Product _productToReturnOnSelect = null;
