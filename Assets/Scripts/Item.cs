@@ -10,6 +10,8 @@ public interface IItem {
     void Spawn(Vector3 position);
 
     void Collect();
+
+    void Destroy();
 }
 
 public enum ItemType {
@@ -68,6 +70,11 @@ public abstract class Item : IItem {
     }
 
     public void Collect() {
+        if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
+    }
+
+    public void Destroy() {
+        if (_itemGO != null) GameObject.Destroy(_itemGO);
         if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
     }
 }

@@ -73,6 +73,9 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         this.transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
 
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        itemContainer.Item?.Destroy();
+        itemContainer.Item = null;
+        EventManager.HandleOnItemSwapped();
         // Destroy(placeHolder);
     }
 
