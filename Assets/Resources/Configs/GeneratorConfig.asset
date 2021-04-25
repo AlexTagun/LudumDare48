@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a37b7147062abe43807e47994ad4931, type: 3}
+  m_Name: GeneratorConfig
+  m_EditorClassIdentifier: 
+  GeneratorDatas:
+  - PositiveDropWeight: 10
+    NegativeDropWeight: 10
+    NoneDropWeight: 10
+  - PositiveDropWeight: 10
+    NegativeDropWeight: 0
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 10
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 0
+    NoneDropWeight: 10
+  - PositiveDropWeight: 10
+    NegativeDropWeight: 0
+    NoneDropWeight: 0

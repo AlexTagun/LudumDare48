@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f18dc1818080943beb024cfe1fb7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropInfos:
-  - {fileID: 6610518742174893066, guid: 0bdb5a23dfd98d3408af0fb0ed101248, type: 3}
+  _positiveDrops:
   - {fileID: 5640447506025419419, guid: 6a35cbeaf3543254392ea28bcfb6b2ab, type: 3}
   - {fileID: 7094990631815756261, guid: a3a1459bcb28dbf449afac57a2f751fb, type: 3}
   - {fileID: 981228021116037479, guid: ca5d366fadbb23d47819a42999526e6a, type: 3}
+  _negativeDrops:
+  - {fileID: 6610518742174893066, guid: 0bdb5a23dfd98d3408af0fb0ed101248, type: 3}

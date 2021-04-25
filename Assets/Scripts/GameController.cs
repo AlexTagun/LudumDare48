@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private ItemSpawner _itemSpawner;
     
     private float _lastSpawnPosition = 0;
+    private int _currentDropIndex = 0;
 
     private void Update()
     {
@@ -30,16 +31,20 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        var drop = _dropGenerator.GetDropInfo();
+        var stepPosition = GetStepPosition();
+        
+        var drop = _dropGenerator.GetDropInfo(_currentDropIndex);
+        
+        _lastSpawnPosition = nextSpawnPosition;
+        _currentDropIndex++;
 
         if (drop == null)
         {
             return;
         }
         
-        _itemSpawner.SpawnObject(drop, GetStepPosition());
+        _itemSpawner.SpawnObject(drop, stepPosition);
 
-        _lastSpawnPosition = nextSpawnPosition;
     }
 
     private float GetNextSpawnPosition()
