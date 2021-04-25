@@ -54,6 +54,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 1238076498569946815}
   rigidbody: {fileID: 239740504}
   "\u0441ollider": {fileID: 239740503}
+  Health: {fileID: 239740499}
   _hintProjectile: {fileID: 5910593229198789984}
   MaxActionPoints: 3
   CurActivePoints: 0

@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour {
     private static InventoryManager _instance;
     public static InventoryManager Instance => _instance;
 
-    private void Awake()
+    private void Start()
     {
         _instance = this;
         
@@ -48,6 +48,7 @@ public class InventoryManager : MonoBehaviour {
         for (int i = 0; i < orderedList.Length; i++) {
             orderedList[i].SetData(_heroes[i].CurActivePoints, _heroes[i].MaxActionPoints);
             if (orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
+            orderedList[i].SetColor(_heroes[i].Health.GetHpPercentage());
         }
     }
 

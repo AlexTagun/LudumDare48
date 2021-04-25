@@ -9,6 +9,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Collider сollider;
     public Transform ShootPoint => _shootPoint;
+    public Health Health;
 
     [SerializeField] private GameObject _hintProjectile;
     
