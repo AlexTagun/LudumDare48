@@ -34,7 +34,7 @@ public class Wallet : MonoBehaviour
     }
 
     public bool isPossibleToChange(CurrencyTypes.Price inPrice, bool inIsPositivePrice = true) {
-        int sign = inIsPositivePrice ? 1 : -1;
+        int sign = inIsPositivePrice ? -1 : 1;
 
         foreach (KeyValuePair<CurrencyTypes.ECurrencyType, int> currencyPrice in inPrice.currencyPrices)
             if (!isPossibleToChange(currencyPrice.Key, sign * currencyPrice.Value))
@@ -95,6 +95,7 @@ public class Wallet : MonoBehaviour
     private void load() {
         int initialGoldAmount = getInitialCurrencyAmount(CurrencyTypes.ECurrencyType.Gold);
         int loadedGoldAmount = PlayerPrefs.GetInt(playerPrefsId_Gold, initialGoldAmount);
+
         load_set(CurrencyTypes.ECurrencyType.Gold, loadedGoldAmount);
     }
 
