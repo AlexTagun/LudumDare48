@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour {
     private List<Hero> _heroes;
 
     private void Awake() {
-        EventManager.OnItemSwapped += OnItemSwapped;
+        EventManager.OnItemSwapped += UpdateItemContainers;
         EventManager.OnItemCollect += OnItemCollect;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
@@ -30,15 +30,15 @@ public class InventoryManager : MonoBehaviour {
         _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Torch));
         _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
         _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Shield));
-        OnItemSwapped();
+        UpdateItemContainers();
     }
 
-    private void OnItemSwapped() {
+    private void UpdateItemContainers() {
         var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
 
         for (int i = 0; i < orderedList.Length; i++) {
-            if (orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
             orderedList[i].SetData(_heroes[i].CurActivePoints, _heroes[i].MaxActionPoints);
+            if (orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
         }
     }
 
@@ -53,6 +53,6 @@ public class InventoryManager : MonoBehaviour {
             break;
         }
 
-        OnItemSwapped();
+        UpdateItemContainers();
     }
 }

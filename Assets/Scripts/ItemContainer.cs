@@ -13,12 +13,11 @@ public class ItemContainer : MonoBehaviour {
 
     public void SetData(int curActivePoints, int maxActivePoints) {
         pointsText.text = $"{curActivePoints}/{maxActivePoints}";
-        nameText.text = "";
+        nameText.text = Item == null ? "" : Item.NameText;
     }
 
     public void SetItem(IItem item) {
         Item = item;
         icon.sprite = item.Icon;
-        nameText.text = item.NameText;
     }
 }
