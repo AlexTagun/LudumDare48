@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private DropGenerator _dropGenerator;
     [SerializeField] private ItemSpawner _itemSpawner;
 
+    [SerializeField] private float _spawnOffset = 20f;
+
     public static int CurrentLevel = 0;
 
     private void Update()
@@ -24,7 +26,7 @@ public class GameController : MonoBehaviour
 
     private void TrySpawn()
     {
-        if (_followCamera.position.y > GetNextSpawnPosition())
+        if (_followCamera.position.y > GetNextSpawnPosition() + _spawnOffset)
         {
             return;
         }

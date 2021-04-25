@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     [SerializeField] private Rigidbody rigidbody;
-    [SerializeField] private Collider сollider;
     [SerializeField] private float damage;
 
     private void OnTriggerEnter(Collider other) {
@@ -25,7 +24,6 @@ public class Enemy : MonoBehaviour {
     }
 
     private void Die() {
-        сollider.enabled = false;
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.AddForce(-Camera.main.transform.forward * 10, ForceMode.Impulse);
         rigidbody.AddTorque(new Vector3(200, 200,200), ForceMode.Impulse);

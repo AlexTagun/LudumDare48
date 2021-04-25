@@ -78,7 +78,7 @@ MonoBehaviour:
     ItemType: 0
     ObstacleType: 2
     Weight: 10
-    SpawnOffset: {x: 4.7, y: -0.49, z: -4.9}
+    SpawnOffset: {x: 4.7, y: 0.2, z: -4.9}
   - Prefab: {fileID: 2138649442186489715, guid: e264c7e844c1475458a97075daf57c55,
       type: 3}
     ItemType: 0
