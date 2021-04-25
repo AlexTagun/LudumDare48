@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2880685526851439441}
   - component: {fileID: 2841069966326142859}
   m_Layer: 0
-  m_Name: ItemGenerator
+  m_Name: DropGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f18dc1818080943beb024cfe1fb7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObjects:
-  - {fileID: 6804156257192701186, guid: 0bdb5a23dfd98d3408af0fb0ed101248, type: 3}
-  - {fileID: 328424596380438646, guid: 901e7dd2fe7414c468bd0a19526ac571, type: 3}
-  - {fileID: 6862847427324664271, guid: d3db1a67e296eb748b9f998064b64cbe, type: 3}
+  _dropInfos:
+  - {fileID: 6610518742174893066, guid: 0bdb5a23dfd98d3408af0fb0ed101248, type: 3}

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemGenerator : MonoBehaviour
+public class DropGenerator : MonoBehaviour
 {
     [SerializeField] private List<DropInfo> _dropInfos;
     

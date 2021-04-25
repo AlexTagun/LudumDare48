@@ -11,7 +11,7 @@ public interface IItem {
     void Collect();
 }
 
-public abstract class Item : IItem {
+public abstract class Item : MonoBehaviour, IItem {
     protected GameObject _prefab;
     protected GameObject _spawnPrefab;
     protected abstract string Name { get; }

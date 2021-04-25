@@ -156,4 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db958f28cfc63874293e7e6e1f81e478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemType: 0
+  ObstacleType: 1
   Weight: 10
