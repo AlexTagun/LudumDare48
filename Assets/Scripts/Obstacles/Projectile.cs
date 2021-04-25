@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Projectile : MonoBehaviour
     
     private Transform _target;
     private float _currentLifeTime;
+
+    private bool _isStopped;
     
     public void SetTarget(Transform target)
     {
@@ -18,6 +21,11 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_isStopped)
+        {
+            return;
+        }
+        
         if (_currentLifeTime >= MaxLifeTime)
         {
             Destroy(gameObject);
@@ -42,6 +50,18 @@ public class Projectile : MonoBehaviour
         }
 
         health.Damage(_damageCount);
+
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        _rigidbody.constraints = RigidbodyConstraints.None;
+        _isStopped = true;
+        
+        
+        StartCoroutine(DestroyCoroutine());
+    }
+    
+    private IEnumerator DestroyCoroutine() {
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 }
