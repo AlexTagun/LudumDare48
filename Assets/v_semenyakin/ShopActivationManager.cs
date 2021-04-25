@@ -31,7 +31,7 @@ public class ShopActivationManager : MonoBehaviour
 
     private void enterTheShop() {
         _shop.rerollProducts(_numItemsToRollInShop);
-        _shopUI.show(_shop.products);
+        _shopUI.show(_shop.products, _wallet);
     }
 
     private void processProductSelection(Shop.Product inProduct) {

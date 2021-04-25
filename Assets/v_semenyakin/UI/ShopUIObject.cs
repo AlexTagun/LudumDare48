@@ -11,13 +11,13 @@ public class ShopUIObject : MonoBehaviour
         _descendButton.onClick.AddListener(hide);
     }
 
-    public void show(List<Shop.Product> inProducts) {
+    public void show(List<Shop.Product> inProducts, Wallet inWallet) {
         gameObject.SetActive(true);
 
         clearProductUIs();
 
         foreach (Shop.Product product in inProducts)
-            addProductUI(product);
+            addProductUI(product, inWallet);
     }
 
     public System.Action<Shop.Product> onProductSelected;
@@ -34,11 +34,11 @@ public class ShopUIObject : MonoBehaviour
             Destroy(productUITransform.gameObject);
     }
 
-    private void addProductUI(Shop.Product inProduct) {
+    private void addProductUI(Shop.Product inProduct, Wallet inWallet) {
         ProductUIObject newProductUIObject = Instantiate(_productUIPrefab);
         newProductUIObject.transform.SetParent(_productsGroup.transform, false);
 
-        newProductUIObject.init(inProduct);
+        newProductUIObject.init(inProduct, inWallet);
         newProductUIObject.onSelected = onProductSelected;
     }
 
