@@ -9,6 +9,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     [HideInInspector] public Transform placeHolderParent = null;
 
     [SerializeField] private ItemContainer itemContainer;
+    [SerializeField] private Transform icon;
 
     private GameObject placeHolder = null;
 
@@ -31,7 +32,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
 
     public void OnDrag(PointerEventData eventData) {
-        this.transform.position = eventData.position;
+        icon.transform.position = eventData.position;
 
         if (placeHolder.transform.parent != placeHolderParent) {
             placeHolder.transform.SetParent(placeHolderParent);
@@ -41,7 +42,7 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnEndDrag(PointerEventData eventData) {
         EventManager.IsDragging = false;
         int newSiblingIndex = placeHolderParent.childCount;
-
+        icon.localPosition = Vector3.zero;
 
         this.transform.SetParent(parentToReturnTo);
         for (int i = 0; i < placeHolderParent.childCount; i++) {

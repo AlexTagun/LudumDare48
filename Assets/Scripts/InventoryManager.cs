@@ -15,6 +15,9 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnItemCollect += OnItemCollect;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
+        foreach (var hero in _heroes) {
+            hero.CurActivePoints = hero.MaxActionPoints;
+        }
 
         var torch = new Torch();
         var shield = new Shield();
@@ -39,6 +42,7 @@ public class InventoryManager : MonoBehaviour {
 
         for (int i = 0; i < orderedList.Length; i++) {
             if (orderedList[i].Item != null) _heroes[i].SetItem(orderedList[i].Item);
+            orderedList[i].SetData(_heroes[i].CurActivePoints, _heroes[i].MaxActionPoints);
         }
     }
 

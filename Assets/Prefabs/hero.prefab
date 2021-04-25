@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2253d185eb76f148b9d7d9842167850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxActionPoints: 3
+  CurActivePoints: 0
 --- !u!54 &239740504
 Rigidbody:
   m_ObjectHideFlags: 0
