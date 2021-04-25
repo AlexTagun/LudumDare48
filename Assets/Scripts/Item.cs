@@ -6,7 +6,7 @@ public interface IItem {
     Sprite Icon { get; }
     void Equip(Transform transform);
 
-    void Spawn(Transform transform);
+    void Spawn(Vector3 position);
 
     void Collect();
 }
@@ -35,10 +35,11 @@ public abstract class Item : MonoBehaviour, IItem {
         _itemGO = GameObject.Instantiate(_prefab, wrist);
     }
 
-    public void Spawn(Transform transform) {
+    public void Spawn(Vector3 position) {
         if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
 
-        _spawnItemGO = GameObject.Instantiate(_spawnPrefab, transform);
+        _spawnItemGO = GameObject.Instantiate(_spawnPrefab);
+        _spawnItemGO.transform.position = position;
     }
 
     public void Collect() {

@@ -19,7 +19,7 @@ public class ItemSpawner : MonoBehaviour {
     {
         if (dropInfo.ItemType != ItemType.None)
         {
-            SpawnItem(dropInfo.ItemType);
+            SpawnItem(dropInfo.ItemType, position);
             return;
         }
 
@@ -32,7 +32,7 @@ public class ItemSpawner : MonoBehaviour {
         Debug.LogError("Not found type for spawn in DropInfo = " + dropInfo);
     }
 
-    private void SpawnItem(ItemType type)
+    private void SpawnItem(ItemType type, Vector3 position)
     {
         switch (type) {
             case ItemType.Torch:
@@ -46,7 +46,7 @@ public class ItemSpawner : MonoBehaviour {
                 break;
         }
         
-        _item.Spawn(transform);
+        _item.Spawn(position);
     }
 
     private void SpawnObstacle(GameObject prefab, Vector3 position)
