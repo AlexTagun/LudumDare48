@@ -58,7 +58,7 @@ public class DropGenerator : MonoBehaviour
         allWeight += currentGenerationData.NegativeDropWeight;
         allWeight += currentGenerationData.NoneDropWeight;
 
-        var randWeight = Random.Range(1, allWeight + 1);
+        var randWeight = Random.Range(1, allWeight);
 
         var controlWeight = 0;
         

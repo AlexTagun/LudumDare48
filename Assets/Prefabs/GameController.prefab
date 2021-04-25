@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ladder: {fileID: 0}
   _followCamera: {fileID: 0}
-  _spawnStep: -7
+  _spawnStep: -7.183
   _dropGenerator: {fileID: 0}
   _itemSpawner: {fileID: 0}
   _startSpawnPosition: 21
