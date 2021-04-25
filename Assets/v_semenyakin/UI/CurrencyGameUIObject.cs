@@ -15,6 +15,10 @@ public class CurrencyGameUIObject : MonoBehaviour
         }
     }
 
+    public static void Save() {
+
+    }
+
     [SerializeField] private Wallet _wallet = null;
 
     private int _showingGoldAmount = 0;

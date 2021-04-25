@@ -46,8 +46,11 @@ public class Wallet : MonoBehaviour
     public bool change(CurrencyTypes.ECurrencyType inType, int inDelta) {
         bool isPossible = isPossibleToChange(inType, inDelta);
         
-        if (isPossible)
+        if (isPossible) {
             _currencies.addOrGet(inType).value += inDelta;
+
+            save();
+        }
 
         return isPossible;
     }
@@ -55,9 +58,12 @@ public class Wallet : MonoBehaviour
     public bool change(CurrencyTypes.Price inPrice, bool inPositivePrice = true) {
         bool isPossible = isPossibleToChange(inPrice, inPositivePrice);
 
-        if (isPossible)
+        if (isPossible) {
             foreach (KeyValuePair<CurrencyTypes.ECurrencyType, int> currencyPrice in inPrice.currencyPrices)
                 change(currencyPrice.Key, -currencyPrice.Value);
+
+            save();
+        }
 
         return isPossible;
     }
@@ -67,12 +73,32 @@ public class Wallet : MonoBehaviour
     }
 
     private void Start() {
-        fillInitialCurrencies();
+        load();
     }
     
-    private void fillInitialCurrencies() {
-        foreach (InitData_Currency initData_currency in _initialCurrencies)
-            _currencies.addOrGet(initData_currency._currencyType).value += initData_currency._amount;
+    private int getInitialCurrencyAmount(CurrencyTypes.ECurrencyType inCurrencyType) {
+        foreach (InitData_Currency inInitialData_Currency in _initialCurrencies)
+            if (inInitialData_Currency._currencyType == inCurrencyType)
+                return inInitialData_Currency._amount;
+
+        return 0;
+    }
+
+    private void set(CurrencyTypes.ECurrencyType inCurrencyType, int inCurrencyAmount) {
+        _currencies.addOrGet(inCurrencyType).value = inCurrencyAmount;
+    }
+
+    private static string playerPrefsId_Gold = "gold";
+
+    private void load() {
+        int initialGoldAmount = getInitialCurrencyAmount(CurrencyTypes.ECurrencyType.Gold);
+        int loadedGoldAmount = PlayerPrefs.GetInt(playerPrefsId_Gold, initialGoldAmount);
+        set(CurrencyTypes.ECurrencyType.Gold, loadedGoldAmount);
+    }
+
+    private void save() {
+        PlayerPrefs.SetInt(playerPrefsId_Gold, getCurrency(CurrencyTypes.ECurrencyType.Gold));
+        PlayerPrefs.Save();
     }
 
     [System.Serializable]
