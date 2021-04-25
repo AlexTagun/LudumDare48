@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 239740504}
-  damage: 20
+  damage: 25
 --- !u!136 &2080211401666211382
 CapsuleCollider:
   m_ObjectHideFlags: 0

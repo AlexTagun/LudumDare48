@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959ab0073474c574d8bd8cb9ee023ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 100
+  _maxHp: 50
   IsImmortal: 0
 --- !u!114 &239740502
 MonoBehaviour:
