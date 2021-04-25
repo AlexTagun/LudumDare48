@@ -6,7 +6,9 @@ public class ItemSpawner : MonoBehaviour {
     {
         None,
         Turret,
-        Enemy
+        Enemy,
+        Coin,
+        Web
     }
     
     public void SpawnObject(DropInfo dropInfo, Vector3 position)

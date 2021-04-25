@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour {
         rigidbody.constraints = RigidbodyConstraints.None;
         rigidbody.AddForce(-Camera.main.transform.forward * 10, ForceMode.Impulse);
         rigidbody.AddTorque(new Vector3(200, 200,200), ForceMode.Impulse);
+        rigidbody.useGravity = true;
 
         StartCoroutine(DestroyCoroutine());
     }
