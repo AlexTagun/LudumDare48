@@ -83,7 +83,7 @@ public class TurretObstacle : Obstacle
         var projectileGo = Instantiate(_projectilePrefab);
 
 
-        var direction = _target.transform.right.normalized;
+        var direction = (_target.transform.right + _target.transform.right + _target.transform.up).normalized;
         var projectilePosition = _target.transform.position + direction * _projectileSpawnDistance;
         
         projectileGo.transform.position = projectilePosition;
