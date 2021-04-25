@@ -631,6 +631,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2df1c7a301fdb4190ebbdf3ecbf8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1116821937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2140251562072777950, guid: d48b2c589884cff4aba783dae5e47f9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1514714053094668681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83c030e61bea7a45bb29b11825bc272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339132821
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1000,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1491660517465188570, guid: 9609b17f23790894dbf4b047488fb45b,
+        type: 3}
+      propertyPath: _wallet
+      value: 
+      objectReference: {fileID: 1116821937}
     - target: {fileID: 5093739723280745314, guid: 9609b17f23790894dbf4b047488fb45b,
         type: 3}
       propertyPath: m_AnchorMax.y
