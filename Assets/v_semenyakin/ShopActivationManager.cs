@@ -36,6 +36,7 @@ public class ShopActivationManager : MonoBehaviour
 
     private void processProductSelection(Shop.Product inProduct) {
         inProduct.buy(_wallet);
+        EventManager.HandleOnItemCollect(ItemFactory.Create(inProduct.ItemType));
     }
 
     private void onExitFromShop() {

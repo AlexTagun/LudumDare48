@@ -30,15 +30,15 @@ public class InventoryManager : MonoBehaviour {
 
         _itemContainers = new List<ItemContainer>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < _heroes.Count; i++) {
             var container = Instantiate(itemContainerPrefab, inventoryContainer);
             container.gameObject.SetActive(true);
             _itemContainers.Add(container);
         }
 
-        _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Shield));
-        _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
-        _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Torch));
+        // _itemContainers[0].SetItem(ItemFactory.Create(ItemType.Shield));
+        // _itemContainers[1].SetItem(ItemFactory.Create(ItemType.Sword));
+        // _itemContainers[2].SetItem(ItemFactory.Create(ItemType.Torch));
         UpdateItemContainers();
     }
 
