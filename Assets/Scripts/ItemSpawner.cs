@@ -12,7 +12,8 @@ public class ItemSpawner : MonoBehaviour {
     public enum ObstacleType
     {
         None,
-        Turret
+        Turret,
+        Enemy
     }
     
     public void SpawnObject(DropInfo dropInfo, Vector3 position)
@@ -25,7 +26,7 @@ public class ItemSpawner : MonoBehaviour {
 
         if (dropInfo.ObstacleType != ObstacleType.None)
         {
-            SpawnObstacle(dropInfo.gameObject, position);
+            SpawnObstacle(dropInfo.Prefab, position);
             return;
         }
         

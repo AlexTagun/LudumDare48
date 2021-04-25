@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class DropInfo : MonoBehaviour
+[Serializable]
+public class DropInfo
 {
+    public GameObject Prefab;
     public ItemSpawner.ItemType ItemType;
     public ItemSpawner.ObstacleType ObstacleType;
     
     public int Weight;
+
+    public Vector3 SpawnOffset;
 }

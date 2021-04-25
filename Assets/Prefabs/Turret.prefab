@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 6804156257192701185}
   - component: {fileID: 6804156257192701184}
   - component: {fileID: 6804156257192701187}
-  - component: {fileID: 6610518742174893066}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -144,18 +143,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _muzzle: {fileID: 6804156256500914889}
---- !u!114 &6610518742174893066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6804156257192701186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db958f28cfc63874293e7e6e1f81e478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemType: 0
-  ObstacleType: 1
-  Weight: 10
