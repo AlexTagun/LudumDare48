@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private void TrySpawn()
     {
-        if (_followCamera.position.y > nextSpawnPosition)
+        if (_followCamera.position.y > GetNextSpawnPosition())
         {
             return;
         }
