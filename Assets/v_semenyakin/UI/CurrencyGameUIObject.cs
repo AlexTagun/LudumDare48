@@ -2,9 +2,11 @@
 
 public class CurrencyGameUIObject : MonoBehaviour
 {
-    private void FixedUpdate() {
+    private void Start() {
         _goldAmountText.text = "0";
+    }
 
+    private void FixedUpdate() {
         updateCurrencyAmountsText();
     }
 
