@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour {
         if (!(hero.GetItem() is Sword || !hero.CanDoAction())) {
             var health = other.GetComponent<Health>();
             health.Damage(damage);
+            Die();
+            return;
         }
         
         hero.SpendActionPoint();
