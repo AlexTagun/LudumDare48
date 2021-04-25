@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LadderSizeController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     [SerializeField] private float _offset = 0;
     
