@@ -3,6 +3,8 @@
 public class CurrencyGameUIObject : MonoBehaviour
 {
     private void FixedUpdate() {
+        _goldAmountText.text = "0";
+
         updateCurrencyAmountsText();
     }
 
@@ -13,10 +15,6 @@ public class CurrencyGameUIObject : MonoBehaviour
             _goldAmountText.text = actualGoldAmount.ToString();
             _showingGoldAmount = actualGoldAmount;
         }
-    }
-
-    public static void Save() {
-
     }
 
     [SerializeField] private Wallet _wallet = null;

@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
         stepPosition += spawnOffset;
         
         CurrentLevel++;
-        _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
+        //_levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
 
         if (drop == null)
         {

@@ -15,9 +15,11 @@ public class ProductUIObject : MonoBehaviour
 
         _selectButton.onClick.AddListener(()=>{
             onSelected?.Invoke(_productToReturnOnSelect);
-        });
+        }); 
 
+        _walletToCheckSelectionPossibility = inWallet;
         inWallet.onChanged = updateSelectionPossibility;
+        
         updateSelectionPossibility();
     }
 
