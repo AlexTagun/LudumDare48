@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProductUIObject : MonoBehaviour
 {
-    public void init(Shop.Product inProduct) {
+    public void init(Shop.Product inProduct, Wallet inWallet) {
         _productToReturnOnSelect = inProduct;
 
         _itemIcon.sprite = inProduct.itemIcon;
@@ -16,6 +16,14 @@ public class ProductUIObject : MonoBehaviour
         _selectButton.onClick.AddListener(()=>{
             onSelected?.Invoke(_productToReturnOnSelect);
         });
+
+        inWallet.onChanged = updateSelectionPossibility;
+        updateSelectionPossibility();
+    }
+
+    private void updateSelectionPossibility() {
+        _selectButton.interactable = _walletToCheckSelectionPossibility.isPossibleToChange(
+            _productToReturnOnSelect.price);
     }
 
     public System.Action<Shop.Product> onSelected;
@@ -24,5 +32,6 @@ public class ProductUIObject : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goldAmountText = null;
     [SerializeField] private UnityEngine.UI.Button _selectButton = null;
 
+    private Wallet _walletToCheckSelectionPossibility = null;
     private Shop.Product _productToReturnOnSelect = null;
 }

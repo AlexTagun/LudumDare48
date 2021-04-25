@@ -50,6 +50,8 @@ public class Wallet : MonoBehaviour
             _currencies.addOrGet(inType).value += inDelta;
 
             save();
+
+            onChanged?.Invoke();
         }
 
         return isPossible;
@@ -63,10 +65,14 @@ public class Wallet : MonoBehaviour
                 change(currencyPrice.Key, -currencyPrice.Value);
 
             save();
+
+            onChanged?.Invoke();
         }
 
         return isPossible;
     }
+
+    public System.Action onChanged = null;
 
     public int getCurrency(CurrencyTypes.ECurrencyType inType) {
         return _currencies.addOrGet(inType).value;
@@ -84,16 +90,16 @@ public class Wallet : MonoBehaviour
         return 0;
     }
 
-    private void set(CurrencyTypes.ECurrencyType inCurrencyType, int inCurrencyAmount) {
-        _currencies.addOrGet(inCurrencyType).value = inCurrencyAmount;
-    }
-
     private static string playerPrefsId_Gold = "gold";
 
     private void load() {
         int initialGoldAmount = getInitialCurrencyAmount(CurrencyTypes.ECurrencyType.Gold);
         int loadedGoldAmount = PlayerPrefs.GetInt(playerPrefsId_Gold, initialGoldAmount);
-        set(CurrencyTypes.ECurrencyType.Gold, loadedGoldAmount);
+        load_set(CurrencyTypes.ECurrencyType.Gold, loadedGoldAmount);
+    }
+
+    private void load_set(CurrencyTypes.ECurrencyType inCurrencyType, int inCurrencyAmount) {
+        _currencies.addOrGet(inCurrencyType).value = inCurrencyAmount;
     }
 
     private void save() {
