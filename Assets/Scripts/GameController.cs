@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private Ladder _ladder;
     [SerializeField] private Transform _followCamera;
+    [SerializeField] private TextMeshProUGUI _levelText;
 
     [SerializeField] private float _spawnStep;
 
@@ -45,6 +48,7 @@ public class GameController : MonoBehaviour
         
         _lastSpawnPosition = nextSpawnPosition;
         CurrentLevel++;
+        _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
 
         if (drop == null)
         {
