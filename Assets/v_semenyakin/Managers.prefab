@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 38135477656471505}
   - component: {fileID: 4425259274776566784}
   - component: {fileID: 2140251562072777950}
+  - component: {fileID: 5979688434223785902}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -57,3 +58,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83c030e61bea7a45bb29b11825bc272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialCurrencies:
+  - _currencyType: 0
+    _amount: 1000
+--- !u!114 &5979688434223785902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079587498596230970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a69fba21b9406af4abbcab0cc28c4766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondBetweenShopEnter: 5
+  _numItemsToRollInShop: 6
+  _shop: {fileID: 4425259274776566784}
+  _shopUI: {fileID: 0}
+  _wallet: {fileID: 2140251562072777950}

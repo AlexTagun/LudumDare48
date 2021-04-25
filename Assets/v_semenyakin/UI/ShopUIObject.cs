@@ -3,7 +3,17 @@ using UnityEngine;
 
 public class ShopUIObject : MonoBehaviour
 {
+    private void Start() {
+        initDescendEvent();
+    }
+
+    private void initDescendEvent() {
+        _descendButton.onClick.AddListener(hide);
+    }
+
     public void show(List<Shop.Product> inProducts) {
+        gameObject.SetActive(true);
+
         clearProductUIs();
 
         foreach (Shop.Product product in inProducts)
@@ -11,6 +21,13 @@ public class ShopUIObject : MonoBehaviour
     }
 
     public System.Action<Shop.Product> onProductSelected;
+    public System.Action onHidden;
+
+    public void hide() {
+        gameObject.SetActive(false);
+
+        onHidden?.Invoke();
+    }
 
     private void clearProductUIs() {
         foreach (Transform productUITransform in _productsGroup.transform)
@@ -27,4 +44,5 @@ public class ShopUIObject : MonoBehaviour
 
     [SerializeField] private UnityEngine.UI.GridLayoutGroup _productsGroup;
     [SerializeField] private ProductUIObject _productUIPrefab;
+    [SerializeField] private UnityEngine.UI.Button _descendButton;
 }

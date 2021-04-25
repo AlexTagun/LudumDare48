@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6960765456175787593}
   - component: {fileID: 3607588386756442832}
   m_Layer: 5
-  m_Name: Button
+  m_Name: DescendButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: DESCEND
 --- !u!1 &6515472016569078819
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +483,7 @@ MonoBehaviour:
   _productsGroup: {fileID: 6062836348219226947}
   _productUIPrefab: {fileID: 3054371556423814616, guid: c5f8d3bc1c7a66f4cbe4da77a0650e90,
     type: 3}
+  _descendButton: {fileID: 3607588386756442832}
 --- !u!1 &7868796416656566959
 GameObject:
   m_ObjectHideFlags: 0

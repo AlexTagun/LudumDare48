@@ -16,6 +16,17 @@ public static class DictionaryExtension
     }
 }
 
+public class Boxed<T>
+{
+    public T value
+    {
+        get { return _value; }
+        set { _value = value; }
+    }
+
+    private T _value;
+};
+
 public class Wallet : MonoBehaviour
 {
     public bool isPossibleToChange(CurrencyTypes.ECurrencyType inType, int inDelta) {
@@ -55,15 +66,23 @@ public class Wallet : MonoBehaviour
         return _currencies.addOrGet(inType).value;
     }
 
-    private class Boxed<T>
-    {
-        public T value {
-            get { return _value; }
-            set { _value = value; }
-        }
+    private void Start() {
+        fillInitialCurrencies();
+    }
+    
+    private void fillInitialCurrencies() {
+        foreach (InitData_Currency initData_currency in _initialCurrencies)
+            _currencies.addOrGet(initData_currency._currencyType).value += initData_currency._amount;
+    }
 
-        private T _value;
-    };
+    [System.Serializable]
+    public struct InitData_Currency
+    {
+        public CurrencyTypes.ECurrencyType _currencyType;
+        public int _amount;
+    }
+
+    [SerializeField] private List<InitData_Currency> _initialCurrencies = null;
 
     private Dictionary<CurrencyTypes.ECurrencyType, Boxed<int>> _currencies =
         new Dictionary<CurrencyTypes.ECurrencyType, Boxed<int>>();
