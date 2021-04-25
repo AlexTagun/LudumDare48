@@ -229,5 +229,11 @@ public class Ladder : MonoBehaviour, ILazyMapManager
 
 
     [SerializeField] private Bounds testBounds = new Bounds(Vector3.zero, new Vector3(0f, 10f, 0f));
+
+    public void TestSetZPosition(float zPosition)
+    {
+        testBounds.center = new Vector3(0, zPosition, 0);
+    }
+    
     private Bounds oldTestBounds = new Bounds();
 }
