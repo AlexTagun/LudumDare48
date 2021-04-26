@@ -18,7 +18,9 @@ public enum ItemType {
     None,
     Torch,
     Shield,
-    Sword
+    Sword,
+    HpPotion,
+    ActionPotion
 }
 
 public static class ItemFactory {
@@ -28,6 +30,8 @@ public static class ItemFactory {
             case ItemType.Torch: return new Torch();
             case ItemType.Shield: return new Shield();
             case ItemType.Sword: return new Sword();
+            case ItemType.HpPotion: return new HpPotion();
+            case ItemType.ActionPotion: return new ActionPotion();
         }
 
         return null;
@@ -102,4 +106,20 @@ public class Sword : Item {
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_L/Shoulder_L/ShoulderPart1_L/ShoulderPart2_L/Elbow_L/ElbowPart1_L/ElbowPart2_L/Wrist_L";
+}
+
+public class HpPotion : Item {
+    protected override string Name => "hpPotion";
+    public override string NameText => "Hp Potion";
+
+    protected override string EquipPath =>
+        "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R";
+}
+
+public class ActionPotion : Item {
+    protected override string Name => "actionPotion";
+    public override string NameText => "Action Potion";
+
+    protected override string EquipPath =>
+        "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R";
 }
