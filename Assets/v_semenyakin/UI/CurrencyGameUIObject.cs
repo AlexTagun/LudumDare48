@@ -3,24 +3,17 @@
 public class CurrencyGameUIObject : MonoBehaviour
 {
     private void Start() {
-        _goldAmountText.text = "0";
-    }
-
-    private void FixedUpdate() {
         updateCurrencyAmountsText();
+        
+        _wallet.onChanged.AddListener(updateCurrencyAmountsText);
     }
 
     private void updateCurrencyAmountsText() {
         int actualGoldAmount = _wallet.getCurrency(CurrencyTypes.ECurrencyType.Gold);
-        
-        if (actualGoldAmount != _showingGoldAmount) {
-            _goldAmountText.text = actualGoldAmount.ToString();
-            _showingGoldAmount = actualGoldAmount;
-        }
+        _goldAmountText.text = actualGoldAmount.ToString();
     }
 
     [SerializeField] private Wallet _wallet = null;
 
-    private int _showingGoldAmount = 0;
     [SerializeField] private TMPro.TextMeshProUGUI _goldAmountText = null;
 }

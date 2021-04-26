@@ -73,7 +73,7 @@ public class Wallet : MonoBehaviour
         return isPossible;
     }
 
-    public System.Action onChanged = null;
+    public UnityEngine.Events.UnityEvent onChanged;
 
     public int getCurrency(CurrencyTypes.ECurrencyType inType) {
         return _currencies.addOrGet(inType).value;
@@ -102,6 +102,8 @@ public class Wallet : MonoBehaviour
 
     private void load_set(CurrencyTypes.ECurrencyType inCurrencyType, int inCurrencyAmount) {
         _currencies.addOrGet(inCurrencyType).value = inCurrencyAmount;
+
+        onChanged.Invoke();
     }
 
     private void save() {
