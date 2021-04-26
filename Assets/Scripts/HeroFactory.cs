@@ -22,6 +22,7 @@ public class HeroFactory : MonoBehaviour {
 
     public static Hero Create(HeroType inType) {
         var hero = Instantiate(Instance.heroPrefab);
+        hero.CurActivePoints = hero.MaxActionPoints;
         var spMovement = hero.GetComponent<SpiralMovement>();
         spMovement.Center = Instance.center;
         

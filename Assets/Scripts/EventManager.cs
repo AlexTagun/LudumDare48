@@ -22,4 +22,10 @@ public static class EventManager {
     public static void HandleOnHpEnded(Hero hero) {
         OnHpEnded?.Invoke(hero);
     }
+
+    public static Action<Hero> OnAddHero;
+
+    public static void HandleOnAddHero(Hero hero) {
+        OnAddHero?.Invoke(hero);
+    }
 }

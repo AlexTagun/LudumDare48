@@ -32,8 +32,8 @@ public class RoundStartingShopActivationManager : MonoBehaviour
 
     private void processContractSelection(HeroShop.HeroContract inContract) {
         Hero newHero = inContract.buy(_wallet);
-        
-        //TODO: >>> Put hero to player's deck <<<
+
+        EventManager.HandleOnAddHero(newHero);
     }
 
     private void onExitFromHeroesShop() {
