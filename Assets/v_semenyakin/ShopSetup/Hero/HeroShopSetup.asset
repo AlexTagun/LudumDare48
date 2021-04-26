@@ -15,5 +15,5 @@ MonoBehaviour:
   _groups:
   - _weight: 1
     _heroes:
-    - _weight: 0
+    - _weight: 1
       _heroContract: {fileID: 11400000, guid: 073e06a480f3c104b987a13e7af48ee6, type: 2}
