@@ -67,6 +67,16 @@ MonoBehaviour:
     ObstacleType: 3
     Weight: 75
     SpawnOffset: {x: 0, y: 0, z: 0}
+  - Prefab: {fileID: 612776559442765290, guid: eeadf80a748bff945b3b25f4167a6f37, type: 3}
+    ItemType: 4
+    ObstacleType: 0
+    Weight: 5
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - Prefab: {fileID: 612776559442765290, guid: 3335c9749d89f174c8b576ab89988e72, type: 3}
+    ItemType: 5
+    ObstacleType: 0
+    Weight: 5
+    SpawnOffset: {x: 0, y: 0, z: 0}
   _negativeDrops:
   - Prefab: {fileID: 6804156257192701186, guid: 0bdb5a23dfd98d3408af0fb0ed101248,
       type: 3}
