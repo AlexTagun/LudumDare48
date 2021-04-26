@@ -45,8 +45,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ladder: {fileID: 0}
   _followCamera: {fileID: 0}
+  _levelText: {fileID: 0}
+  _loseWindow: {fileID: 0}
   _spawnStep: -7.183
   _dropGenerator: {fileID: 0}
   _itemSpawner: {fileID: 0}
-  _startSpawnPosition: 21
-  _offsetSpawnPosition: -21
+  _spawnOffset: 20
+  _firstRandomPoints:
+  - {x: 6.61, y: 0.68, z: -3.2}
+  - {x: 7.3, y: 1.21, z: 0.2}
+  - {x: 6.908, y: 1.58, z: 3.059}
+  - {x: 4.33, y: 2.06, z: 5.41}
+  _secondRandomPoints:
+  - {x: -1.39, y: -0.93, z: -6.87}
+  - {x: -5.04, y: -1.12, z: -5.6}
+  - {x: -7.1, y: -2.15, z: -1.61}
+  - {x: -7.17, y: -2.62, z: 2.56}

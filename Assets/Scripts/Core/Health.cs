@@ -8,14 +8,7 @@ public class Health : MonoBehaviour
 
     private float _currentHp;
 
-    
-
-    private void Awake()
-    {
-        Init();
-    }
-
-    private void Init()
+    public void Init()
     {
         _currentHp = _maxHp;
     }

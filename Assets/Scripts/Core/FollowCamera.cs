@@ -7,7 +7,7 @@ public class FollowCamera : MonoBehaviour
     private const float MinDeltaAnglesMagnitude = 1f; 
     
     [SerializeField] private Transform _center;
-    [SerializeField] private Transform _targetForY;
+    private Transform _targetForY;
 
     [SerializeField] private float _manualSpeed = 10f;
     
@@ -22,6 +22,7 @@ public class FollowCamera : MonoBehaviour
 
     private void Start() {
         EventManager.OnHpEnded += OnHpEnded;
+        _targetForY = InventoryManager.Instance.GetFirstHero();
     }
 
     private void OnDestroy() {

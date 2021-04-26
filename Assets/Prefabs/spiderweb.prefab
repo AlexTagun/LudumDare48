@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4033334830947069773}
   - component: {fileID: 3123222999465133487}
   - component: {fileID: 7503892601420056364}
+  - component: {fileID: 8468248533074317114}
   m_Layer: 0
   m_Name: spiderweb
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138649442186489715}
-  m_LocalRotation: {x: -0, y: 0.36035144, z: -0, w: 0.9328166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.83, y: -2.44, z: 5.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -35,7 +36,7 @@ Transform:
   - {fileID: 9031495446327508235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 42.244003, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4033334830947069773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +82,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8468248533074317114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138649442186489715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718f284cee64b8e40b04a65810dab6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4537505945996523027
 GameObject:
   m_ObjectHideFlags: 0

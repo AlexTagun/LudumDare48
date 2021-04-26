@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class InventoryManager : MonoBehaviour {
     [SerializeField] private ItemContainer itemContainerPrefab;
     [SerializeField] private Transform inventoryContainer;
+    [SerializeField] private Hero heroPrefab;
     private List<ItemContainer> _itemContainers;
     
     private List<Hero> _heroes;
@@ -23,7 +24,11 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnItemCollect += OnItemCollect;
         EventManager.OnHpEnded += OnHpEnded;
 
-        _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
+        _heroes = new List<Hero>();
+        for (int i = 0; i < 8; i++) {
+            _heroes.Add(HeroFactory.Create());
+        }
+        
         GameController.CurHeroCount = _heroes.Count;
         foreach (var hero in _heroes) {
             hero.CurActivePoints = hero.MaxActionPoints;
