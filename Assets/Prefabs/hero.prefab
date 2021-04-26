@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 50
   IsImmortal: 0
+  _potionUseSound: {fileID: 1979163788953264105}
 --- !u!114 &239740502
 MonoBehaviour:
   m_ObjectHideFlags: 0
