@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 38135477656471505}
   - component: {fileID: 4425259274776566784}
+  - component: {fileID: 4990012658109879749}
   - component: {fileID: 2140251562072777950}
   - component: {fileID: 5979688434223785902}
   - component: {fileID: 4597289997051973751}
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _setup: {fileID: 11400000, guid: d7e8c80b5ae7db94587da7a5b79fdaf8, type: 2}
+--- !u!114 &4990012658109879749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079587498596230970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d207ab273651c0f45a84e2e9d7706017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setup: {fileID: 11400000, guid: ff31892769827d843b0d7bb517469ce6, type: 2}
 --- !u!114 &2140251562072777950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +95,8 @@ MonoBehaviour:
   _numItemsToRollInShop: 6
   _shop: {fileID: 4425259274776566784}
   _shopUI: {fileID: 0}
+  _heroShop: {fileID: 4990012658109879749}
+  _heroShopUI: {fileID: 0}
   _wallet: {fileID: 2140251562072777950}
 --- !u!114 &4597289997051973751
 MonoBehaviour:
@@ -96,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroPrefab: {fileID: 328424596380438645, guid: 138483d1432a91240a923bd3626205f9,
     type: 3}
+  center: {fileID: 0}

@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum HeroType
+{
+    Hero
+}
+
 public class HeroFactory : MonoBehaviour {
     [SerializeField] private Hero heroPrefab;
     [SerializeField] private Transform center;
@@ -15,7 +20,7 @@ public class HeroFactory : MonoBehaviour {
         Instance = this;
     }
 
-    public static Hero Create() {
+    public static Hero Create(HeroType inType) {
         var hero = Instantiate(Instance.heroPrefab);
         var spMovement = hero.GetComponent<SpiralMovement>();
         spMovement.Center = Instance.center;
@@ -30,5 +35,10 @@ public class HeroFactory : MonoBehaviour {
         Instance._heroCount++;
         
         return hero;
+    }
+
+    public static Sprite GetHeroIcon(HeroType inType) {
+        //TODO: Implement this method
+        return null;
     }
 }

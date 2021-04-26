@@ -1,5 +1,21 @@
 ﻿using UnityEngine;
 
+public static class ObjUtils
+{
+    public static T findFirstObjectOfTypeAll<T>() where T : Component {
+        foreach (T obj in Resources.FindObjectsOfTypeAll(typeof(T)) as T[]) {
+            if (!UnityEditor.EditorUtility.IsPersistent(obj.transform.root.gameObject) &&
+                !(obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave))
+            {
+                return obj;
+            }
+        }
+
+        return null;
+    }
+}
+
+
 public class SecretShowActivationManager : MonoBehaviour
 {
     [SerializeField] private Shop _shop = null;
@@ -16,20 +32,9 @@ public class SecretShowActivationManager : MonoBehaviour
 
     private void initCache() {
         _cache_wallet = FindObjectOfType<Wallet>();
-        _cache_shopUI = initCache_findShopUI();
-    }
 
-    ShopUIObject initCache_findShopUI() {
         //NB: We should to find Shop UI in such way because FindObjectOfType ignores not active objects
-        foreach (ShopUIObject ui in Resources.FindObjectsOfTypeAll(typeof(ShopUIObject)) as ShopUIObject[]) {
-            if (!UnityEditor.EditorUtility.IsPersistent(ui.transform.root.gameObject) &&
-                !(ui.hideFlags == HideFlags.NotEditable || ui.hideFlags == HideFlags.HideAndDontSave))
-            {
-                return ui;
-            }
-        }
-
-        return null;
+        _cache_shopUI = ObjUtils.findFirstObjectOfTypeAll<ShopUIObject>();
     }
 
     private void initShopInteraction() {
