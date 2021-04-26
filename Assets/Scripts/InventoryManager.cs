@@ -23,16 +23,14 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnItemSwapped += UpdateItemContainers;
         EventManager.OnItemCollect += OnItemCollect;
         EventManager.OnHpEnded += OnHpEnded;
+        EventManager.OnAddHero += OnAddHero;
 
         _heroes = new List<Hero>();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 2; i++) {
             _heroes.Add(HeroFactory.Create(HeroType.Hero));
         }
         
         GameController.CurHeroCount = _heroes.Count;
-        foreach (var hero in _heroes) {
-            hero.CurActivePoints = hero.MaxActionPoints;
-        }
 
         _itemContainers = new List<ItemContainer>();
 
@@ -137,5 +135,16 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnItemSwapped -= UpdateItemContainers;
         EventManager.OnItemCollect -= OnItemCollect;
         EventManager.OnHpEnded -= OnHpEnded;
+        EventManager.OnAddHero -= OnAddHero;
+    }
+
+    private void OnAddHero(Hero hero) {
+        _heroes.Add(hero);
+        GameController.CurHeroCount = _heroes.Count;
+        var container = Instantiate(itemContainerPrefab, inventoryContainer);
+        container.gameObject.SetActive(true);
+        _itemContainers.Add(container);
+        
+        UpdateItemContainers();
     }
 }
