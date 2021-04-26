@@ -21,6 +21,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Vector3> _firstRandomPoints;
     [SerializeField] private List<Vector3> _secondRandomPoints;
 
+    [SerializeField] private List<Vector3> _firstRandomShopPoints;
+    [SerializeField] private List<Vector3> _secondRandomShopPoints;
+
     [SerializeField] private Transform _center;
 
     public static int CurrentLevel = 0;
@@ -45,8 +48,8 @@ public class GameController : MonoBehaviour
             return;
         }
         
-        RollDrop(_firstRandomPoints);
-        RollDrop(_secondRandomPoints);
+        RollDrop(_firstRandomPoints, true);
+        RollDrop(_secondRandomPoints, false);
         
         CurrentLevel++;
         _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
@@ -62,7 +65,7 @@ public class GameController : MonoBehaviour
         return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
     }
 
-    private void RollDrop(List<Vector3> randPositions)
+    private void RollDrop(List<Vector3> randPositions, bool isFirst)
     {
         var drop = _dropGenerator.GetDropInfo(CurrentLevel);
         
@@ -71,7 +74,22 @@ public class GameController : MonoBehaviour
         
         stepPosition += spawnOffset;
 
-        var randPosition = GetRandomPosition(randPositions);
+        if (isFirst && drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
+        {
+            
+        }
+
+        Vector3 randPosition = Vector3.zero;
+        
+        // if (drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
+        // {
+        //     randPosition =  GetRandomPosition(isFirst ? _firstRandomShopPoints : _secondRandomShopPoints);
+        // }
+        // else
+        // {
+            randPosition = GetRandomPosition(randPositions);
+        // }
+        
         stepPosition += randPosition;
         
 
@@ -86,7 +104,7 @@ public class GameController : MonoBehaviour
         
         if (spawnRotator != null)
         {
-            spawnGo.transform.forward = GetRotationForward(spawnGo.transform.position);
+            spawnGo.transform.forward = GetRotationForward(spawnGo.transform.position,spawnRotator.IsPerpendicular);
         }
     }
 
@@ -97,12 +115,17 @@ public class GameController : MonoBehaviour
         return randPositions[randIndex];
     }
 
-    private Vector3 GetRotationForward(Vector3 currentPosition)
+    private Vector3 GetRotationForward(Vector3 currentPosition, bool isPerpendicular)
     {
         var centerNoY = new Vector3(_center.position.x, 0f, _center.position.z);
         var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
 
         var directionToCenter = (centerNoY - currentPositionNoY).normalized;
+
+        if (isPerpendicular)
+        {
+            return (-1) * directionToCenter;
+        }
         
         var targetDirection = Vector3.Cross(directionToCenter, Vector3.up).normalized;
         return targetDirection;

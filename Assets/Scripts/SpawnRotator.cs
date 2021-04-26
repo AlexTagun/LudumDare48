@@ -2,4 +2,5 @@
 
 public class SpawnRotator : MonoBehaviour
 {
+    public bool IsPerpendicular;
 }
