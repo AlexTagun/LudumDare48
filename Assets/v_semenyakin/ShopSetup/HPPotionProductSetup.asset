@@ -16,7 +16,3 @@ MonoBehaviour:
   _price:
   - type: 0
     amount: 400
-  - type: 0
-    amount: 1200
-  - type: 0
-    amount: 750
