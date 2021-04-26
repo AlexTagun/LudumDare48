@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GeneratorConfig
   m_EditorClassIdentifier: 
   GeneratorDatas:
-  - PositiveDropWeight: 100
+  - PositiveDropWeight: 0
     NegativeDropWeight: 0
-    NoneDropWeight: 0
+    NoneDropWeight: 100
   - PositiveDropWeight: 90
     NegativeDropWeight: 10
     NoneDropWeight: 0
