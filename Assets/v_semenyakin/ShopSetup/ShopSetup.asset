@@ -13,23 +13,43 @@ MonoBehaviour:
   m_Name: ShopSetup
   m_EditorClassIdentifier: 
   _groups:
-  - _weight: 1
+  - _weight: 10000
     _products:
-    - _weight: 1
+    - _weight: 50
       _product: {fileID: 11400000, guid: 285869053f772114bb3ab52c22c8df91, type: 2}
-  - _weight: 1
+    - _weight: 40
+      _product: {fileID: 11400000, guid: b446551c73e6e2d4eab9df9bddb6eb26, type: 2}
+    - _weight: 10
+      _product: {fileID: 11400000, guid: 606cee152ea583a4299a1cba491592fe, type: 2}
+  - _weight: 5000
     _products:
-    - _weight: 1
+    - _weight: 33
       _product: {fileID: 11400000, guid: 5b08cc59d002664488b90cc013ddfc51, type: 2}
-  - _weight: 1
+    - _weight: 33
+      _product: {fileID: 11400000, guid: 8126d7f2891f6bc418ec11c94c8b26f1, type: 2}
+    - _weight: 33
+      _product: {fileID: 11400000, guid: 8c6ede507838c8f41b3d2a612ab17ba6, type: 2}
+  - _weight: 5000
     _products:
-    - _weight: 1
+    - _weight: 20
       _product: {fileID: 11400000, guid: 66546f103ed4b6342916e55e58be7ca1, type: 2}
-  - _weight: 1
+    - _weight: 40
+      _product: {fileID: 11400000, guid: 9856340f8f1dfcf4695cf5d70c57c782, type: 2}
+    - _weight: 40
+      _product: {fileID: 11400000, guid: 09d05ab27363fbb4380a0f459f1230a4, type: 2}
+  - _weight: 2000
     _products:
-    - _weight: 1
+    - _weight: 10
       _product: {fileID: 11400000, guid: 17d3d6778c5de224fb36d84ce0b6906a, type: 2}
-  - _weight: 1
+    - _weight: 30
+      _product: {fileID: 11400000, guid: 7e71e4004d6559149989f30196b41081, type: 2}
+    - _weight: 60
+      _product: {fileID: 11400000, guid: dcda58981ed87a446a720047c44b4b19, type: 2}
+  - _weight: 1000
     _products:
-    - _weight: 1
+    - _weight: 5
       _product: {fileID: 11400000, guid: b23e68d5fa6cff143833efb473d6f8e4, type: 2}
+    - _weight: 45
+      _product: {fileID: 11400000, guid: 0f0c9d842e5b81e4ba3d1e1a2276ffb7, type: 2}
+    - _weight: 50
+      _product: {fileID: 11400000, guid: 2e3d06f6945cf2f45998bd69e4bf5fb1, type: 2}

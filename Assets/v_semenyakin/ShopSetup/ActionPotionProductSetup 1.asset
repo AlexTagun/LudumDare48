@@ -15,8 +15,4 @@ MonoBehaviour:
   _itemType: 5
   _price:
   - type: 0
-    amount: 500
-  - type: 0
-    amount: 1000
-  - type: 0
-    amount: 1500
+    amount: 1250
