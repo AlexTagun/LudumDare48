@@ -99,7 +99,7 @@ public class InventoryManager : MonoBehaviour {
     {
         targetHero = null;
         
-        var heroList = _heroes.Where(h => h != null).ToList();
+        var heroList = _heroes.Where(h => h != null && h.Health.GetHpPercentage() > 0).ToList();
 
         if (heroList.Count == 0)
         {

@@ -146,4 +146,4 @@ MonoBehaviour:
   DestroyTime: 10
   _hintProjectileDistance: 10
   _zDeltaForShoot: 0.1
-  _projectileSpawnDistance: 25
+  _projectileSpawnDistance: 10

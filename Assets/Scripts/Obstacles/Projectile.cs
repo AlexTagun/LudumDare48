@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -32,9 +33,17 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        var direction = (_target.position - _rigidbody.position).normalized;
-        
-        _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.fixedDeltaTime);
+        try
+        {
+            var direction = (_target.position - _rigidbody.position).normalized;
+            _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.fixedDeltaTime);
+
+        }
+        catch (Exception e)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         _currentLifeTime += Time.fixedDeltaTime;
     }
