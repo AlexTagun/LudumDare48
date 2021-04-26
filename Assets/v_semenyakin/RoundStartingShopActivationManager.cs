@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoundStartingShopActivationManager : MonoBehaviour
 {
     public void performShopDialogs() {
-        enterTheShop(); 
+        enterTheHeroesShop(); 
     }
 
     public UnityEngine.Events.UnityEvent onExitFromDialog;
