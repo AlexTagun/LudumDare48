@@ -113,16 +113,20 @@ public class Ladder : MonoBehaviour, ILazyMapManager
                 Vector3 stepNormal = (nextStepPointDirection - stepPointDirection).normalized;
                 Vector3 additionalStepSizeDelta = stepNormal * _additionalStepSize * 0.5f;
 
+                Vector3 stepRandomization = nextStepRandomizatoin();
+
                 Vector3 stepPoint =
                     stepZPoint +
                     stepPointDirection * _radius -
-                    additionalStepSizeDelta;
+                    additionalStepSizeDelta +
+                    stepRandomization;
 
                 stepZPoint.y -= stepDeltaZ;
                 Vector3 nextStepPoint =
                     stepZPoint +
                     nextStepPointDirection * _radius +
-                    additionalStepSizeDelta;
+                    additionalStepSizeDelta +
+                    stepRandomization;
 
                 Ramp newRamp = updateFocus_placeStepsForFocus_placeSteps_makeRamp();
                 newRamp.placeLocal(stepPoint, nextStepPoint, _stepWidth, _stepHeight);
@@ -140,10 +144,26 @@ public class Ladder : MonoBehaviour, ILazyMapManager
                 }
 
                 stepPointDirection = nextStepPointDirection;
+
+                if (_decoration) {
+                    Vector3 decorationWorldPosition = newRamp.transform.TransformPoint(new Vector3(-0.5f, 0.5f, 0f));
+
+                    LadderDecoration.DecorationAttachPoint attachPoint;
+                    attachPoint._position = transform.InverseTransformPoint(decorationWorldPosition);
+                    attachPoint._rotation = newRamp.transform.rotation;
+
+                    _decoration.showStepDecoration(indexFrom + placedSteps, attachPoint);
+                }
             }
         }
     }
 
+    private Vector3 nextStepRandomizatoin()  {
+        return new Vector3(
+            Random.Range(-_stepsPlacementRandomization.x, _stepsPlacementRandomization.x),
+            Random.Range(-_stepsPlacementRandomization.y, _stepsPlacementRandomization.y),
+            Random.Range(-_stepsPlacementRandomization.z, _stepsPlacementRandomization.z));
+    }
 
     Ramp updateFocus_placeStepsForFocus_placeSteps_makeRamp() {
         Ramp newRamp = null;
@@ -166,6 +186,8 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         {
             updateFocus_freeOutOfFocusRamps_freeRamp(_lazyMapState._activeRamps.First.Value);
             _lazyMapState._activeRamps.RemoveFirst();
+
+            _decoration?.hideStepDecoration(rampIndex);
         }
 
         for (int rampIndex = Mathf.Max(newMaxRampIndex, _lazyMapState._minRampIndex);
@@ -174,6 +196,8 @@ public class Ladder : MonoBehaviour, ILazyMapManager
         {
             updateFocus_freeOutOfFocusRamps_freeRamp(_lazyMapState._activeRamps.Last.Value);
             _lazyMapState._activeRamps.RemoveLast();
+
+            _decoration?.hideStepDecoration(rampIndex);
         }
     }
 
@@ -193,10 +217,13 @@ public class Ladder : MonoBehaviour, ILazyMapManager
     [SerializeField] private float _zAngle = 10;
     [SerializeField] private int _stepsInCircle = 10;
     [SerializeField] private float _additionalStepSize = 0f;
+    [SerializeField] private Vector3 _stepsPlacementRandomization = Vector3.zero;
 
     [SerializeField] Ramp _rampPrefab = null;
 
-#region Caches
+    [SerializeField] LadderDecoration _decoration = null;
+
+    #region Caches
     struct Cache
     {
         public float _anglePerStep;
