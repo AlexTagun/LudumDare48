@@ -939,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1339132822
 Light:
   m_ObjectHideFlags: 0
@@ -1467,6 +1467,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1988096730}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1999104898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4924293255171378694, guid: 9609b17f23790894dbf4b047488fb45b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2124485535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2124485535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,7 +1498,7 @@ PrefabInstance:
     - target: {fileID: 1101690196452520895, guid: 9609b17f23790894dbf4b047488fb45b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 57.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1101690196452520895, guid: 9609b17f23790894dbf4b047488fb45b,
         type: 3}
@@ -1670,6 +1676,11 @@ PrefabInstance:
       propertyPath: _levelText
       value: 
       objectReference: {fileID: 63254053}
+    - target: {fileID: 1343309125397245616, guid: af01461bc2e15ad4794a5bb90a19b4d0,
+        type: 3}
+      propertyPath: _loseWindow
+      value: 
+      objectReference: {fileID: 1999104898}
     - target: {fileID: 1343309125397245616, guid: af01461bc2e15ad4794a5bb90a19b4d0,
         type: 3}
       propertyPath: _itemSpawner

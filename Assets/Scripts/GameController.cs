@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Ladder _ladder;
     [SerializeField] private Transform _followCamera;
     [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private GameObject _loseWindow;
 
     [SerializeField] private float _spawnStep;
 
@@ -16,6 +17,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _spawnOffset = 20f;
 
     public static int CurrentLevel = 0;
+    public static int CurHeroCount = 0;
+
+    private void Start() {
+        EventManager.OnHpEnded += OnHeroDie;
+    }
 
     private void Update()
     {
@@ -57,5 +63,15 @@ public class GameController : MonoBehaviour
     private Vector3 GetStepPosition()
     {
         return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
+    }
+
+    private void OnHeroDie(Hero hero) {
+        if (CurHeroCount <= 1) {
+            _loseWindow.SetActive(true);
+        }
+    }
+
+    private void OnDestroy() {
+        EventManager.OnHpEnded -= OnHeroDie;
     }
 }

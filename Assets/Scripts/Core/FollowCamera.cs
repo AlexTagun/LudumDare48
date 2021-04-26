@@ -21,9 +21,16 @@ public class FollowCamera : MonoBehaviour
     private Quaternion? _oldRotation;
 
     private void Start() {
-        EventManager.OnHpEnded += hero => {
-            _targetForY = InventoryManager.Instance.GetFirstHero();
-        };
+        EventManager.OnHpEnded += OnHpEnded;
+    }
+
+    private void OnDestroy() {
+        EventManager.OnHpEnded -= OnHpEnded;
+    }
+
+    private void OnHpEnded(Hero hero) {
+        if(GameController.CurHeroCount <= 0) return;
+        _targetForY = InventoryManager.Instance.GetFirstHero();
     }
 
     private void UpdateRotation(float delta)
@@ -51,6 +58,7 @@ public class FollowCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (GameController.CurHeroCount <= 0) return;
         UpdateCameraPosition();
         UpdateRotation(Time.fixedDeltaTime);
     }

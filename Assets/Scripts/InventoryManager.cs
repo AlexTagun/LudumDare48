@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour {
         EventManager.OnHpEnded += OnHpEnded;
 
         _heroes = new List<Hero>(FindObjectsOfType<Hero>().OrderBy(hero => hero.name));
+        GameController.CurHeroCount = _heroes.Count;
         foreach (var hero in _heroes) {
             hero.CurActivePoints = hero.MaxActionPoints;
         }
@@ -117,11 +118,17 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Remove(orderedList[i]);
             _heroes[i].Kill();
             _heroes.RemoveAt(i);
-            
+            GameController.CurHeroCount--;
         }
     }
 
     public Transform GetFirstHero() {
         return _heroes.First().transform;
+    }
+
+    private void OnDestroy() {
+        EventManager.OnItemSwapped -= UpdateItemContainers;
+        EventManager.OnItemCollect -= OnItemCollect;
+        EventManager.OnHpEnded -= OnHpEnded;
     }
 }
