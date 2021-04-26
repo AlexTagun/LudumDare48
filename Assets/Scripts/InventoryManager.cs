@@ -54,6 +54,7 @@ public class InventoryManager : MonoBehaviour {
         for (int i = 0; i < orderedList.Length; i++) {
             orderedList[i].SetData(_heroes[i].CurActivePoints, _heroes[i].MaxActionPoints);
             _heroes[i].SetItem(orderedList[i].Item);
+            orderedList[i].SetHero(_heroes[i]);
             orderedList[i].SetColor(_heroes[i].Health.GetHpPercentage());
         }
     }
@@ -66,6 +67,7 @@ public class InventoryManager : MonoBehaviour {
             ++i;
             if (itemContainer.Item != null) continue;
             itemContainer.SetItem(item);
+            itemContainer.SetHero(_heroes[i]);
             break;
         }
 

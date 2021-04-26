@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -81,5 +82,9 @@ public class Draggable : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnPointerDown(PointerEventData eventData) {
         EventManager.IsDragging = true;
+    }
+
+    private void OnDestroy() {
+        Destroy(icon.gameObject);
     }
 }

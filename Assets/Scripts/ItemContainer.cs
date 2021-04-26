@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class ItemContainer : MonoBehaviour {
     [SerializeField] private Image icon;
     [SerializeField] private Image back;
     [SerializeField] private Image frame;
+    [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Color fullHealthColor;
@@ -15,6 +17,22 @@ public class ItemContainer : MonoBehaviour {
     [SerializeField] private Color lowHealthColor;
 
     public IItem Item;
+    private Hero _hero;
+
+    private void Awake() {
+        button.onClick.AddListener(OnButtonClick);
+    }
+
+    private void OnButtonClick() {
+        if(Item == null) return;
+        
+        bool needToDestroy = Item.Click(_hero);
+        if (needToDestroy) {
+            Item.Destroy();
+            Item = null;
+            EventManager.HandleOnItemSwapped();
+        }
+    }
 
     public void SetData(int curActivePoints, int maxActivePoints) {
         pointsText.text = $"{curActivePoints}/{maxActivePoints}";
@@ -25,6 +43,10 @@ public class ItemContainer : MonoBehaviour {
     public void SetItem(IItem item) {
         Item = item;
         icon.sprite = item.Icon;
+    }
+
+    public void SetHero(Hero hero) {
+        _hero = hero;
     }
 
     public void SetColor(float percentage) {

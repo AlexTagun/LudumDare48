@@ -59,4 +59,9 @@ public class Hero : MonoBehaviour
         yield return new WaitForSeconds(4);
         Destroy(gameObject);
     }
+
+    public void AddActivePoints(int value) {
+        CurActivePoints += value;
+        CurActivePoints = Math.Min(CurActivePoints, MaxActionPoints);
+    }
 }
