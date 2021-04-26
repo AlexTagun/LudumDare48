@@ -25,3 +25,11 @@ MonoBehaviour:
     _products:
     - _weight: 1
       _product: {fileID: 11400000, guid: 66546f103ed4b6342916e55e58be7ca1, type: 2}
+  - _weight: 1
+    _products:
+    - _weight: 1
+      _product: {fileID: 11400000, guid: 17d3d6778c5de224fb36d84ce0b6906a, type: 2}
+  - _weight: 1
+    _products:
+    - _weight: 1
+      _product: {fileID: 11400000, guid: b23e68d5fa6cff143833efb473d6f8e4, type: 2}

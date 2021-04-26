@@ -10,9 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48ee262132923154daadadb0eab5bf17, type: 3}
-  m_Name: ShieldProductSetup
+  m_Name: HPPotionProductSetup
   m_EditorClassIdentifier: 
-  _itemType: 2
+  _itemType: 4
   _price:
   - type: 0
-    amount: 250
+    amount: 400
+  - type: 0
+    amount: 1200
+  - type: 0
+    amount: 750
