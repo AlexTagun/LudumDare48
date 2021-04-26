@@ -16,6 +16,8 @@ public class TurretObstacle : Obstacle
     [SerializeField] private float _hintProjectileDistance = 1f;
     [SerializeField] private float _zDeltaForShoot = 0.1f;
     [SerializeField] private float _projectileSpawnDistance = 25;
+
+    [SerializeField] private AudioSource _startArrowSound;
     
     private Hero _target;
     
@@ -92,6 +94,8 @@ public class TurretObstacle : Obstacle
         projectile.SetTarget(_target.transform);
         
         _target.SetHintProjectileActive(false);
+
+        _startArrowSound.Play();
         
         TryDestroy();
     }

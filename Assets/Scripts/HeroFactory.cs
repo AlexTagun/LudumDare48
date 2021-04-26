@@ -39,7 +39,10 @@ public class HeroFactory : MonoBehaviour {
     }
 
     public static Sprite GetHeroIcon(HeroType inType) {
-        //TODO: Implement this method
+        switch (inType) {
+            case HeroType.Hero:
+                return Resources.Load<Sprite>("hero");
+        }
         return null;
     }
 }
