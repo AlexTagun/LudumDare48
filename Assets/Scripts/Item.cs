@@ -116,7 +116,7 @@ public class Sword : Item {
 
 public class HpPotion : Item {
     protected override string Name => "hpPotion";
-    public override string NameText => "Hp Potion";
+    public override string NameText => "Hp";
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R";
@@ -129,13 +129,13 @@ public class HpPotion : Item {
 
 public class ActionPotion : Item {
     protected override string Name => "actionPotion";
-    public override string NameText => "Action Potion";
+    public override string NameText => "Actions";
 
     protected override string EquipPath =>
         "NPC_walk/Root_M/Pelvis_M/PelvisPart1_M/PelvisPart2_M/Spine1_M/Spine1Part1_M/Spine1Part2_M/Chest_M/Scapula_R/Shoulder_R/ShoulderPart1_R/ShoulderPart2_R/Elbow_R/ElbowPart1_R/ElbowPart2_R/Wrist_R";
 
     public override bool Click(Hero hero) {
-        hero.AddActivePoints(1);
+        hero.AddActivePoints(3);
         return true;
     }
 }
