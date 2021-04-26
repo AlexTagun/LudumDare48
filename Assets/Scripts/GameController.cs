@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private ItemSpawner _itemSpawner;
 
     [SerializeField] private float _spawnOffset = 20f;
+
+    [SerializeField] private List<Vector3> _firstRandomPoints;
+    [SerializeField] private List<Vector3> _secondRandomPoints;
 
     public static int CurrentLevel = 0;
     public static int CurHeroCount = 0;
@@ -43,6 +48,9 @@ public class GameController : MonoBehaviour
         var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;
         
         stepPosition += spawnOffset;
+
+        var randPosition = GetRandomPosition(true);
+        stepPosition += randPosition;
         
         CurrentLevel++;
         _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
@@ -63,6 +71,20 @@ public class GameController : MonoBehaviour
     private Vector3 GetStepPosition()
     {
         return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
+    }
+
+    private Vector3 GetRandomPosition(bool isFirst)
+    {
+        var randIndex = 0;
+        
+        if (isFirst)
+        {
+            randIndex = Random.Range(0, _firstRandomPoints.Count);
+            return _firstRandomPoints[randIndex];
+        }
+
+        randIndex = Random.Range(0, _secondRandomPoints.Count);
+        return _secondRandomPoints[randIndex];
     }
 
     private void OnHeroDie(Hero hero) {
