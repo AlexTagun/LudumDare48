@@ -12,6 +12,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private ParticleSystem damageEffect;
 
     [SerializeField] private AudioSource _heroDeadSound;
+    [SerializeField] private AudioSource _potionUseSound;
     
     public Transform ShootPoint => _shootPoint;
     public Health Health;
@@ -88,5 +89,6 @@ public class Hero : MonoBehaviour
     public void AddActivePoints(int value) {
         CurActivePoints += value;
         CurActivePoints = Math.Min(CurActivePoints, MaxActionPoints);
+        _potionUseSound.Play();
     }
 }
