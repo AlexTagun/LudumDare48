@@ -10,6 +10,8 @@ public class Hero : MonoBehaviour
     [SerializeField] private Collider сollider;
 
     [SerializeField] private ParticleSystem damageEffect;
+
+    [SerializeField] private AudioSource _heroDeadSound;
     
     public Transform ShootPoint => _shootPoint;
     public Health Health;
@@ -24,6 +26,7 @@ public class Hero : MonoBehaviour
     private void Awake()
     {
         Health.OnGetDamage += OnGetDamage;
+        EventManager.OnHpEnded += OnHpEnded;
     }
 
     public void SetItem(IItem item) {
@@ -65,6 +68,7 @@ public class Hero : MonoBehaviour
     private IEnumerator DestroyCoroutine() {
         yield return new WaitForSeconds(4);
         Health.OnGetDamage -= OnGetDamage;
+        EventManager.OnHpEnded -= OnHpEnded;
         Destroy(gameObject);
     }
 
@@ -72,6 +76,13 @@ public class Hero : MonoBehaviour
     {
         damageEffect.gameObject.SetActive(true);
         damageEffect.Play(true);
+    }
+
+    private void OnHpEnded(Hero hero)
+    {
+        if(hero != this){return;}
+
+        _heroDeadSound.Play();
     }
 
     public void AddActivePoints(int value) {
