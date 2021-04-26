@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5992485052022824612}
   - component: {fileID: 5992485052022824615}
+  - component: {fileID: 4881299135524023571}
   m_Layer: 0
   m_Name: Ladder
   m_TagString: Untagged
@@ -50,11 +51,71 @@ MonoBehaviour:
   _zAngle: 10
   _stepsInCircle: 20
   _additionalStepSize: 1
+  _stepsPlacementRandomization: {x: 0, y: 0, z: 0}
   _rampPrefab: {fileID: 5496566899836240771, guid: 3dba383aaac6d564a87b587589ce1e6a,
     type: 3}
+  _decoration: {fileID: 0}
   testBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 20, z: 0}
+--- !u!114 &4881299135524023571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992485052022824608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83423d8610b8656419cfd7a1b3ae1f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initData_decoration:
+  - _stepIndex: 0
+    _decorationPrefab: {fileID: 1478627508900193312, guid: eb62eb9353f49b04a8e961a9347a4178,
+      type: 3}
+  - _stepIndex: 25
+    _decorationPrefab: {fileID: 3044279458140275800, guid: 6476d8ef5d936b54ab12fa996037148b,
+      type: 3}
+  - _stepIndex: 50
+    _decorationPrefab: {fileID: 3688027144373205502, guid: 516ccf9055638454cb93f31111b131e5,
+      type: 3}
+  - _stepIndex: 60
+    _decorationPrefab: {fileID: 2873834930516896992, guid: e0a794dcb090121488cb9d62131a3cf5,
+      type: 3}
+  - _stepIndex: 85
+    _decorationPrefab: {fileID: 3044279458140275800, guid: 6476d8ef5d936b54ab12fa996037148b,
+      type: 3}
+  - _stepIndex: 120
+    _decorationPrefab: {fileID: 3688027144373205502, guid: 516ccf9055638454cb93f31111b131e5,
+      type: 3}
+  - _stepIndex: 150
+    _decorationPrefab: {fileID: 3688027144373205502, guid: 516ccf9055638454cb93f31111b131e5,
+      type: 3}
+  - _stepIndex: 185
+    _decorationPrefab: {fileID: 5637495664337523860, guid: 222b0e056a5a1c342b411dba65b13668,
+      type: 3}
+  - _stepIndex: 190
+    _decorationPrefab: {fileID: 1478627508900193312, guid: eb62eb9353f49b04a8e961a9347a4178,
+      type: 3}
+  - _stepIndex: 215
+    _decorationPrefab: {fileID: 5637495664337523860, guid: 222b0e056a5a1c342b411dba65b13668,
+      type: 3}
+  - _stepIndex: 230
+    _decorationPrefab: {fileID: 8009867330688731691, guid: 08fc7de7421011e4cab408ab83b43798,
+      type: 3}
+  - _stepIndex: 245
+    _decorationPrefab: {fileID: 5637495664337523860, guid: 222b0e056a5a1c342b411dba65b13668,
+      type: 3}
+  - _stepIndex: 260
+    _decorationPrefab: {fileID: 5637495664337523860, guid: 222b0e056a5a1c342b411dba65b13668,
+      type: 3}
+  - _stepIndex: 280
+    _decorationPrefab: {fileID: 2873834930516896992, guid: e0a794dcb090121488cb9d62131a3cf5,
+      type: 3}
+  - _stepIndex: 290
+    _decorationPrefab: {fileID: 5637495664337523860, guid: 222b0e056a5a1c342b411dba65b13668,
+      type: 3}
 --- !u!1 &5992485052732729306
 GameObject:
   m_ObjectHideFlags: 0
