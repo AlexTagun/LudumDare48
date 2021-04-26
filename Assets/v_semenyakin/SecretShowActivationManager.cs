@@ -59,7 +59,8 @@ public class SecretShowActivationManager : MonoBehaviour
     }
 
     private void onExitFromShop() {
-        Destroy(gameObject);
+        if (gameObject)
+            Destroy(gameObject);
     }
 
     private void processProductSelection(Shop.Product inProduct) {
