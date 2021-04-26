@@ -17,272 +17,299 @@ MonoBehaviour:
     NegativeDropWeight: 0
     NoneDropWeight: 0
   - PositiveDropWeight: 90
-    NegativeDropWeight: 5
-    NoneDropWeight: 5
-  - PositiveDropWeight: 90
-    NegativeDropWeight: 5
-    NoneDropWeight: 5
-  - PositiveDropWeight: 5
-    NegativeDropWeight: 90
-    NoneDropWeight: 5
-  - PositiveDropWeight: 6
-    NegativeDropWeight: 90
-    NoneDropWeight: 4
-  - PositiveDropWeight: 6
-    NegativeDropWeight: 89
-    NoneDropWeight: 4
-  - PositiveDropWeight: 6
-    NegativeDropWeight: 89
-    NoneDropWeight: 4
-  - PositiveDropWeight: 6
-    NegativeDropWeight: 89
-    NoneDropWeight: 4
-  - PositiveDropWeight: 6
-    NegativeDropWeight: 89
-    NoneDropWeight: 4
-  - PositiveDropWeight: 89
-    NegativeDropWeight: 6
-    NoneDropWeight: 4
-  - PositiveDropWeight: 89
-    NegativeDropWeight: 7
-    NoneDropWeight: 4
-  - PositiveDropWeight: 89
-    NegativeDropWeight: 7
-    NoneDropWeight: 3
-  - PositiveDropWeight: 89
-    NegativeDropWeight: 7
-    NoneDropWeight: 3
-  - PositiveDropWeight: 89
-    NegativeDropWeight: 7
-    NoneDropWeight: 3
-  - PositiveDropWeight: 88
-    NegativeDropWeight: 7
-    NoneDropWeight: 3
-  - PositiveDropWeight: 7
-    NegativeDropWeight: 88
-    NoneDropWeight: 3
-  - PositiveDropWeight: 8
-    NegativeDropWeight: 88
-    NoneDropWeight: 3
-  - PositiveDropWeight: 8
-    NegativeDropWeight: 88
-    NoneDropWeight: 3
-  - PositiveDropWeight: 8
-    NegativeDropWeight: 88
-    NoneDropWeight: 2
-  - PositiveDropWeight: 8
-    NegativeDropWeight: 88
-    NoneDropWeight: 2
-  - PositiveDropWeight: 8
-    NegativeDropWeight: 88
-    NoneDropWeight: 2
-  - PositiveDropWeight: 87
-    NegativeDropWeight: 8
-    NoneDropWeight: 2
-  - PositiveDropWeight: 87
-    NegativeDropWeight: 9
-    NoneDropWeight: 2
-  - PositiveDropWeight: 87
-    NegativeDropWeight: 8
-    NoneDropWeight: 2
-  - PositiveDropWeight: 87
-    NegativeDropWeight: 9
-    NoneDropWeight: 2
-  - PositiveDropWeight: 87
-    NegativeDropWeight: 9
-    NoneDropWeight: 2
-  - PositiveDropWeight: 86
-    NegativeDropWeight: 9
-    NoneDropWeight: 2
-  - PositiveDropWeight: 86
     NegativeDropWeight: 10
-    NoneDropWeight: 1
-  - PositiveDropWeight: 86
-    NegativeDropWeight: 10
-    NoneDropWeight: 1
-  - PositiveDropWeight: 86
-    NegativeDropWeight: 10
-    NoneDropWeight: 1
-  - PositiveDropWeight: 10
-    NegativeDropWeight: 86
-    NoneDropWeight: 1
-  - PositiveDropWeight: 10
-    NegativeDropWeight: 86
-    NoneDropWeight: 1
-  - PositiveDropWeight: 10
-    NegativeDropWeight: 86
-    NoneDropWeight: 1
-  - PositiveDropWeight: 10
-    NegativeDropWeight: 11
-    NoneDropWeight: 1
-  - PositiveDropWeight: 86
-    NegativeDropWeight: 11
-    NoneDropWeight: 1
-  - PositiveDropWeight: 85
-    NegativeDropWeight: 11
-    NoneDropWeight: 1
-  - PositiveDropWeight: 84
-    NegativeDropWeight: 11
-    NoneDropWeight: 1
-  - PositiveDropWeight: 84
-    NegativeDropWeight: 12
-    NoneDropWeight: 1
-  - PositiveDropWeight: 84
-    NegativeDropWeight: 12
-    NoneDropWeight: 0
-  - PositiveDropWeight: 84
-    NegativeDropWeight: 12
-    NoneDropWeight: 0
-  - PositiveDropWeight: 83
-    NegativeDropWeight: 12
-    NoneDropWeight: 0
-  - PositiveDropWeight: 83
-    NegativeDropWeight: 13
-    NoneDropWeight: 0
-  - PositiveDropWeight: 83
-    NegativeDropWeight: 13
-    NoneDropWeight: 0
-  - PositiveDropWeight: 82
-    NegativeDropWeight: 13
-    NoneDropWeight: 0
-  - PositiveDropWeight: 13
-    NegativeDropWeight: 82
-    NoneDropWeight: 0
-  - PositiveDropWeight: 14
-    NegativeDropWeight: 82
-    NoneDropWeight: 0
-  - PositiveDropWeight: 14
-    NegativeDropWeight: 81
-    NoneDropWeight: 0
-  - PositiveDropWeight: 14
-    NegativeDropWeight: 81
-    NoneDropWeight: 0
-  - PositiveDropWeight: 14
-    NegativeDropWeight: 81
     NoneDropWeight: 0
   - PositiveDropWeight: 80
-    NegativeDropWeight: 15
-    NoneDropWeight: 0
-  - PositiveDropWeight: 80
-    NegativeDropWeight: 15
-    NoneDropWeight: 0
-  - PositiveDropWeight: 80
-    NegativeDropWeight: 15
-    NoneDropWeight: 0
-  - PositiveDropWeight: 79
-    NegativeDropWeight: 16
-    NoneDropWeight: 0
-  - PositiveDropWeight: 79
-    NegativeDropWeight: 16
-    NoneDropWeight: 0
-  - PositiveDropWeight: 78
-    NegativeDropWeight: 16
-    NoneDropWeight: 0
-  - PositiveDropWeight: 78
-    NegativeDropWeight: 17
-    NoneDropWeight: 0
-  - PositiveDropWeight: 17
-    NegativeDropWeight: 77
-    NoneDropWeight: 0
-  - PositiveDropWeight: 17
-    NegativeDropWeight: 77
-    NoneDropWeight: 0
-  - PositiveDropWeight: 18
-    NegativeDropWeight: 76
-    NoneDropWeight: 0
-  - PositiveDropWeight: 18
-    NegativeDropWeight: 76
-    NoneDropWeight: 0
-  - PositiveDropWeight: 19
-    NegativeDropWeight: 75
-    NoneDropWeight: 1
-  - PositiveDropWeight: 74
-    NegativeDropWeight: 19
-    NoneDropWeight: 1
-  - PositiveDropWeight: 74
-    NegativeDropWeight: 19
-    NoneDropWeight: 1
-  - PositiveDropWeight: 73
     NegativeDropWeight: 20
-    NoneDropWeight: 1
-  - PositiveDropWeight: 72
+    NoneDropWeight: 0
+  - PositiveDropWeight: 80
     NegativeDropWeight: 20
-    NoneDropWeight: 1
-  - PositiveDropWeight: 71
-    NegativeDropWeight: 21
-    NoneDropWeight: 1
-  - PositiveDropWeight: 71
-    NegativeDropWeight: 21
-    NoneDropWeight: 2
-  - PositiveDropWeight: 70
-    NegativeDropWeight: 22
-    NoneDropWeight: 2
-  - PositiveDropWeight: 22
-    NegativeDropWeight: 69
-    NoneDropWeight: 2
-  - PositiveDropWeight: 23
-    NegativeDropWeight: 69
-    NoneDropWeight: 2
-  - PositiveDropWeight: 24
-    NegativeDropWeight: 67
-    NoneDropWeight: 3
-  - PositiveDropWeight: 24
-    NegativeDropWeight: 66
-    NoneDropWeight: 3
-  - PositiveDropWeight: 64
-    NegativeDropWeight: 25
-    NoneDropWeight: 3
-  - PositiveDropWeight: 63
-    NegativeDropWeight: 26
-    NoneDropWeight: 4
-  - PositiveDropWeight: 62
-    NegativeDropWeight: 27
-    NoneDropWeight: 4
+    NoneDropWeight: 0
   - PositiveDropWeight: 60
-    NegativeDropWeight: 28
-    NoneDropWeight: 5
-  - PositiveDropWeight: 58
-    NegativeDropWeight: 28
-    NoneDropWeight: 6
-  - PositiveDropWeight: 57
-    NegativeDropWeight: 29
-    NoneDropWeight: 6
-  - PositiveDropWeight: 55
-    NegativeDropWeight: 31
-    NoneDropWeight: 7
-  - PositiveDropWeight: 32
-    NegativeDropWeight: 52
-    NoneDropWeight: 8
-  - PositiveDropWeight: 33
-    NegativeDropWeight: 50
-    NoneDropWeight: 9
-  - PositiveDropWeight: 34
-    NegativeDropWeight: 47
-    NoneDropWeight: 10
-  - PositiveDropWeight: 38
-    NegativeDropWeight: 44
-    NoneDropWeight: 13
-  - PositiveDropWeight: 40
-    NegativeDropWeight: 38
-    NoneDropWeight: 14
-  - PositiveDropWeight: 38
     NegativeDropWeight: 40
-    NoneDropWeight: 14
-  - PositiveDropWeight: 33
-    NegativeDropWeight: 42
-    NoneDropWeight: 16
-  - PositiveDropWeight: 29
+    NoneDropWeight: 0
+  - PositiveDropWeight: 60
+    NegativeDropWeight: 40
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 80
+    NegativeDropWeight: 0
+    NoneDropWeight: 20
+  - PositiveDropWeight: 89
+    NegativeDropWeight: 11
+    NoneDropWeight: 0
+  - PositiveDropWeight: 78
+    NegativeDropWeight: 22
+    NoneDropWeight: 0
+  - PositiveDropWeight: 78
+    NegativeDropWeight: 22
+    NoneDropWeight: 0
+  - PositiveDropWeight: 56
     NegativeDropWeight: 44
-    NoneDropWeight: 19
-  - PositiveDropWeight: 29
+    NoneDropWeight: 0
+  - PositiveDropWeight: 56
     NegativeDropWeight: 44
-    NoneDropWeight: 19
-  - PositiveDropWeight: 17
-    NegativeDropWeight: 50
-    NoneDropWeight: 24
-  - PositiveDropWeight: 9
-    NegativeDropWeight: 54
-    NoneDropWeight: 28
-  - PositiveDropWeight: 1
-    NegativeDropWeight: 59
-    NoneDropWeight: 32
+    NoneDropWeight: 0
+  - PositiveDropWeight: 12
+    NegativeDropWeight: 88
+    NoneDropWeight: 0
+  - PositiveDropWeight: 12
+    NegativeDropWeight: 88
+    NoneDropWeight: 0
+  - PositiveDropWeight: 12
+    NegativeDropWeight: 88
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 90
+    NegativeDropWeight: 10
+    NoneDropWeight: 0
+  - PositiveDropWeight: 88
+    NegativeDropWeight: 12
+    NoneDropWeight: 0
+  - PositiveDropWeight: 76
+    NegativeDropWeight: 24
+    NoneDropWeight: 0
+  - PositiveDropWeight: 76
+    NegativeDropWeight: 24
+    NoneDropWeight: 0
+  - PositiveDropWeight: 52
+    NegativeDropWeight: 48
+    NoneDropWeight: 0
+  - PositiveDropWeight: 52
+    NegativeDropWeight: 48
+    NoneDropWeight: 0
+  - PositiveDropWeight: 4
+    NegativeDropWeight: 96
+    NoneDropWeight: 0
+  - PositiveDropWeight: 4
+    NegativeDropWeight: 96
+    NoneDropWeight: 0
+  - PositiveDropWeight: 4
+    NegativeDropWeight: 96
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 80
+    NegativeDropWeight: 20
+    NoneDropWeight: 0
+  - PositiveDropWeight: 77
+    NegativeDropWeight: 23
+    NoneDropWeight: 0
+  - PositiveDropWeight: 77
+    NegativeDropWeight: 23
+    NoneDropWeight: 0
+  - PositiveDropWeight: 54
+    NegativeDropWeight: 46
+    NoneDropWeight: 0
+  - PositiveDropWeight: 54
+    NegativeDropWeight: 46
+    NoneDropWeight: 0
+  - PositiveDropWeight: 8
+    NegativeDropWeight: 92
+    NoneDropWeight: 0
+  - PositiveDropWeight: 8
+    NegativeDropWeight: 92
+    NoneDropWeight: 0
+  - PositiveDropWeight: 8
+    NegativeDropWeight: 92
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 100
+    NegativeDropWeight: 0
+    NoneDropWeight: 0
+  - PositiveDropWeight: 90
+    NegativeDropWeight: 10
+    NoneDropWeight: 0
+  - PositiveDropWeight: 80
+    NegativeDropWeight: 20
+    NoneDropWeight: 0
+  - PositiveDropWeight: 80
+    NegativeDropWeight: 20
+    NoneDropWeight: 0
+  - PositiveDropWeight: 60
+    NegativeDropWeight: 40
+    NoneDropWeight: 0
+  - PositiveDropWeight: 60
+    NegativeDropWeight: 40
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 50
+    NegativeDropWeight: 0
+    NoneDropWeight: 50
+  - PositiveDropWeight: 50
+    NegativeDropWeight: 0
+    NoneDropWeight: 50
+  - PositiveDropWeight: 89
+    NegativeDropWeight: 11
+    NoneDropWeight: 0
+  - PositiveDropWeight: 78
+    NegativeDropWeight: 22
+    NoneDropWeight: 0
+  - PositiveDropWeight: 78
+    NegativeDropWeight: 22
+    NoneDropWeight: 0
+  - PositiveDropWeight: 56
+    NegativeDropWeight: 44
+    NoneDropWeight: 0
+  - PositiveDropWeight: 56
+    NegativeDropWeight: 44
+    NoneDropWeight: 0
+  - PositiveDropWeight: 12
+    NegativeDropWeight: 88
+    NoneDropWeight: 0
+  - PositiveDropWeight: 12
+    NegativeDropWeight: 88
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 0
+    NegativeDropWeight: 100
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 70
+    NegativeDropWeight: 30
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 40
+    NegativeDropWeight: 60
+    NoneDropWeight: 0
+  - PositiveDropWeight: 20
+    NegativeDropWeight: 80
+    NoneDropWeight: 0
+  - PositiveDropWeight: 10
+    NegativeDropWeight: 90
+    NoneDropWeight: 0

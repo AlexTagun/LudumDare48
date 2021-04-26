@@ -144,6 +144,6 @@ MonoBehaviour:
     m_Bits: 256
   _muzzle: {fileID: 6804156256500914889}
   DestroyTime: 10
-  _hintProjectileDistance: 15
+  _hintProjectileDistance: 10
   _zDeltaForShoot: 0.1
   _projectileSpawnDistance: 25
