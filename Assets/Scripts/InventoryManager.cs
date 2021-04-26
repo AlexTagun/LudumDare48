@@ -58,14 +58,13 @@ public class InventoryManager : MonoBehaviour {
     }
 
     private void OnItemCollect(IItem item) {
-        var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex());
+        var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
 
-        int i = 0;
-        foreach (var itemContainer in orderedList) {
-            ++i;
-            if (itemContainer.Item != null) continue;
-            itemContainer.SetItem(item);
-            itemContainer.SetHero(_heroes[i]);
+        // int i = 0;
+        for (int i = 0; i < orderedList.Length; i++) {
+            if (orderedList[i].Item != null) continue;
+            orderedList[i].SetItem(item);
+            orderedList[i].SetHero(_heroes[i]);
             break;
         }
 
