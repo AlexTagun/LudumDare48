@@ -7,10 +7,14 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private float damage;
 
+    [SerializeField] private AudioSource _swordAttack;
+
     private void OnTriggerEnter(Collider other) {
         if(!other.CompareTag("Hero")) return;
 
         var hero = other.GetComponent<Hero>();
+        
+        _swordAttack.Play();
         
         if (!(hero.GetItem() is Sword) || !hero.CanDoAction()) {
             var health = other.GetComponent<Health>();

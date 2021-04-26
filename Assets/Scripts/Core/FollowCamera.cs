@@ -69,17 +69,13 @@ public class FollowCamera : MonoBehaviour
     private void LateUpdate()
     {
         if (GameController.CurHeroCount <= 0) return;
+        if(_targetForY == null) return;
         UpdateCameraPosition();
         UpdateRotation(Time.fixedDeltaTime);
     }
 
     private void UpdateCameraPosition()
     {
-        if (_targetForY == null)
-        {
-            return;
-        }
-        
         transform.position = GetTargetPosition();
     }
 
