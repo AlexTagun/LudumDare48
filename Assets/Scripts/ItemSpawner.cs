@@ -12,33 +12,34 @@ public class ItemSpawner : MonoBehaviour {
         SecretShop
     }
     
-    public void SpawnObject(DropInfo dropInfo, Vector3 position)
+    public GameObject SpawnObject(DropInfo dropInfo, Vector3 position)
     {
         if (dropInfo.ItemType != ItemType.None)
         {
-            SpawnItem(dropInfo.ItemType, position);
-            return;
+            return SpawnItem(dropInfo.ItemType, position);
         }
 
         if (dropInfo.ObstacleType != ObstacleType.None)
         {
-            SpawnObstacle(dropInfo.Prefab, position);
-            return;
+            return SpawnObstacle(dropInfo.Prefab, position);
         }
         
         Debug.LogError("Not found type for spawn in DropInfo = " + dropInfo);
+        return null;
     }
 
-    private void SpawnItem(ItemType type, Vector3 position)
+    private GameObject SpawnItem(ItemType type, Vector3 position)
     {
         IItem item = ItemFactory.Create(type);
 
-        item.Spawn(position);
+        var itemGo = item.Spawn(position);
+        return itemGo;
     }
 
-    private void SpawnObstacle(GameObject prefab, Vector3 position)
+    private GameObject SpawnObstacle(GameObject prefab, Vector3 position)
     {
         var obstacleGo = Instantiate(prefab);
         obstacleGo.transform.position = position;
+        return obstacleGo;
     }
 }

@@ -7,7 +7,7 @@ public interface IItem {
     string NameText { get; }
     void Equip(Transform transform);
 
-    void Spawn(Vector3 position);
+    GameObject Spawn(Vector3 position);
 
     void Collect();
 
@@ -59,7 +59,7 @@ public abstract class Item : IItem {
         _itemGO = GameObject.Instantiate(_prefab, wrist);
     }
 
-    public void Spawn(Vector3 position) {
+    public GameObject Spawn(Vector3 position) {
         if (_spawnItemGO != null) GameObject.Destroy(_spawnItemGO);
 
         _spawnItemGO = GameObject.Instantiate(_spawnPrefab);
@@ -67,6 +67,7 @@ public abstract class Item : IItem {
         
         var spawnObject = _spawnItemGO.GetComponent<SpawnObject>();
         spawnObject.SetItem(this);
+        return _spawnItemGO;
     }
 
     public void Collect() {
