@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopActivationManager : MonoBehaviour
+public class RoundStartingShopActivationManager : MonoBehaviour
 {
     private void Start() {
         startWaitingShopEnter();
