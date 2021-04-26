@@ -55,8 +55,11 @@ public static class WeightedRandom
             _shuffledOptionIndices = new int[sumOfWeights];
 
             int indexToFill_shuffledOptionIndex = 0;
-            for (int optionIndex = 0; optionIndex < inOptions.Length; ++optionIndex)
-                _shuffledOptionIndices[indexToFill_shuffledOptionIndex++] = optionIndex;
+            for (int optionIndex = 0; optionIndex < inOptions.Length; ++optionIndex) {
+                int optionWeight = inOptions[optionIndex]._weight;
+                for (int weightIndex = 0; weightIndex < optionWeight; ++weightIndex)
+                    _shuffledOptionIndices[indexToFill_shuffledOptionIndex++] = optionIndex;
+            }
 
             reset();
         }
