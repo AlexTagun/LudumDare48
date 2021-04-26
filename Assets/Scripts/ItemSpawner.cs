@@ -8,7 +8,8 @@ public class ItemSpawner : MonoBehaviour {
         Turret,
         Enemy,
         Coin,
-        Web
+        Web,
+        SecretShop
     }
     
     public void SpawnObject(DropInfo dropInfo, Vector3 position)
