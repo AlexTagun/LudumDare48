@@ -78,7 +78,7 @@ public class HeroShop : MonoBehaviour
         private Sprite _heroIcon;
     }
 
-    private void Start() {
+    private void Awake() {
         initFromSetup(_setup);
     }
 

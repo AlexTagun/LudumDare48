@@ -77,10 +77,8 @@ public class Shop : MonoBehaviour
         private Item _itemAkaPrefab;
     }
 
-    private void Start() {
+    private void Awake() {
         initFromSetup(_setup);
-
-        rerollProducts(6);
     }
 
     private void initFromSetup(ShopSetup inSetup) {
