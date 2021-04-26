@@ -24,6 +24,11 @@ public class FollowCamera : MonoBehaviour
 
     private void Start() {
         EventManager.OnHpEnded += OnHpEnded;
+        Invoke(nameof(GetTargetForY), 0.1f);
+    }
+
+    private void GetTargetForY()
+    {
         _targetForY = InventoryManager.Instance.GetFirstHero();
     }
 
@@ -70,6 +75,11 @@ public class FollowCamera : MonoBehaviour
 
     private void UpdateCameraPosition()
     {
+        if (_targetForY == null)
+        {
+            return;
+        }
+        
         transform.position = GetTargetPosition();
     }
 
