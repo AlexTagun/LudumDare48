@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour {
 
         _heroes = new List<Hero>();
         for (int i = 0; i < 8; i++) {
-            _heroes.Add(HeroFactory.Create());
+            _heroes.Add(HeroFactory.Create(HeroType.Hero));
         }
         
         GameController.CurHeroCount = _heroes.Count;
