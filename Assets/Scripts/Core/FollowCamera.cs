@@ -20,6 +20,8 @@ public class FollowCamera : MonoBehaviour
     private float _currentAutoReturnTime;
     private Quaternion? _oldRotation;
 
+    private bool _waitHero;
+
     private void Start() {
         EventManager.OnHpEnded += OnHpEnded;
         _targetForY = InventoryManager.Instance.GetFirstHero();
@@ -30,8 +32,10 @@ public class FollowCamera : MonoBehaviour
     }
 
     private void OnHpEnded(Hero hero) {
+        if(hero.transform != _targetForY) return;
         if(GameController.CurHeroCount <= 0) return;
         _targetForY = InventoryManager.Instance.GetFirstHero();
+        _waitHero = true;
     }
 
     private void UpdateRotation(float delta)
@@ -83,6 +87,12 @@ public class FollowCamera : MonoBehaviour
 
     private void UpdateAutoRotation(float deltaTime)
     {
+        if (_waitHero)
+        {
+            _oldRotation = null;
+            return;
+        }
+        
         if (_oldRotation == null)
         {
             _oldRotation = transform.rotation;
@@ -94,7 +104,6 @@ public class FollowCamera : MonoBehaviour
         var needAngle = Mathf.Atan2(needDirection.x, needDirection.z) * Mathf.Rad2Deg;
         Quaternion needRotation = Quaternion.Euler(new Vector3(0, needAngle, 0));
 
-        
         var deltaAnglesMagnitude = Mathf.Abs((transform.rotation.eulerAngles - needRotation.eulerAngles).magnitude);
         
         if (deltaAnglesMagnitude > MinDeltaAnglesMagnitude)
@@ -111,6 +120,16 @@ public class FollowCamera : MonoBehaviour
     
     private Vector3 GetTargetPosition()
     {
-        return new Vector3(_center.position.x, _targetForY.position.y, _center.position.z);
+        if (_waitHero)
+        {
+            if (transform.position.y >= _targetForY.position.y)
+            {
+                _waitHero = false;
+            }
+        }
+
+        var posY = Mathf.Min(transform.position.y, _targetForY.position.y);
+        
+        return new Vector3(_center.position.x, posY, _center.position.z);
     }
 }
