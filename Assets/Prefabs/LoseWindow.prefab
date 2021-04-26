@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartBtn: {fileID: 3039328796756081558}
+  coins: {fileID: 7802238273048080986}
 --- !u!1 &4238321294918354968
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 
     public static int CurrentLevel = 0;
     public static int CurHeroCount = 0;
+    public static int CollectedCoinsCount = 0;
 
     private void Start() {
         EventManager.OnHpEnded += OnHeroDie;

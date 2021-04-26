@@ -29,6 +29,7 @@ public class Coin : MonoBehaviour {
     }
 
     private void Collect() {
+        GameController.CollectedCoinsCount += _count;
         _wallet_cache.change(CurrencyTypes.ECurrencyType.Gold, _count);
     }
 
