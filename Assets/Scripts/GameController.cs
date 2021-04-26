@@ -44,6 +44,25 @@ public class GameController : MonoBehaviour
             return;
         }
         
+        RollDrop(_firstRandomPoints);
+        RollDrop(_secondRandomPoints);
+        
+        CurrentLevel++;
+        _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
+    }
+
+    private float GetNextSpawnPosition()
+    {
+        return CurrentLevel * _spawnStep;
+    }
+
+    private Vector3 GetStepPosition()
+    {
+        return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
+    }
+
+    private void RollDrop(List<Vector3> randPositions)
+    {
         var drop = _dropGenerator.GetDropInfo(CurrentLevel);
         
         var stepPosition = GetStepPosition();
@@ -51,11 +70,9 @@ public class GameController : MonoBehaviour
         
         stepPosition += spawnOffset;
 
-        var randPosition = GetRandomPosition(true);
+        var randPosition = GetRandomPosition(randPositions);
         stepPosition += randPosition;
         
-        CurrentLevel++;
-        _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
 
         if (drop == null)
         {
@@ -72,28 +89,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private float GetNextSpawnPosition()
+    private Vector3 GetRandomPosition(List<Vector3> randPositions)
     {
-        return CurrentLevel * _spawnStep;
-    }
-
-    private Vector3 GetStepPosition()
-    {
-        return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
-    }
-
-    private Vector3 GetRandomPosition(bool isFirst)
-    {
-        var randIndex = 0;
+        var randIndex = Random.Range(0, randPositions.Count);
         
-        if (isFirst)
-        {
-            randIndex = Random.Range(0, _firstRandomPoints.Count);
-            return _firstRandomPoints[randIndex];
-        }
-
-        randIndex = Random.Range(0, _secondRandomPoints.Count);
-        return _secondRandomPoints[randIndex];
+        return randPositions[randIndex];
     }
 
     private Vector3 GetRotationForward(Vector3 currentPosition)
