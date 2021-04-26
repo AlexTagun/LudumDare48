@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4425259274776566784}
   - component: {fileID: 2140251562072777950}
   - component: {fileID: 5979688434223785902}
+  - component: {fileID: 4597289997051973751}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -58,6 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83c030e61bea7a45bb29b11825bc272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _initialCurrencies:
   - _currencyType: 0
     _amount: 1000
@@ -78,3 +82,17 @@ MonoBehaviour:
   _shop: {fileID: 4425259274776566784}
   _shopUI: {fileID: 0}
   _wallet: {fileID: 2140251562072777950}
+--- !u!114 &4597289997051973751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079587498596230970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e108461a981271f4dbb9448f71c5eb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroPrefab: {fileID: 328424596380438645, guid: 138483d1432a91240a923bd3626205f9,
+    type: 3}

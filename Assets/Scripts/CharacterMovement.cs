@@ -18,10 +18,9 @@ public class CharacterMovement : MonoBehaviour
     
     [SerializeField] private Direction _direction;
 
-    [SerializeField] private int Index;
+    public int Index;
 
-    private void Awake()
-    {
+    public void SetPosition() {
         _body.position = _spiralMovement.GetStartPosition(Index);
     }
 

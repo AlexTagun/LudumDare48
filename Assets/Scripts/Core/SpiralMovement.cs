@@ -17,13 +17,13 @@ public class SpiralMovement : MonoBehaviour
         350f
     };
     
-    [SerializeField] private Transform _center;
+    public Transform Center;
     
     public Vector3 GetStartPosition(int index)
     {
         var angle = Angles[index];
 
-        var centerPosition = _center.position;
+        var centerPosition = Center.position;
         var centerPositionNoY = new Vector3(centerPosition.x, 0f, centerPosition.z);
         
         var x = centerPositionNoY.x +  Radius * Mathf.Cos(angle * Mathf.Deg2Rad);
@@ -40,7 +40,7 @@ public class SpiralMovement : MonoBehaviour
 
         var predictedPositionNoY = currentPositionNoY + nextDirection * speed * deltaTime;
         
-        var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
+        var centerPositionNoY = new Vector3(Center.position.x, 0f, Center.position.z);
         var nextPositionNoY = (predictedPositionNoY - centerPositionNoY).normalized * Radius;
         
         nextDirection = (int)directionType * (nextPositionNoY - currentPositionNoY).normalized;
@@ -50,7 +50,7 @@ public class SpiralMovement : MonoBehaviour
     
     private Vector3 GetNextDirection(Vector3 currentPosition, Direction directionType)
     {
-        var centerPositionNoY = new Vector3(_center.position.x, 0f, _center.position.z);
+        var centerPositionNoY = new Vector3(Center.position.x, 0f, Center.position.z);
         var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
 
         var direction = (currentPositionNoY - centerPositionNoY).normalized;
