@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6259213265989380834}
   - component: {fileID: 3812806594753137063}
   - component: {fileID: 7238045629936586194}
+  - component: {fileID: 9192320676756004678}
   m_Layer: 0
   m_Name: actionPotion_spawn
   m_TagString: Untagged
@@ -59,6 +60,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9192320676756004678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612776559442765290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c252b1e0e8d7b074c8a5d8e4c5aa1a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3128039181526628633
 PrefabInstance:
   m_ObjectHideFlags: 0
