@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
 
     private float _currentHp;
 
+    public Action OnGetDamage;
+
     public void Init()
     {
         _currentHp = _maxHp;
@@ -23,6 +25,8 @@ public class Health : MonoBehaviour
         _currentHp = Mathf.Max(0f, _currentHp - points);
 
         EventManager.HandleOnItemSwapped();
+        
+        OnGetDamage?.Invoke();
         
         if (0 >= _currentHp)
         {

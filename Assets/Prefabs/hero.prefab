@@ -55,6 +55,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 1238076498569946815}
   rigidbody: {fileID: 239740504}
   "\u0441ollider": {fileID: 239740503}
+  damageEffect: {fileID: 7186312164378736000}
   Health: {fileID: 239740499}
   _hintProjectile: {fileID: 5910593229198789984}
   MaxActionPoints: 3
@@ -5237,7 +5238,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8773585, g: 0.12829298, b: 0.12829298, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9782,7 +9783,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9dca2d09a331814992f10785c2a5d00, type: 2}
+  - {fileID: 2100000, guid: e4d7f6207dcef7940942dc2d1a49b0f3, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

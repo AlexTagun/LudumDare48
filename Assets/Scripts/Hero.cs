@@ -8,6 +8,9 @@ public class Hero : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Rigidbody rigidbody;
     [SerializeField] private Collider сollider;
+
+    [SerializeField] private ParticleSystem damageEffect;
+    
     public Transform ShootPoint => _shootPoint;
     public Health Health;
 
@@ -17,6 +20,11 @@ public class Hero : MonoBehaviour
     public int CurActivePoints;
     
     private IItem _item;
+
+    private void Awake()
+    {
+        Health.OnGetDamage += OnGetDamage;
+    }
 
     public void SetItem(IItem item) {
         _item = item;
@@ -45,7 +53,6 @@ public class Hero : MonoBehaviour
         }
     }
 
-
     public void Kill() {
         сollider.enabled = false;
         rigidbody.constraints = RigidbodyConstraints.None;
@@ -57,7 +64,14 @@ public class Hero : MonoBehaviour
     
     private IEnumerator DestroyCoroutine() {
         yield return new WaitForSeconds(4);
+        Health.OnGetDamage -= OnGetDamage;
         Destroy(gameObject);
+    }
+
+    private void OnGetDamage()
+    {
+        damageEffect.gameObject.SetActive(true);
+        damageEffect.Play(true);
     }
 
     public void AddActivePoints(int value) {
