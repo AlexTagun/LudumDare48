@@ -206,7 +206,7 @@ MonoBehaviour:
       m_Calls: []
   _initialCurrencies:
   - _currencyType: 0
-    _amount: 2000
+    _amount: 5000
 --- !u!114 &5979688434223785902
 MonoBehaviour:
   m_ObjectHideFlags: 0

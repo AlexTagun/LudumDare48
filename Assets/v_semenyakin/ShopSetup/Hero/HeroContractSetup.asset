@@ -15,4 +15,4 @@ MonoBehaviour:
   _heroType: 0
   _price:
   - type: 0
-    amount: 300
+    amount: 150
