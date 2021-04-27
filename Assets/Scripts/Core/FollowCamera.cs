@@ -23,7 +23,7 @@ public class FollowCamera : MonoBehaviour
     private bool _waitHero;
 
     private void Start() {
-        EventManager.OnHpEnded += OnHpEnded;
+        EventManager.OnCurHeroCountUpdated += OnCurHeroCountUpdated;
         Invoke(nameof(GetTargetForY), 0.1f);
     }
 
@@ -33,10 +33,10 @@ public class FollowCamera : MonoBehaviour
     }
 
     private void OnDestroy() {
-        EventManager.OnHpEnded -= OnHpEnded;
+        EventManager.OnCurHeroCountUpdated -= OnCurHeroCountUpdated;
     }
 
-    private void OnHpEnded(Hero hero) {
+    private void OnCurHeroCountUpdated(Hero hero) {
         if(hero.transform != _targetForY) return;
         if(GameController.CurHeroCount <= 0) return;
         _targetForY = InventoryManager.Instance.GetFirstHero();

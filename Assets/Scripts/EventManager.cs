@@ -28,4 +28,11 @@ public static class EventManager {
     public static void HandleOnAddHero(Hero hero) {
         OnAddHero?.Invoke(hero);
     }
+
+    public static Action<Hero> OnCurHeroCountUpdated;
+
+    public static void HandleOnCurHeroCountUpdated(Hero hero)
+    {
+        OnCurHeroCountUpdated?.Invoke(hero);
+    }
 }

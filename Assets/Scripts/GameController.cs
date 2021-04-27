@@ -29,10 +29,6 @@ public class GameController : MonoBehaviour
     public static int CurHeroCount = 0;
     public static int CollectedCoinsCount = 0;
 
-    private void Start() {
-        EventManager.OnHpEnded += OnHeroDie;
-    }
-
     private void Update()
     {
         _ladder.TestSetZPosition(_followCamera.position.y);
@@ -128,13 +124,5 @@ public class GameController : MonoBehaviour
         
         var targetDirection = Vector3.Cross(directionToCenter, Vector3.up).normalized;
         return targetDirection;
-    }
-
-    private void OnHeroDie(Hero hero) {
-        
-    }
-
-    private void OnDestroy() {
-        EventManager.OnHpEnded -= OnHeroDie;
     }
 }

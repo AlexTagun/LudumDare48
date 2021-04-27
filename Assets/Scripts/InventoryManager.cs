@@ -129,6 +129,8 @@ public class InventoryManager : MonoBehaviour {
         if (GameController.CurHeroCount <= 0) {
             _loseWindow.SetActive(true);
         }
+        
+        EventManager.HandleOnCurHeroCountUpdated(hero);
     }
 
     public Transform GetFirstHero() {
