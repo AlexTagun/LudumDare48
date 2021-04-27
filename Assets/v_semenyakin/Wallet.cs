@@ -124,9 +124,13 @@ public class Wallet : MonoBehaviour
         new Dictionary<CurrencyTypes.ECurrencyType, Boxed<int>>();
 }
 
+#if UNITY_EDITOR
 public static class PlayerPrefsRemover {
     [MenuItem("Save/Remove User")]
     public static void RemoveUser() {
         PlayerPrefs.DeleteAll();
     }
 }
+
+#endif
+

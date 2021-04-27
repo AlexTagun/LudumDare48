@@ -4,7 +4,7 @@ public static class ObjUtils
 {
     public static T findFirstObjectOfTypeAll<T>() where T : Component {
         foreach (T obj in Resources.FindObjectsOfTypeAll(typeof(T)) as T[]) {
-            if (!UnityEditor.EditorUtility.IsPersistent(obj.transform.root.gameObject) &&
+            if (/*!UnityEditor.EditorUtility.IsPersistent(obj.transform.root.gameObject) &&*/
                 !(obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave))
             {
                 return obj;
@@ -23,7 +23,7 @@ public class SecretShowActivationManager : MonoBehaviour
     [SerializeField] private Collider _interactionCollider = null;
 
     private Wallet _cache_wallet;
-    private ShopUIObject _cache_shopUI;
+    [SerializeField] private ShopUIObject _cache_shopUI;
 
     private void Start() {
         initCache();
@@ -34,7 +34,8 @@ public class SecretShowActivationManager : MonoBehaviour
         _cache_wallet = FindObjectOfType<Wallet>();
 
         //NB: We should to find Shop UI in such way because FindObjectOfType ignores not active objects
-        _cache_shopUI = ObjUtils.findFirstObjectOfTypeAll<ShopUIObject>();
+        // _cache_shopUI = ObjUtils.findFirstObjectOfTypeAll<ShopUIObject>();
+        _cache_shopUI = InventoryManager.Instance.ShopUIObject;
     }
 
     private void initShopInteraction() {

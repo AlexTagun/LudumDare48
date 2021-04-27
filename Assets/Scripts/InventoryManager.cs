@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour {
     [SerializeField] private Transform inventoryContainer;
     [SerializeField] private GameObject _loseWindow;
     [SerializeField] private Hero heroPrefab;
+    public ShopUIObject ShopUIObject;
     private List<ItemContainer> _itemContainers;
     
     private List<Hero> _heroes;
