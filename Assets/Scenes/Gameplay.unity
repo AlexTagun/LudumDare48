@@ -1162,6 +1162,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2140251562072777950, guid: d48b2c589884cff4aba783dae5e47f9a,
+        type: 3}
+      propertyPath: _initialCurrencies.Array.data[0]._amount
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 4597289997051973751, guid: d48b2c589884cff4aba783dae5e47f9a,
         type: 3}
       propertyPath: center
