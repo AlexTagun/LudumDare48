@@ -21,8 +21,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Vector3> _firstRandomPoints;
     [SerializeField] private List<Vector3> _secondRandomPoints;
 
-    [SerializeField] private List<Vector3> _firstRandomShopPoints;
-    [SerializeField] private List<Vector3> _secondRandomShopPoints;
+    // [SerializeField] private List<Vector3> _firstRandomShopPoints;
+    // [SerializeField] private List<Vector3> _secondRandomShopPoints;
 
     [SerializeField] private Transform _center;
 
@@ -74,10 +74,10 @@ public class GameController : MonoBehaviour
         
         stepPosition += spawnOffset;
 
-        if (isFirst && drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
-        {
-            
-        }
+        // if (isFirst && drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
+        // {
+        //     
+        // }
 
         Vector3 randPosition = Vector3.zero;
         
