@@ -11,6 +11,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Rigidbody _body;
     
     [SerializeField] private float Speed = 5f;
+
+    public void SetSpeed(float speed)
+    {
+        Speed = speed;
+    }
     
     [SerializeField] private Vector3 _input = Vector3.zero;
     
@@ -38,7 +43,6 @@ public class CharacterMovement : MonoBehaviour
         _body.transform.forward = _input;
         
         var directionSpeed = (int) _direction * Speed;
-
 
         var deltaPosition = _input * directionSpeed * deltaTime;
         

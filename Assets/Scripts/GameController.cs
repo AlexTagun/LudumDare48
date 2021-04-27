@@ -20,10 +20,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Vector3> _firstRandomPoints;
     [SerializeField] private List<Vector3> _secondRandomPoints;
 
-    // [SerializeField] private List<Vector3> _firstRandomShopPoints;
-    // [SerializeField] private List<Vector3> _secondRandomShopPoints;
-
     [SerializeField] private Transform _center;
+    
+    
 
     public static int CurrentLevel = 0;
     public static int CurHeroCount = 0;
@@ -48,6 +47,7 @@ public class GameController : MonoBehaviour
         
         CurrentLevel++;
         _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
+        TrySpeedUpHeroes(CurrentLevel);
     }
 
     private float GetNextSpawnPosition()
@@ -69,21 +69,8 @@ public class GameController : MonoBehaviour
         
         stepPosition += spawnOffset;
 
-        // if (isFirst && drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
-        // {
-        //     
-        // }
-
         Vector3 randPosition = Vector3.zero;
-        
-        // if (drop.ObstacleType == ItemSpawner.ObstacleType.SecretShop)
-        // {
-        //     randPosition =  GetRandomPosition(isFirst ? _firstRandomShopPoints : _secondRandomShopPoints);
-        // }
-        // else
-        // {
-            randPosition = GetRandomPosition(randPositions);
-        // }
+        randPosition = GetRandomPosition(randPositions);
         
         stepPosition += randPosition;
         
@@ -124,5 +111,32 @@ public class GameController : MonoBehaviour
         
         var targetDirection = Vector3.Cross(directionToCenter, Vector3.up).normalized;
         return targetDirection;
+    }
+
+    private void TrySpeedUpHeroes(int currentLevel)
+    {
+        if (!InventoryManager.Instance.IsHaveHero())
+        {
+            return;
+        }
+
+        if (5 <= currentLevel && currentLevel < 10)
+        {
+            InventoryManager.Instance.SetSpeedAllHeroes(6);
+        }else if (10 <= currentLevel && currentLevel < 15)
+        {
+            InventoryManager.Instance.SetSpeedAllHeroes(7);
+        }
+        else if (15 <= currentLevel && currentLevel < 20)
+        {
+            InventoryManager.Instance.SetSpeedAllHeroes(8);
+        }else if (20 <= currentLevel && currentLevel < 25)
+        {
+            InventoryManager.Instance.SetSpeedAllHeroes(9);
+        }
+        else if (25 <= currentLevel)
+        {
+            InventoryManager.Instance.SetSpeedAllHeroes(10);
+        }
     }
 }

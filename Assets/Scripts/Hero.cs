@@ -13,6 +13,8 @@ public class Hero : MonoBehaviour
 
     [SerializeField] private AudioSource _heroDeadSound;
     [SerializeField] private AudioSource _potionUseSound;
+
+    [SerializeField] public CharacterMovement CharacterMovement;
     
     public Transform ShootPoint => _shootPoint;
     public Health Health;

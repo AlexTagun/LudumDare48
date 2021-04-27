@@ -60,6 +60,7 @@ MonoBehaviour:
   damageEffect: {fileID: 7186312164378736000}
   _heroDeadSound: {fileID: 1310355892620411599}
   _potionUseSound: {fileID: 1979163788953264105}
+  CharacterMovement: {fileID: 239740502}
   Health: {fileID: 239740499}
   _hintProjectile: {fileID: 5910593229198789984}
   MaxActionPoints: 3
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 239740504}
-  Speed: 7
+  Speed: 5
   _input: {x: 0, y: 0, z: 0}
   _spiralMovement: {fileID: 5603740801656444988}
   _direction: -1

@@ -14,6 +14,19 @@ public class InventoryManager : MonoBehaviour {
     
     private List<Hero> _heroes;
 
+    public bool IsHaveHero()
+    {
+        return _heroes.Count > 0;
+    }
+
+    public void SetSpeedAllHeroes(float speed)
+    {
+        foreach (var hero in _heroes)
+        {
+            hero.CharacterMovement.SetSpeed(speed);
+        }
+    }
+
     private static InventoryManager _instance;
     public static InventoryManager Instance => _instance;
 
