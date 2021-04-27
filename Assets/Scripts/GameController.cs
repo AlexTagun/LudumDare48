@@ -46,8 +46,13 @@ public class GameController : MonoBehaviour
         RollDrop(_secondRandomPoints, false);
         
         CurrentLevel++;
-        _levelText.text = (Math.Max(CurrentLevel - 3, 0)).ToString();
+        _levelText.text = (GetDisplayCurrentLevel()).ToString();
         TrySpeedUpHeroes(CurrentLevel);
+    }
+
+    public static int GetDisplayCurrentLevel()
+    {
+        return Math.Max(CurrentLevel - 3, 0);
     }
 
     private float GetNextSpawnPosition()
