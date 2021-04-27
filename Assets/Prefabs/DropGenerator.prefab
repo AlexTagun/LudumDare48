@@ -81,23 +81,23 @@ MonoBehaviour:
       type: 3}
     ItemType: 0
     ObstacleType: 5
-    Weight: 100
+    Weight: 2
     SpawnOffset: {x: 0, y: 0, z: 0}
   _negativeDrops:
   - Prefab: {fileID: 6804156257192701186, guid: 0bdb5a23dfd98d3408af0fb0ed101248,
       type: 3}
     ItemType: 0
     ObstacleType: 1
-    Weight: 20
+    Weight: 30
     SpawnOffset: {x: 6, y: 0, z: -18}
   - Prefab: {fileID: 328424596380438646, guid: 901e7dd2fe7414c468bd0a19526ac571, type: 3}
     ItemType: 0
     ObstacleType: 2
-    Weight: 40
+    Weight: 35
     SpawnOffset: {x: 0, y: 0.2, z: 0}
   - Prefab: {fileID: 2138649442186489715, guid: e264c7e844c1475458a97075daf57c55,
       type: 3}
     ItemType: 0
     ObstacleType: 4
-    Weight: 40
+    Weight: 35
     SpawnOffset: {x: 0, y: 1.13, z: 0}
