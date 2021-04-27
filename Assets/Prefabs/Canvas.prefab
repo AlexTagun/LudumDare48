@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemContainerPrefab: {fileID: 3540027764174403415}
   inventoryContainer: {fileID: 8066395382002793155}
+  _loseWindow: {fileID: 4924293255171378694}
   heroPrefab: {fileID: 0}
 --- !u!114 &8066395382002793156
 MonoBehaviour:
@@ -1157,6 +1158,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8d3a426fb04d745ad8dd22c79f7bea, type: 3}
+--- !u!1 &4924293255171378694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4157052968338600966, guid: 6e8d3a426fb04d745ad8dd22c79f7bea,
+    type: 3}
+  m_PrefabInstance: {fileID: 9072020990507727360}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3397090619633010036 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5963514596530601844, guid: 6e8d3a426fb04d745ad8dd22c79f7bea,

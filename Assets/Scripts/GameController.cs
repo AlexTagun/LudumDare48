@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private Ladder _ladder;
     [SerializeField] private Transform _followCamera;
     [SerializeField] private TextMeshProUGUI _levelText;
-    [SerializeField] private GameObject _loseWindow;
 
     [SerializeField] private float _spawnStep;
 
@@ -132,9 +131,7 @@ public class GameController : MonoBehaviour
     }
 
     private void OnHeroDie(Hero hero) {
-        if (CurHeroCount <= 1) {
-            _loseWindow.SetActive(true);
-        }
+        
     }
 
     private void OnDestroy() {

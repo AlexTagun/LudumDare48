@@ -16,6 +16,7 @@ public class LoseWindow : MonoBehaviour {
         restartBtn.onClick.AddListener(() => {
             GameController.CurrentLevel = 0;
             GameController.CollectedCoinsCount = 0;
+            GameController.CurHeroCount = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         });
 

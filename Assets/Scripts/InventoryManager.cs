@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class InventoryManager : MonoBehaviour {
     [SerializeField] private ItemContainer itemContainerPrefab;
     [SerializeField] private Transform inventoryContainer;
+    [SerializeField] private GameObject _loseWindow;
     [SerializeField] private Hero heroPrefab;
     private List<ItemContainer> _itemContainers;
     
@@ -114,7 +115,8 @@ public class InventoryManager : MonoBehaviour {
 
     private void OnHpEnded(Hero hero) {
         var orderedList = _itemContainers.OrderBy(container => container.transform.GetSiblingIndex()).ToArray();
-
+        GameController.CurHeroCount--;
+        
         for (int i = 0; i < _heroes.Count; i++) {
             if (hero != _heroes[i]) continue;
             
@@ -122,7 +124,10 @@ public class InventoryManager : MonoBehaviour {
             _itemContainers.Remove(orderedList[i]);
             _heroes[i].Kill();
             _heroes.RemoveAt(i);
-            GameController.CurHeroCount--;
+        }
+        
+        if (GameController.CurHeroCount <= 0) {
+            _loseWindow.SetActive(true);
         }
     }
 
