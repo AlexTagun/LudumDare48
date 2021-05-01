@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private Transform _followCamera;
     [SerializeField] private TextMeshProUGUI _levelText;
-
-    [SerializeField] private float _spawnStep;
-
+    
     [SerializeField] private DropGenerator _dropGenerator;
     [SerializeField] private ItemSpawner _itemSpawner;
 
+    [SerializeField] private Transform _center;
+    
     [SerializeField] private float _spawnOffset = 20f;
 
-    [SerializeField] private List<Vector3> _firstRandomPoints;
-    [SerializeField] private List<Vector3> _secondRandomPoints;
-
-    [SerializeField] private Transform _center;
+    [SerializeField] private ItemSpawnPositionController _itemSpawnPositionController;
 
     public static int CurHeroCount = 0;
     public static int CollectedCoinsCount = 0;
@@ -36,41 +31,28 @@ public class GameController : MonoBehaviour
 
     private void TrySpawn()
     {
-        if (_followCamera.position.y > GetNextSpawnPosition() + _spawnOffset)
+        if (!CanSpawnObject())
         {
             return;
         }
         
-        RollDrop(_firstRandomPoints);
-        RollDrop(_secondRandomPoints);
+        RollDrop(true);
+        RollDrop(false);
         
         LadderLevelManager.LevelUp();
         _levelText.text = LadderLevelManager.GetDisplayCurrentLevel().ToString();
     }
 
-    private float GetNextSpawnPosition()
+    private bool CanSpawnObject()
     {
-        return LadderLevelManager.CurrentLevel * _spawnStep;
+        return  _itemSpawnPositionController.GetNextSpawnPosition() + _spawnOffset >= _followCamera.position.y;
     }
 
-    private Vector3 GetStepPosition()
-    {
-        return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
-    }
-
-    private void RollDrop(List<Vector3> randPositions)
+    private void RollDrop(bool isFirstPoint)
     {
         var drop = _dropGenerator.GetDropInfo(LadderLevelManager.CurrentLevel);
         
-        var stepPosition = GetStepPosition();
-        var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;
-        
-        stepPosition += spawnOffset;
-
-        Vector3 randPosition = Vector3.zero;
-        randPosition = GetRandomPosition(randPositions);
-        
-        stepPosition += randPosition;
+        var spawnPosition = _itemSpawnPositionController.GetSpawnPosition(drop?.SpawnOffset, isFirstPoint);
         
 
         if (drop == null)
@@ -78,39 +60,15 @@ public class GameController : MonoBehaviour
             return;
         }
 
-        var spawnGo =  _itemSpawner.SpawnObject(drop, stepPosition);
+        var spawnGo =  _itemSpawner.SpawnObject(drop, spawnPosition);
 
         var spawnRotator = spawnGo.GetComponent<SpawnRotator>();
-        
         if (spawnRotator != null)
         {
-            spawnGo.transform.forward = GetRotationForward(spawnGo.transform.position,spawnRotator.IsPerpendicular);
+            spawnRotator.RotateForward(_center.position);
         }
     }
 
-    private Vector3 GetRandomPosition(List<Vector3> randPositions)
-    {
-        var randIndex = Random.Range(0, randPositions.Count);
-        
-        return randPositions[randIndex];
-    }
-
-    private Vector3 GetRotationForward(Vector3 currentPosition, bool isPerpendicular)
-    {
-        var centerNoY = new Vector3(_center.position.x, 0f, _center.position.z);
-        var currentPositionNoY = new Vector3(currentPosition.x, 0f, currentPosition.z);
-
-        var directionToCenter = (centerNoY - currentPositionNoY).normalized;
-
-        if (isPerpendicular)
-        {
-            return (-1) * directionToCenter;
-        }
-        
-        var targetDirection = Vector3.Cross(directionToCenter, Vector3.up).normalized;
-        return targetDirection;
-    }
-    
     private void OnDestroy()
     {
         SpeedUpHeroManager.Clear();

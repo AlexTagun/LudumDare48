@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 828321594144227983}
+  - {fileID: 8919002348618946661}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,10 +47,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followCamera: {fileID: 0}
   _levelText: {fileID: 0}
-  _spawnStep: -7.183
   _dropGenerator: {fileID: 0}
   _itemSpawner: {fileID: 0}
+  _center: {fileID: 0}
   _spawnOffset: 20
+  _itemSpawnPositionController: {fileID: 8678014212343267614}
+--- !u!1 &1817297288351757526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8919002348618946661}
+  - component: {fileID: 8678014212343267614}
+  m_Layer: 0
+  m_Name: ItemSpawnPositionController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8919002348618946661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817297288351757526}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1343309125397245623}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8678014212343267614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817297288351757526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b527613c354b1494f9f5de48d3c8ab7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnStep: -7.183
   _firstRandomPoints:
   - {x: 6.61, y: 0.68, z: -3.2}
   - {x: 7.3, y: 1.21, z: 0.2}
@@ -60,7 +106,6 @@ MonoBehaviour:
   - {x: -5.04, y: -1.12, z: -5.6}
   - {x: -7.1, y: -2.15, z: -1.61}
   - {x: -7.17, y: -2.62, z: 2.56}
-  _center: {fileID: 0}
 --- !u!1 &2877274874505668038
 GameObject:
   m_ObjectHideFlags: 0
