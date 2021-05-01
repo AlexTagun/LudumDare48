@@ -5,6 +5,7 @@ public static class DataManager
     public const string CONFIG_PATH = "Configs";
 
     public const string GENERATOR_CONFIG_FILENAME = "GeneratorConfig";
+    public const string SPEED_UP_HERO_CONFIG_FILENAME = "SpeedUpHeroConfig";
 
     private static GeneratorConfig _generatorConfig;
 
@@ -18,6 +19,21 @@ public static class DataManager
             }
 
             return _generatorConfig;
+        }
+    }
+
+    private static SpeedUpHeroConfig _speedUpHeroConfig;
+
+    public static SpeedUpHeroConfig SpeedUpHeroConfig
+    {
+        get
+        {
+            if (_speedUpHeroConfig == null)
+            {
+                _speedUpHeroConfig = Load<SpeedUpHeroConfig>(CONFIG_PATH, SPEED_UP_HERO_CONFIG_FILENAME);
+            }
+
+            return _speedUpHeroConfig;
         }
     }
 

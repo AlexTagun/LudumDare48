@@ -1,8 +1,12 @@
 ﻿
 public static class SpeedUpHeroManager
 {
+    private static SpeedUpHeroConfig _speedUpHeroConfig;
+    
     public static void Init()
     {
+        _speedUpHeroConfig = DataManager.SpeedUpHeroConfig;
+        
         EventManager.OnLevelChanged += TrySpeedUpHeroes;
     }
 
@@ -23,36 +27,17 @@ public static class SpeedUpHeroManager
 
     private static bool TryGetSpeed(int currentLevel, out int speed)
     {
+        var datas = _speedUpHeroConfig.SpeedUpHeroDatas;
+        
         speed = 0;
-        
-        if (5 <= currentLevel && currentLevel < 10)
-        {
-            speed = 6;
-            return true;
-        }
-        
-        if (10 <= currentLevel && currentLevel < 15)
-        {
-            speed = 7;
-            return true;
-        }
 
-        if (15 <= currentLevel && currentLevel < 20)
+        foreach (var speedUpHeroData in datas)
         {
-            speed = 8;
-            return true;
-        }
-        
-        if (20 <= currentLevel && currentLevel < 25)
-        {
-            speed = 9;
-            return true;
-        }
-
-        if (25 <= currentLevel)
-        {
-            speed = 10;
-            return true;
+            if (speedUpHeroData.MinLevel <= currentLevel && currentLevel < speedUpHeroData.MaxLevel)
+            {
+                speed = speedUpHeroData.Speed;
+                return true;
+            }
         }
 
         return false;
