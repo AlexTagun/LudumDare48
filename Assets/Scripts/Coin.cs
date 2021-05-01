@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Coin : MonoBehaviour {
@@ -9,7 +6,7 @@ public class Coin : MonoBehaviour {
     private Wallet _wallet_cache;
 
     private void Awake() {
-        _count = Random.Range(GameController.CurrentLevel * 5, GameController.CurrentLevel * 10);
+        _count = Random.Range(LadderLevelManager.CurrentLevel * 5, LadderLevelManager.CurrentLevel * 10);
     }
 
     private void Start() {

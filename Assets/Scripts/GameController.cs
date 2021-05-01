@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Ladder _ladder;
     [SerializeField] private Transform _followCamera;
     [SerializeField] private TextMeshProUGUI _levelText;
 
@@ -21,16 +19,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<Vector3> _secondRandomPoints;
 
     [SerializeField] private Transform _center;
-    
-    
 
-    public static int CurrentLevel = 0;
     public static int CurHeroCount = 0;
     public static int CollectedCoinsCount = 0;
 
     private void Update()
     {
-        _ladder.TestSetZPosition(_followCamera.position.y);
         
         TrySpawn();
     }
@@ -42,22 +36,17 @@ public class GameController : MonoBehaviour
             return;
         }
         
-        RollDrop(_firstRandomPoints, true);
-        RollDrop(_secondRandomPoints, false);
+        RollDrop(_firstRandomPoints);
+        RollDrop(_secondRandomPoints);
         
-        CurrentLevel++;
-        _levelText.text = (GetDisplayCurrentLevel()).ToString();
-        TrySpeedUpHeroes(CurrentLevel);
-    }
-
-    public static int GetDisplayCurrentLevel()
-    {
-        return Math.Max(CurrentLevel - 3, 0);
+        LadderLevelManager.LevelUp();
+        _levelText.text = LadderLevelManager.GetDisplayCurrentLevel().ToString();
+        TrySpeedUpHeroes(LadderLevelManager.CurrentLevel);
     }
 
     private float GetNextSpawnPosition()
     {
-        return CurrentLevel * _spawnStep;
+        return LadderLevelManager.CurrentLevel * _spawnStep;
     }
 
     private Vector3 GetStepPosition()
@@ -65,9 +54,9 @@ public class GameController : MonoBehaviour
         return new Vector3(transform.position.x, GetNextSpawnPosition(), transform.position.z);
     }
 
-    private void RollDrop(List<Vector3> randPositions, bool isFirst)
+    private void RollDrop(List<Vector3> randPositions)
     {
-        var drop = _dropGenerator.GetDropInfo(CurrentLevel);
+        var drop = _dropGenerator.GetDropInfo(LadderLevelManager.CurrentLevel);
         
         var stepPosition = GetStepPosition();
         var spawnOffset = drop?.SpawnOffset ?? Vector3.zero;

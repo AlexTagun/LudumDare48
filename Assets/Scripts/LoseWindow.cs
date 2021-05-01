@@ -18,7 +18,7 @@ public class LoseWindow : MonoBehaviour {
     private void Awake() {
         coins.text = GameController.CollectedCoinsCount.ToString();
 
-        var currentFloor = GameController.GetDisplayCurrentLevel();
+        var currentFloor = LadderLevelManager.GetDisplayCurrentLevel();
 
         var oldMaxFloor = PlayerPrefs.GetInt(MaxFloorResult, 0);
         var isNewRecord = currentFloor > oldMaxFloor;
@@ -42,7 +42,7 @@ public class LoseWindow : MonoBehaviour {
         }
         
         restartBtn.onClick.AddListener(() => {
-            GameController.CurrentLevel = 0;
+            LadderLevelManager.Clear();
             GameController.CollectedCoinsCount = 0;
             GameController.CurHeroCount = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -18,7 +18,7 @@ public class RestartTest : MonoBehaviour
         yield return new WaitForSeconds(_timeToWait);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        GameController.CurrentLevel = 0;
+        LadderLevelManager.Clear();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
 
         //After we have waited 5 seconds print the time again.

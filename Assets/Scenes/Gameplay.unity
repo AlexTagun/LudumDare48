@@ -1003,6 +1003,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1314636976912834435, guid: af01461bc2e15ad4794a5bb90a19b4d0,
+        type: 3}
+      propertyPath: _ladder
+      value: 
+      objectReference: {fileID: 733916451}
+    - target: {fileID: 1314636976912834435, guid: af01461bc2e15ad4794a5bb90a19b4d0,
+        type: 3}
+      propertyPath: _followCamera
+      value: 
+      objectReference: {fileID: 1988096731}
     - target: {fileID: 1343309125397245616, guid: af01461bc2e15ad4794a5bb90a19b4d0,
         type: 3}
       propertyPath: _center
@@ -1098,6 +1108,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5794982110034424670, guid: af01461bc2e15ad4794a5bb90a19b4d0,
+        type: 3}
+      propertyPath: _ladder
+      value: 
+      objectReference: {fileID: 733916451}
+    - target: {fileID: 5794982110034424670, guid: af01461bc2e15ad4794a5bb90a19b4d0,
+        type: 3}
+      propertyPath: _followCamera
+      value: 
+      objectReference: {fileID: 1988096731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af01461bc2e15ad4794a5bb90a19b4d0, type: 3}
 --- !u!1001 &1514714053094668681
