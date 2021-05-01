@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public static class EventManager {
     public static Action OnItemSwapped;
@@ -34,5 +31,12 @@ public static class EventManager {
     public static void HandleOnCurHeroCountUpdated(Hero hero)
     {
         OnCurHeroCountUpdated?.Invoke(hero);
+    }
+
+    public static Action<int> OnLevelChanged;
+
+    public static void HandleOnLevelChanged(int level)
+    {
+        OnLevelChanged?.Invoke(level);
     }
 }

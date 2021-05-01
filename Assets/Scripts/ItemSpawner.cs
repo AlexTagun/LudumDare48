@@ -31,7 +31,6 @@ public class ItemSpawner : MonoBehaviour {
     private GameObject SpawnItem(ItemType type, Vector3 position)
     {
         IItem item = ItemFactory.Create(type);
-
         var itemGo = item.Spawn(position);
         return itemGo;
     }

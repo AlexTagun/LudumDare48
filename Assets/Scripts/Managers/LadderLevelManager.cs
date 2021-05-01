@@ -19,5 +19,6 @@ public static class LadderLevelManager
     public static void LevelUp()
     {
         _currentLevel++;
+        EventManager.HandleOnLevelChanged(_currentLevel);
     }
 }

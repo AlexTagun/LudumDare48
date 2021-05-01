@@ -23,6 +23,11 @@ public class GameController : MonoBehaviour
     public static int CurHeroCount = 0;
     public static int CollectedCoinsCount = 0;
 
+    private void Awake()
+    {
+        SpeedUpHeroManager.Init();
+    }
+
     private void Update()
     {
         
@@ -41,7 +46,6 @@ public class GameController : MonoBehaviour
         
         LadderLevelManager.LevelUp();
         _levelText.text = LadderLevelManager.GetDisplayCurrentLevel().ToString();
-        TrySpeedUpHeroes(LadderLevelManager.CurrentLevel);
     }
 
     private float GetNextSpawnPosition()
@@ -106,31 +110,9 @@ public class GameController : MonoBehaviour
         var targetDirection = Vector3.Cross(directionToCenter, Vector3.up).normalized;
         return targetDirection;
     }
-
-    private void TrySpeedUpHeroes(int currentLevel)
+    
+    private void OnDestroy()
     {
-        if (!InventoryManager.Instance.IsHaveHero())
-        {
-            return;
-        }
-
-        if (5 <= currentLevel && currentLevel < 10)
-        {
-            InventoryManager.Instance.SetSpeedAllHeroes(6);
-        }else if (10 <= currentLevel && currentLevel < 15)
-        {
-            InventoryManager.Instance.SetSpeedAllHeroes(7);
-        }
-        else if (15 <= currentLevel && currentLevel < 20)
-        {
-            InventoryManager.Instance.SetSpeedAllHeroes(8);
-        }else if (20 <= currentLevel && currentLevel < 25)
-        {
-            InventoryManager.Instance.SetSpeedAllHeroes(9);
-        }
-        else if (25 <= currentLevel)
-        {
-            InventoryManager.Instance.SetSpeedAllHeroes(10);
-        }
+        SpeedUpHeroManager.Clear();
     }
 }
