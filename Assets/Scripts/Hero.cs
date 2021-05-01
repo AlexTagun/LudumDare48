@@ -23,7 +23,14 @@ public class Hero : MonoBehaviour
     
     public int MaxActionPoints;
     public int CurActivePoints;
-    
+
+    private bool _isHintedByProjectile;
+    public bool IsHintedByProjectile
+    {
+        get => _isHintedByProjectile;
+        set => _isHintedByProjectile = value;
+    }
+
     private IItem _item;
 
     private void Awake()
@@ -86,6 +93,7 @@ public class Hero : MonoBehaviour
         if(hero != this){return;}
 
         _heroDeadSound.Play();
+        SetHintProjectileActive(false);
     }
 
     public void AddActivePoints(int value) {

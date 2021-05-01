@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -113,7 +111,7 @@ public class InventoryManager : MonoBehaviour {
     {
         targetHero = null;
         
-        var heroList = _heroes.Where(h => h != null && h.Health.GetHpPercentage() > 0).ToList();
+        var heroList = _heroes.Where(h => h != null && h.Health.GetHpPercentage() > 0 && !h.IsHintedByProjectile).ToList();
 
         if (heroList.Count == 0)
         {

@@ -72,6 +72,7 @@ public class Projectile : MonoBehaviour
         }
         
         hero.SpendActionPoint();
+        TurnOffHint(hero);
         
         return true;
     }
@@ -91,6 +92,14 @@ public class Projectile : MonoBehaviour
         }
         
         health.Damage(_damageCount);
+        TurnOffHint(hero);
+    }
+
+    private void TurnOffHint(Hero hero)
+    {
+        hero.SetHintProjectileActive(false);
+        hero.IsHintedByProjectile = false;
+
     }
 
     private void TurnOffComponents()
