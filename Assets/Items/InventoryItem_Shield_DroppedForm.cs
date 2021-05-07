@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InventoryItem_Shield_Settings", menuName = "Settings/InventoryItems/Shield", order = 1)]
-public class InventoryItem_Shield_Settings : ScriptableObject
+[CreateAssetMenu(fileName = "InventoryItem_Shield_Params", menuName = "Settings/InventoryItems/Shield", order = 1)]
+public class InventoryItem_Shield_Params : ScriptableObject
 {
     [SerializeField] public InventoryItem_Shield_HeroInventoryForm _inventoryFormPrefab = null;
     [SerializeField] public InventoryItem_Shield_DroppedForm _droppedFormPrefab = null;
