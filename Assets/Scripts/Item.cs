@@ -139,3 +139,37 @@ public class ActionPotion : Item {
         return true;
     }
 }
+
+//////////////////////////////////////////////////////////////////////
+//                     REFACTOR
+//////////////////////////////////////////////////////////////////////
+
+#if false
+
+public abstract class InventoryItem_DroppedForm
+{
+    public abstract void moveToHeroInventory(Hero inHero);
+}
+
+
+
+// ----------------------------------------------------
+
+public class InventoryItem_Shield_DroppedForm : MonoBehaviour
+{
+    //This is "form of existence" change, no any "transition" actions should take place here
+    public InventoryItem_Shield_HeroInventoryForm moveToHeroInventory(Hero inContainer /* , no-transform-settings */) {
+        //TODO: Create and add to Hero Inventory InventoryItem_Shield_HeroInventoryForm class
+        //TODO: Removed Shield GameObject with InventoryItem_Shield_DroppedForm
+    }
+}
+
+public class InventoryItem_Shield_HeroInventoryForm
+{
+    public abstract InventoryItem_Shield_DroppedForm moveToWorld(/* no-container , */ Transform inTransformSettings) {
+        //TODO: Spawn Shield GameObject with InventoryItem_Shield_DroppedForm component from prefab
+        //TODO: Destroy item from current Hero Invetory
+    }
+}
+
+#endif
